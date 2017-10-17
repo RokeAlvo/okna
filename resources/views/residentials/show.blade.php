@@ -26,7 +26,7 @@
                                     <h1>{{ !empty(BUILDING_TYPES[$residential->building_type]) ? BUILDING_TYPES[$residential->building_type] : '' }}
                                         <span>&laquo;{{ $residential->title }}&raquo;</span></h1>
 
-                                    <p>{!! $residential->text !!}</p>
+                                    <p>{!! $residential->description !!}</p>
 
                                     <ul class="list-unstyled list-params mb10">
                                         <li>Застройщик:<span>{{ $residential->developer->name }}</span></li>
@@ -281,17 +281,17 @@
                                     <div class="col-xs-five">
                                         <div class="apartment-filter-area">
                                             <p>Площадь, м<sup>2</sup>:</p>
-                                            <input name="area[min]" placeholder="30" value="{{ round($residential->ranges->min('area_min')) }}">
+                                            <input name="area[min]" placeholder="30" v-model="areaRange['from']">
                                             <span class="h-sep"></span>
-                                            <input name="area[max]" placeholder="145" value="{{ round($residential->ranges->max('area_max')) }}">
+                                            <input name="area[max]" placeholder="145" v-model="areaRange['to']">
                                         </div>
                                     </div>
                                     <div class="col-xs-five">
                                         <div class="apartment-filter-floor">
                                             <p>Этаж:</p>
-                                            <input name="floor[min]" placeholder="1" value="{{ round($residential->layouts->min('min_floor')) }}">
+                                            <input name="floor[min]" placeholder="1">
                                             <span class="h-sep"></span>
-                                            <input name="floor[max]" placeholder="24" value="{{ round($residential->layouts->max('max_floor')) }}">
+                                            <input name="floor[max]" placeholder="24">
                                         </div>
                                     </div>
                                     <div class="col-xs-7">
@@ -312,8 +312,7 @@
                                     <div class="row">
                                         <div id="p0">
                                             <div id="search-new-layout-flats" class="list-view">
-                                                {{--@foreach($apartments as $apartment)--}}
-                                                <div v-for="layout in layouts" class="col-lg-five col-md-3 col-sm-4 col-xs-6 search-new-layout-flat-item" data-key="30691">
+                                                <div v-for="layout in layouts" class="col-lg-five col-md-3 col-sm-4 col-xs-6 search-new-layout-flat-item">
                                                     <div class="preview-apartment-element block-shadow">
                                                         <div class="quick-view">
                                                             <div class="preview-apartment-thumbimage">
@@ -323,7 +322,7 @@
                                                             <div class="preview-apartment-typearea">@{{layout.room_label}} | <strong>@{{layout.area}} м<sup>2</sup></strong>
                                                             </div>
                                                             <div class="preview-apartment-floor-list">
-                                                                @{{layout.floor_range}} этаж(-и)
+                                                                @{{layout.floor_range}}
                                                             </div>
                                                             <div class="preview-apartment-moreinfo">
                                                                 Подробнее
@@ -331,57 +330,18 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <pagination
-                                                        :current="currentPage"
-                                                        :perPage="perPage"
-                                                        :total="totalLayouts"
-                                                        @page-changed="fetchLayouts"
-                                                ></pagination>
-
-                                                {{--@endforeach--}}
-                                                {{--<div class="col-lg-five col-md-3 col-sm-4 col-xs-6 search-new-layout-flat-item" data-key="30691">
-                                                    <div class="preview-apartment-element block-shadow">
-                                                        <div class="quick-view" data-apartment-id="30691" data-floors-list="6 этаж"
-                                                             data-url="/apartment/quick-view?id=30691&amp;floors=6+%D1%8D%D1%82%D0%B0%D0%B6&amp;pricemin=11664420&amp;pricemax=11664420">
-
-                                                            <div class="preview-apartment-thumbimage">
-                                                                <div class="preview-apartment-thumbimage-wrapper">
-                                                                    <img class="img-responsive" src="/uploads/layouts/1637/6DFFemxoJv5FLsee.jpg"
-                                                                         alt=""></div>
-                                                            </div>
-                                                            <div class="preview-apartment-typearea">
-                                                                | <strong>145м<sup>2</sup></strong>
-                                                            </div>
-                                                            <!--
-                                                            <div class="preview-apartment-price-valueonly">
-                                                                 <i class="fa fa-rub"></i>
-                                                            </div>-->
-                                                            <div class="preview-apartment-floor-list">
-                                                                6 этаж
-                                                            </div>
-                                                            <div class="preview-apartment-moreinfo">
-                                                                Подробнее
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-xs-12">
+                                                    <pagination
+                                                            :current="currentPage"
+                                                            :perPage="perPage"
+                                                            :total="totalLayouts"
+                                                            @page-changed="fetchLayouts"
+                                                            v-if="totalLayouts > perPage"
+                                                    ></pagination>
                                                 </div>
-                                                <ul class="pagination">
-                                                    <li class="first"><a href="/residential-complex/elbrus?page=1&amp;per-page=15" data-page="0">В
-                                                            начало</a></li>
-                                                    <li class="prev"><a href="/residential-complex/elbrus?page=2&amp;per-page=15" data-page="1">«</a>
-                                                    </li>
-                                                    <li><a href="/residential-complex/elbrus?page=1&amp;per-page=15" data-page="0">1</a></li>
-                                                    <li><a href="/residential-complex/elbrus?page=2&amp;per-page=15" data-page="1">2</a></li>
-                                                    <li class="active"><a href="/residential-complex/elbrus?page=3&amp;per-page=15"
-                                                                          data-page="2">3</a></li>
-                                                    <li class="next disabled"><span>»</span></li>
-                                                    <li class="last disabled"><span>В конец</span></li>
-                                                </ul>--}}
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

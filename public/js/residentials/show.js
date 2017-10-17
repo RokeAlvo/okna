@@ -1,14 +1,10 @@
-/*Vue.filter('rooms', function (value) {
-    return
-});*/
-
 new Vue({
     el: '#layouts',
     data: {
         layouts: [],
         totalLayouts: 0,
         perPage: 15,
-        currentPage: 1,
+        currentPage: 0,
         rooms: [],
         floorRange: [],
         areaRange: []
@@ -16,7 +12,7 @@ new Vue({
     methods: {
         fetchLayouts: function (page) {
 
-            if (this.currentPage !== page) {
+            if (page > 0 && this.currentPage !== page) {
                 var options = {
                     params: {
                         page: page,
@@ -30,6 +26,7 @@ new Vue({
                 var url = $('h1:first').data('residential-url');
                 this.$http.get(url, options).then(function (response) {
 
+                    console.log(response.headers.get('x-area-range'));
                     this.layouts = response.data;
                     this.totalLayouts = parseInt(response.headers.get('x-total-layouts'));
                     this.currentPage = page;
@@ -39,6 +36,7 @@ new Vue({
         }
     },
     created: function () {
-        this.fetchLayouts(this.currentPage);
+        this.fetchLayouts(1);
+        //pagination.changePage(1);
     }
 });

@@ -42,13 +42,21 @@ class ResidentialComplexController extends Controller
                 $q->where('alias', '<>', $alias);
             },
             'houses',
-            'layouts' => function ($q) {
+            'layouts' => function ($q) use ($request) {
                 $q->has('apartments')->with('apartments');
+                if ($request->has('area_range')) {
+                    if (!empty($request->area_range['from']) && !empty($request->area_range['to'])) {
+                        $q->whereBetween('area', $request->area_range);
+                    } elseif (!empty($request->area_range['from'])) {
+                        $q->where('area', '>=', $request->area_range['from']);
+                    } elseif (!empty($request->area_range['to'])) {
+                        $q->where('area', '>=', $request->area_range['to']);
+                    }
+                }
             },
             'ranges' => function ($q) {
                 $q->orderBy('rooms');
-            },
-        ])->alias($alias)->first();
+            },])->alias($alias)->first();
 
 
         if ($request->ajax()) {
@@ -59,6 +67,7 @@ class ResidentialComplexController extends Controller
             })->sortBy('area');
             return response()
                 ->json($residential->layouts->splice(($request->page - 1) * $request->per_page, $request->per_page))
+                ->header('x-area-range', $request->area_range)
                 ->header('x-total-layouts', $residential->layouts->count());
         }
 

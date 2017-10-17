@@ -16,5 +16,5 @@ function getRanges($nums)
                 ? ($rStart . ',' . $rEnd)
                 : ($rStart . '-' . $rEnd));
     }
-    return implode(',', $ranges);
+    return $ranges;
 }
