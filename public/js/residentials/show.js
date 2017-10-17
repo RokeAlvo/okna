@@ -10,12 +10,16 @@ new Vue({
         areaRange: [],
         oldData: {}
     },
+    computed: {
+        allRoomCheckbox: function() {
+            return this.rooms.length === 0
+        }
+    },
     methods: {
         fetchLayouts: function (page) {
 
             if (page > 0/* && this.oldData != data*/) {
 
-                //var url = $('h1:first').data('residential-url');
                 var url = this.$route;
                 var options = {
                     params: {
@@ -32,15 +36,18 @@ new Vue({
                     this.oldData = this.data;
                     this.layouts = response.data;
                     this.totalLayouts = parseInt(response.headers.get('x-total-layouts'));
-                    console.log(this.totalLayouts);
                     this.currentPage = page;
 
                 }, console.log);
+
             }
+        },
+        checkAllRooms: function () {
+            this.rooms = [];
+            this.fetchLayouts(1);
         }
     },
     created: function () {
         this.fetchLayouts(1);
-        //pagination.changePage(1);
     }
 });
