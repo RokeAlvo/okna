@@ -21,7 +21,8 @@ Vue.component('pagination', {
     computed: {
         pages: function () {
             var pages = [];
-            /*for (var i = this.rangeStart; i <= this.rangeEnd; i++) {
+            /* for many-many pages
+            for (var i = this.rangeStart; i <= this.rangeEnd; i++) {
                 pages.push(i);
             }*/
             for (var i = 1; i <= this.totalPages; i++) {

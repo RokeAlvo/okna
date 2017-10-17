@@ -14,7 +14,7 @@ class ResidentialComplex extends Model
         return 'http://smartcrm.pro' . $value;
     }
 
-    public function getMainImageOriginalAttribute($value)
+    public function getMainImageAttribute($value)
     {
         return 'http://smartcrm.pro' . $value;
     }
@@ -29,7 +29,6 @@ class ResidentialComplex extends Model
     {
         return in_array($this->id, array_keys(SPECIFIC_RESIDENTIALS));
     }
-
 
 
     public function images()
@@ -81,6 +80,57 @@ class ResidentialComplex extends Model
     public function scopeAlias($q, $alias)
     {
         return $q->where('alias', $alias)->limit(1);
+    }
+
+    public function scopeSearch($q, $request, $alias)
+    {
+        return $q->with([
+            'images',
+            'features',
+            'developer.residentials' => function ($q) use ($alias) {
+                $q->where('alias', '<>', $alias);
+            },
+            'houses',
+            'layouts' => function ($q) use ($request) {
+                $q->select('id', 'residential_complex_id', 'rooms', 'area', 'thumbnail')
+                    ->whereHas('apartments', function ($q) use ($request) {
+                        if ($request->has('floor_range')) {
+                            if (!empty($request->floor_range[0]) && !empty($request->floor_range[1])) {
+                                $q->whereBetween('floor', $request->floor_range);
+                            } elseif (!empty($request->floor_range[0])) {
+                                $q->where('floor', '>=', $request->floor_range[0]);
+                            } elseif (!empty($request->floor_range[1])) {
+                                $q->where('floor', '<=', $request->floor_range[1]);
+                            }
+                        }
+                    })->with([
+                        'apartments' => function ($q) {
+                            $q->select('id', 'layout_id', 'floor');
+                        }
+                    ]);
+                if ($request->has('area_range')) {
+                    if (!empty($request->area_range[0]) && !empty($request->area_range[1])) {
+                        $q->whereBetween('area', $request->area_range);
+                    } elseif (!empty($request->area_range[0])) {
+                        $q->where('area', '>=', $request->area_range[0]);
+                    } elseif (!empty($request->area_range[1])) {
+                        $q->where('area', '<=', $request->area_range[1]);
+                    }
+                }
+                if ($request->has('rooms')) {
+                    if (!empty($request->rooms)) {
+                        $q->whereIn('rooms', $request->rooms);
+                    }
+                }
+                /*if ($request->page > 1) {
+                    $q->skip(($request->page - 1) * $request->per_page);
+                }
+                $q->take($request->per_page);*/
+            },
+            'ranges' => function ($q) {
+                $q->orderBy('rooms');
+            },
+        ]);
     }
 
 
