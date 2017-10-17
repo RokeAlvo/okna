@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.4/vue-resource.min.js"></script>
     <script src="{{ url('js/residentials/pagination.js') }}"></script>
     <script src="{{ url('js/residentials/show.js') }}"></script>
+    <script src="{{ url('js/popup.js') }}"></script>
 @endsection
 
 @section('title', 'Все о наиболее популярных новостройках города Новосибирска')
@@ -33,7 +34,8 @@
                                         <li>Район:
                                             <span>{{ ($residential->district) ? $residential->district->name : "Не указано" }}</span>
                                         </li>
-                                        <li>Срок сдачи от:<span>{{ $residential->getHousesCompletionDatesRange() }}</span>
+                                        <li>Срок сдачи
+                                            от:<span>{{ $residential->getHousesCompletionDatesRange() }}</span>
                                         </li>
                                         <li>Класс
                                             жилья:<span>{{ COMFORT_CLASSES[$residential->comfort_class] }}</span>
@@ -115,7 +117,8 @@
 
                         <li class="prev"><span @click="changePage(prevPage)">«</span></li>
 
-                        <li v-for="page in pages" :class="{ active: current == page }"><span @click="changePage(page)">@{{ page }}</span></li>
+                        <li v-for="page in pages" :class="{ active: current == page }"><span @click="changePage(page)"
+                            >@{{ page }}</span></li>
 
                         <li class="next"><span @click="changePage(nextPage)">»</span></li>
 
@@ -127,10 +130,12 @@
 
                     <h2>Квартиры от застройщика</h2>
 
-                    <div class="panel-group visible-sm visible-xs" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel-group visible-sm visible-xs" id="accordion" role="tablist"
+                         aria-multiselectable="true">
                         <div class="panel">
                             <div class="panel-heading" role="tab" id="headingroom-3">
-                                <div class="panel-heading-button collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                <div class="panel-heading-button collapsed" role="button" data-toggle="collapse"
+                                     data-parent="#accordion"
                                      href="#collapseroom-3" aria-expanded="true" aria-controls="collapseroom-3">
                                     <div class="apartment-acc-info">
                                         <div class="apartment-acc-info-room"></div>
@@ -144,17 +149,21 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div id="collapseroom-3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingroom-3">
+                            <div id="collapseroom-3" class="panel-collapse collapse in" role="tabpanel"
+                                 aria-labelledby="headingroom-3">
                                 <div class="visible-xs visible-sm">
                                     <div class="row">
                                         <div class="col-sm-4 col-xs-6 search-new-layout-flat-item" data-key="30803">
                                             <div class="preview-apartment-element block-shadow">
-                                                <div class="quick-view" data-apartment-id="30803" data-floors-list="3-12,14-16"
+                                                <div class="quick-view" data-apartment-id="30803"
+                                                     data-floors-list="3-12,14-16"
                                                      data-url="/apartment/quick-view?id=30803&amp;floors=3-12%2C14-16&amp;pricemin=4409160&amp;pricemax=8402645">
-                                                    <div class="preview-apartment-thumbimage"><img class="img-responsive"
-                                                                                                   src="/uploads/layouts/1640/nsqmcZgGi3vVaSfQ.jpg"
-                                                                                                   alt=""></div>
-                                                    <div class="preview-apartment-typearea">3-ком.| <strong>109.2м<sup>2</sup></strong></div>
+                                                    <div class="preview-apartment-thumbimage"><img
+                                                                class="img-responsive"
+                                                                src="/uploads/layouts/1640/nsqmcZgGi3vVaSfQ.jpg"
+                                                                alt=""></div>
+                                                    <div class="preview-apartment-typearea">3-ком.|
+                                                        <strong>109.2м<sup>2</sup></strong></div>
                                                     <div class="preview-apartment-floor-list">3-12,14-16 этажи</div>
                                                     <div class="preview-apartment-moreinfo">Подробнее</div>
                                                 </div>
@@ -167,7 +176,8 @@
 
                         <div class="panel">
                             <div class="panel-heading" role="tab" id="headingroom-4">
-                                <div class="panel-heading-button collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                <div class="panel-heading-button collapsed" role="button" data-toggle="collapse"
+                                     data-parent="#accordion"
                                      href="#collapseroom-4" aria-expanded="true" aria-controls="collapseroom-4">
                                     <div class="apartment-acc-info">
                                         <div class="apartment-acc-info-room"></div>
@@ -181,17 +191,21 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div id="collapseroom-4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingroom-4">
+                            <div id="collapseroom-4" class="panel-collapse collapse in" role="tabpanel"
+                                 aria-labelledby="headingroom-4">
                                 <div class="visible-xs visible-sm">
                                     <div class="row">
                                         <div class="col-sm-4 col-xs-6 search-new-layout-flat-item" data-key="30710">
                                             <div class="preview-apartment-element block-shadow">
-                                                <div class="quick-view" data-apartment-id="30710" data-floors-list="10,13-20"
+                                                <div class="quick-view" data-apartment-id="30710"
+                                                     data-floors-list="10,13-20"
                                                      data-url="/apartment/quick-view?id=30710&amp;floors=10%2C13-20&amp;pricemin=6880366&amp;pricemax=7970793">
-                                                    <div class="preview-apartment-thumbimage"><img class="img-responsive"
-                                                                                                   src="/uploads/layouts/1644/CKkbswvAvknNB1OZ.jpg"
-                                                                                                   alt=""></div>
-                                                    <div class="preview-apartment-typearea">4-ком.| <strong>113.3м<sup>2</sup></strong></div>
+                                                    <div class="preview-apartment-thumbimage"><img
+                                                                class="img-responsive"
+                                                                src="/uploads/layouts/1644/CKkbswvAvknNB1OZ.jpg"
+                                                                alt=""></div>
+                                                    <div class="preview-apartment-typearea">4-ком.|
+                                                        <strong>113.3м<sup>2</sup></strong></div>
                                                     <div class="preview-apartment-floor-list">10,13-20 этажи</div>
                                                     <div class="preview-apartment-moreinfo">Подробнее</div>
                                                 </div>
@@ -204,7 +218,8 @@
 
                         <div class="panel">
                             <div class="panel-heading" role="tab" id="heading">
-                                <div class="panel-heading-button collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                <div class="panel-heading-button collapsed" role="button" data-toggle="collapse"
+                                     data-parent="#accordion"
                                      href="#collapse" aria-expanded="true" aria-controls="collapse">
                                     <div class="apartment-acc-info">
                                         <div class="apartment-acc-info-room"></div>
@@ -218,17 +233,21 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div id="collapse" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading">
+                            <div id="collapse" class="panel-collapse collapse in" role="tabpanel"
+                                 aria-labelledby="heading">
                                 <div class="visible-xs visible-sm">
                                     <div class="row">
                                         <div class="col-sm-4 col-xs-6 search-new-layout-flat-item" data-key="30691">
                                             <div class="preview-apartment-element block-shadow">
-                                                <div class="quick-view" data-apartment-id="30691" data-floors-list="6 этаж"
+                                                <div class="quick-view" data-apartment-id="30691"
+                                                     data-floors-list="6 этаж"
                                                      data-url="/apartment/quick-view?id=30691&amp;floors=6+%D1%8D%D1%82%D0%B0%D0%B6&amp;pricemin=11664420&amp;pricemax=11664420">
-                                                    <div class="preview-apartment-thumbimage"><img class="img-responsive"
-                                                                                                   src="/uploads/layouts/1637/6DFFemxoJv5FLsee.jpg"
-                                                                                                   alt=""></div>
-                                                    <div class="preview-apartment-typearea">| <strong>145м<sup>2</sup></strong></div>
+                                                    <div class="preview-apartment-thumbimage"><img
+                                                                class="img-responsive"
+                                                                src="/uploads/layouts/1637/6DFFemxoJv5FLsee.jpg"
+                                                                alt=""></div>
+                                                    <div class="preview-apartment-typearea">|
+                                                        <strong>145м<sup>2</sup></strong></div>
                                                     <div class="preview-apartment-floor-list">6 этаж</div>
                                                     <div class="preview-apartment-moreinfo">Подробнее</div>
                                                 </div>
@@ -254,7 +273,8 @@
                                                 </div>
                                                 <div class="cost-distance">
                                                     {{ number_format($residential->ranges->min('price_min'), 0, ',', ' ') }}
-                                                    - {{ number_format($residential->ranges->max('price_max'), 0, ',', ' ') }} руб.
+                                                    - {{ number_format($residential->ranges->max('price_max'), 0, ',', ' ') }}
+                                                    руб.
                                                 </div>
                                             </label>
                                         </div>
@@ -262,7 +282,8 @@
                                     @foreach($residential->ranges as $range)
                                         <div class="col-xs-five">
                                             <div class="apartment_filter_number_rooms_group">
-                                                <input type="checkbox" name="rooms" id="room-{{$range->id}}" value="{{$range->rooms}}">
+                                                <input type="checkbox" name="rooms" id="room-{{$range->id}}"
+                                                       value="{{$range->rooms}}">
                                                 <label for="room-{{$range->id}}">
                                                     <div class="type-rooms-vlaue">
                                                         {{ !empty(ROOMS['short'][$range->rooms]) ? ROOMS['short'][$range->rooms] : '' }}
@@ -297,8 +318,12 @@
                                     <div class="col-xs-7">
                                         <div class="apartment_filter_buttons">
                                             <div class="apartment-filter-buttons-container">
-                                                <button class="apartment_filter_buttons_apply" type="button">Показать результаты</button>
-                                                <button class="apartment_filter_buttons_reset" type="reset">Сбросить фильтры</button>
+                                                <button class="apartment_filter_buttons_apply" type="button">Показать
+                                                    результаты
+                                                </button>
+                                                <button class="apartment_filter_buttons_reset" type="reset">Сбросить
+                                                    фильтры
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -312,64 +337,114 @@
                                     <div class="row">
                                         <div id="p0">
                                             <div id="search-new-layout-flats" class="list-view">
-                                                <div v-for="layout in layouts" class="col-lg-five col-md-3 col-sm-4 col-xs-6 search-new-layout-flat-item">
-                                                    <div class="preview-apartment-element block-shadow">
-                                                        <div class="quick-view">
-                                                            <div class="preview-apartment-thumbimage">
-                                                                <div class="preview-apartment-thumbimage-wrapper">
-                                                                    <img class="img-responsive" :src="layout.thumbnail"></div>
+                                                <div v-for="layout in layouts"
+                                                     class="col-lg-five col-md-3 col-sm-4 col-xs-6 search-new-layout-flat-item">
+                                                    <div class="preview-apartment-element block-shadow" @click="
+                                                    showPopup('apartment')">
+                                                    <div class="quick-view">
+                                                        <div class="preview-apartment-thumbimage">
+                                                            <div class="preview-apartment-thumbimage-wrapper">
+                                                                <img class="img-responsive" :src="layout.thumbnail">
                                                             </div>
-                                                            <div class="preview-apartment-typearea">@{{layout.room_label}} | <strong>@{{layout.area}} м<sup>2</sup></strong>
-                                                            </div>
-                                                            <div class="preview-apartment-floor-list">
-                                                                @{{layout.floor_range}}
-                                                            </div>
-                                                            <div class="preview-apartment-moreinfo">
-                                                                Подробнее
-                                                            </div>
+                                                        </div>
+                                                        <div class="preview-apartment-typearea">@{{layout.room_label}} |
+                                                            <strong>@{{layout.area}} м<sup>2</sup></strong>
+                                                        </div>
+                                                        <div class="preview-apartment-floor-list">
+                                                            @{{layout.floor_range}}
+                                                        </div>
+                                                        <div class="preview-apartment-moreinfo">
+                                                            Подробнее
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-12">
-                                                    <pagination
-                                                            :current="currentPage"
-                                                            :perPage="perPage"
-                                                            :total="totalLayouts"
-                                                            @page-changed="fetchLayouts"
-                                                            v-if="totalLayouts > perPage"
-                                                    ></pagination>
-                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <pagination
+                                                        :current="currentPage"
+                                                        :perPage="perPage"
+                                                        :total="totalLayouts"
+                                                @page-changed="fetchLayouts"
+                                                v-if="totalLayouts > perPage"
+                                                ></pagination>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </section>
+            </div>
+            </form>
+            </section>
 
 
-                @if (!empty($residential->features))
-                    <section id="features">
-                        <h2>Особенности жилого комплекса</h2>
-                        <div class="row">
-                            @foreach ($residential->features as $features)
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="feature-item block-shadow">
-                                        <h3>{{ $features->title }}
-                                            <span>{{ ($features->subtitle) ? $features->subtitle : "&nbsp;" }}</span>
-                                        </h3>
-                                        <p>{{ $features->text }}</p>
-                                    </div>
+            @if (!empty($residential->features))
+                <section id="features">
+                    <h2>Особенности жилого комплекса</h2>
+                    <div class="row">
+                        @foreach ($residential->features as $features)
+                            <div class="col-md-3 col-sm-6">
+                                <div class="feature-item block-shadow">
+                                    <h3>{{ $features->title }}
+                                        <span>{{ ($features->subtitle) ? $features->subtitle : "&nbsp;" }}</span>
+                                    </h3>
+                                    <p>{{ $features->text }}</p>
                                 </div>
-                            @endforeach
+                            </div>
+                        @endforeach
+                    </div>
+                </section>
+            @endif
+        </div>
+    </div>
+    </div>
+    <div class="popup-wrapper" data-popup-window="apartment">
+        <div class="popup">
+            <div class="popup-block" data-popup-block="true">
+                <div class="popup-apartment">
+                    <div class="popup-apartment-left">
+                        <div class="popup-apartment-info">
+                            <div class="popup-apartment-type">
+                                <span>Студия</span><span>26 м<sup>2</sup></span>
+                            </div>
+                            <div class="popup-apartment-floor">
+                                <span>1, 2, 3, 6-9</span> этаж
+                            </div>
                         </div>
-                    </section>
-                @endif
+                        <div class="popup-apartment-layout">
+                            <div class="popup-apartment-wrapper">
+                                <img src="http://smartcrm.pro/img/selection/stub-layout.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-apartment-right">
+                        <ul class="popup-apartment-payment">
+                            <li><i style="background-image: url('/img/apartment/mortgage.png')"></i><span>Ипотека от 8% годовых</span></li>
+                            <li><i style="background-image: url('/img/apartment/installment.png')"></i><span>Рассрочка 0% годовых</span></li>
+                            <li><i style="background-image: url('/img/apartment/trade-in.png')"></i><span>TRADE-in без переплат</span></li>
+                            <li><i style="background-image: url('/img/apartment/down-payment.png')"></i><span>Ипотека без первоначального взноса</span></li>
+                        </ul>
+                        <div class="popup-apartment-price">
+                            <div class="popup-apartment-price-cta">
+                                <span>Актуальную цену узнавайте в отделе продаж</span>
+                                <button>i</button>
+                            </div>
+                            <div class="popup-apartment-price-value">
+                                <div class="popup-apartment-price-before">от<b>2 170 000</b><sup>руб.</sup></div>
+                                <div class="popup-apartment-price-before">от<b>2 170 000</b><sup>руб.</sup></div>
+                            </div>
+                        </div>
+                        <div class="popup-apartment-form">
+                            <input type="text">
+                            <button>Узнать цену</button>
+                        </div>
+                        <div class="popup-apartment-phone">Телефон отдела продаж: <b>+7 (383) 248 34 10</b></div>
+                    </div>
+                </div>
+                <img class="close-popup" src="/img/selection/icon-close.png">
             </div>
         </div>
     </div>
-
     @if(\Illuminate\Support\Facades\App::environment() == 'production')
 
         <section id="gallery">
@@ -483,6 +558,7 @@
                     </div>
                 </div>
             </section>
+
             <script type="text/javascript">
                 var map;
 
@@ -508,7 +584,5 @@
     @foreach($residential->developer->residentials as $residential)
         @include('residentials.card')
     @endforeach
-
-    <div class="modal fade" id="myModal" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"></div>
 
 @endsection

@@ -35,7 +35,7 @@
     <link href="{{ url('/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ url('/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ url('/css/fonts.css') }}" rel="stylesheet">
-    <link href="{{ url('/css/non-responsive.css') }}" rel="stylesheet">
+    {{--<link href="{{ url('/css/non-responsive.css') }}" rel="stylesheet">--}}
     <link href="{{ url('/css/template.css') }}" rel="stylesheet">
     <link href="{{ url('/css/style.css') }}" rel="stylesheet">
 
