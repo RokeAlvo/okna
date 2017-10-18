@@ -1,4 +1,7 @@
 
+* {
+    outline: 0;
+}
 .pr0 {
 	padding-right: 0px;
 }
@@ -2488,11 +2491,19 @@ margin-left: -50%;
     overflow: auto;
 }
 
+.close-popup {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+
 .popup-block {
     position: relative;
     background-color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     max-height: 90vh;
+    margin-left: 30px;
 }
 
 .popup-apartment {
@@ -2597,9 +2608,152 @@ margin-left: -50%;
     border-top: 1px solid #cfd1d1;
 }
 
-.popup-apartment-price-cta {
-    font-family: "Iosevka Bold";
+.popup-apartment-cta-form {
+    bottom: 0;
+    position: absolute;
+}
 
+.popup-apartment-price {
+    margin-left: -75px;
+}
+
+.popup-apartment-price-cta {
+    display: inline-block;
+    padding: 12px 25px;
+    width: 325px;
+    position: relative;
+    transform: skew(-15deg);
+    -webkit-transform: skew(-15deg);
+    -moz-transform: skew(-15deg);
+    -o-transform: skew(-15deg);
+    -ms-transform: skew(-15deg);
+    font-family: "Iosevka Bold";
+    color: white;
+    vertical-align: middle;
+    box-shadow: 0 2px 5px rgba(62, 64, 68, 0.4);
+    background: rgba(83,91,95,1);
+    background: -moz-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(83,91,95,1)), color-stop(100%, rgba(61,63,67,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+    background: linear-gradient(135deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#535b5f', endColorstr='#3d3f43', GradientType=1 );;
+}
+
+.popup-apartment-price-cta span {
+    text-transform: uppercase;
+    font-size: 20px;
+    display: inline-block;
+    line-height: 25px;
+}
+
+.popup-apartment-price-cta span,
+.popup-apartment-price-cta button {
+    transform: skew(15deg);
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    -o-transform: skew(15deg);
+    -ms-transform: skew(15deg);
+}
+
+.popup-apartment-price-cta button {
+    position: absolute;
+    font-size: 16px;
+    top: -11px;
+    right: -11px;
+    display: inline-block;
+    border-radius: 50%;
+    height: 27px;
+    width: 27px;
+    background-color: #4ebb00;
+    border: 1px solid #46a800;
+    box-shadow: 0 2px 5px rgba(78, 187, 0, 0.8);
+}
+
+.popup-apartment-price-value {
+    display: inline-block;
+    color: #262626;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+.popup-apartment-price-value div {
+    padding: 3px 0;
+}
+
+.popup-apartment-price-value b{
+    font-size: 18px;
+}
+
+.popup-apartment-price-value .popup-apartment-price-from {
+    padding-left: 8px;
+    border-bottom: 2px solid #c1c4c4;
+}
+
+.popup-apartment-form {
+    padding: 25px 0;
+}
+
+.popup-apartment-form input,
+.popup-apartment-form button {
+    text-align: center;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 30px;
+}
+
+.popup-apartment-form input {
+    border: 1px solid #bfc1c3;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.popup-apartment-form button {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #d87306;
+    box-shadow: 0 2px 5px rgba(244, 162, 18, 0.81);
+    background: rgba(236,155,13,1);
+    background: -moz-linear-gradient(-45deg, rgba(236,155,13,1) 0%, rgba(216,114,6,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(236,155,13,1)), color-stop(100%, rgba(216,114,6,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(236,155,13,1) 0%, rgba(216,114,6,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(236,155,13,1) 0%, rgba(216,114,6,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(236,155,13,1) 0%, rgba(216,114,6,1) 100%);
+    background: linear-gradient(135deg, rgba(236,155,13,1) 0%, rgba(216,114,6,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ec9b0d', endColorstr='#d87206', GradientType=1 )
+}
+
+.popup-apartment-form button:hover {
+    border: 1px solid #d87306;
+    box-shadow: 0 1px 3px rgba(244, 162, 18, 0.81);
+    background: rgba(240,159,19,1);
+    background: -moz-linear-gradient(-45deg, rgba(240,159,19,1) 0%, rgba(219,117,15,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(240,159,19,1)), color-stop(100%, rgba(219,117,15,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(240,159,19,1) 0%, rgba(219,117,15,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(240,159,19,1) 0%, rgba(219,117,15,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(240,159,19,1) 0%, rgba(219,117,15,1) 100%);
+    background: linear-gradient(135deg, rgba(240,159,19,1) 0%, rgba(219,117,15,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09f13', endColorstr='#db750f', GradientType=1 );
+}
+
+.popup-apartment-form .row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.popup-apartment-form .col-sm-6 {
+    padding: 0 10px;
+}
+
+.popup-apartment-phone {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.popup-apartment-floor {
+    padding-top: 5px;
 }
 
 @media (min-width: 992px) {
@@ -2619,7 +2773,7 @@ margin-left: -50%;
     content: "";
     width: 75px;
     height: 34px;
-    background: url(/img/map-triangle-horizontal.png);
+    background: url('/img/map-triangle-horizontal.png');
     right: inherit;
     top: -34px;
     position: absolute;

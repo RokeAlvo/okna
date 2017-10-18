@@ -408,7 +408,7 @@
                                 <span>Студия</span><span>26 м<sup>2</sup></span>
                             </div>
                             <div class="popup-apartment-floor">
-                                <span>1, 2, 3, 6-9</span> этаж
+                                <b>1, 2, 3, 6-9</b> этаж
                             </div>
                         </div>
                         <div class="popup-apartment-layout">
@@ -419,29 +419,41 @@
                     </div>
                     <div class="popup-apartment-right">
                         <ul class="popup-apartment-payment">
-                            <li><i style="background-image: url('/img/apartment/mortgage.png')"></i><span>Ипотека от 8% годовых</span></li>
-                            <li><i style="background-image: url('/img/apartment/installment.png')"></i><span>Рассрочка 0% годовых</span></li>
-                            <li><i style="background-image: url('/img/apartment/trade-in.png')"></i><span>TRADE-in без переплат</span></li>
-                            <li><i style="background-image: url('/img/apartment/down-payment.png')"></i><span>Ипотека без первоначального взноса</span></li>
+                            <li><i style="background-image: url('/img/apartment/mortgage.png')"></i><span>Ипотека от 8% годовых</span>
+                            </li>
+                            <li><i style="background-image: url('/img/apartment/installment.png')"></i><span>Рассрочка 0% годовых</span>
+                            </li>
+                            <li><i style="background-image: url('/img/apartment/trade-in.png')"></i><span>TRADE-in без переплат</span>
+                            </li>
+                            <li><i style="background-image: url('/img/apartment/down-payment.png')"></i><span>Ипотека без первоначального взноса</span>
+                            </li>
                         </ul>
-                        <div class="popup-apartment-price">
-                            <div class="popup-apartment-price-cta">
-                                <span>Актуальную цену узнавайте в отделе продаж</span>
-                                <button>i</button>
+                        <div class="popup-apartment-cta-form">
+                            <div class="popup-apartment-price">
+                                <div class="popup-apartment-price-cta">
+                                    <span>Актуальную цену</br>узнавайте в отделе продаж</span>
+                                    <button>i</button>
+                                </div>
+                                <div class="popup-apartment-price-value">
+                                    <div class="popup-apartment-price-from">от <b>2 170 000</b> <sup>руб.</sup></div>
+                                    <div class="popup-apartment-price-to">до <b>2 170 000</b> <sup>руб.</sup></div>
+                                </div>
                             </div>
-                            <div class="popup-apartment-price-value">
-                                <div class="popup-apartment-price-before">от<b>2 170 000</b><sup>руб.</sup></div>
-                                <div class="popup-apartment-price-before">от<b>2 170 000</b><sup>руб.</sup></div>
+                            <div class="popup-apartment-form">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input type="text" placeholder="+7 (___) ___-__-__">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button>Узнать цену</button>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="popup-apartment-phone">Телефон отдела продаж: <b>+7 (383) 248 34 10</b></div>
                         </div>
-                        <div class="popup-apartment-form">
-                            <input type="text">
-                            <button>Узнать цену</button>
-                        </div>
-                        <div class="popup-apartment-phone">Телефон отдела продаж: <b>+7 (383) 248 34 10</b></div>
                     </div>
                 </div>
-                <img class="close-popup" src="/img/selection/icon-close.png">
+                <img class="close-popup" src="/img/icon-close-popup.png">
             </div>
         </div>
     </div>
