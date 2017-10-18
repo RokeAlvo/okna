@@ -7,12 +7,20 @@ new Vue({
         currentPage: 0,
         rooms: [],
         floorRange: [],
-        areaRange: []
+        areaRange: [],
+        oldData: {}
+    },
+    computed: {
+        allRoomCheckbox: function() {
+            return this.rooms.length === 0
+        }
     },
     methods: {
         fetchLayouts: function (page) {
 
-            if (page > 0 && this.currentPage !== page) {
+            if (page > 0/* && this.oldData != data*/) {
+
+                var url = this.$route;
                 var options = {
                     params: {
                         page: page,
@@ -23,20 +31,23 @@ new Vue({
                     }
                 };
 
-                var url = $('h1:first').data('residential-url');
                 this.$http.get(url, options).then(function (response) {
 
-                    console.log(response.headers.get('x-area-range'));
+                    this.oldData = this.data;
                     this.layouts = response.data;
                     this.totalLayouts = parseInt(response.headers.get('x-total-layouts'));
                     this.currentPage = page;
 
                 }, console.log);
+
             }
+        },
+        checkAllRooms: function () {
+            this.rooms = [];
+            this.fetchLayouts(1);
         }
     },
     created: function () {
         this.fetchLayouts(1);
-        //pagination.changePage(1);
     }
 });

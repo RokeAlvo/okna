@@ -35,40 +35,20 @@ class ResidentialComplexController extends Controller
 
     public function show(Request $request, $alias)
     {
-        $residential = ResidentialComplex::with([
-            'images',
-            'features',
-            'developer.residentials' => function ($q) use ($alias) {
-                $q->where('alias', '<>', $alias);
-            },
-            'houses',
-            'layouts' => function ($q) use ($request) {
-                $q->has('apartments')->with('apartments');
-                if ($request->has('area_range')) {
-                    if (!empty($request->area_range['from']) && !empty($request->area_range['to'])) {
-                        $q->whereBetween('area', $request->area_range);
-                    } elseif (!empty($request->area_range['from'])) {
-                        $q->where('area', '>=', $request->area_range['from']);
-                    } elseif (!empty($request->area_range['to'])) {
-                        $q->where('area', '>=', $request->area_range['to']);
-                    }
-                }
-            },
-            'ranges' => function ($q) {
-                $q->orderBy('rooms');
-            },])->alias($alias)->first();
+        $residential = ResidentialComplex::alias($alias)->search($request, $alias)->first();
 
+        $residential->layouts = $residential->layouts->transform(function ($layout) {
+            $layout->getRoomLabel();
+            $layout->calculateFloorRangeFromApartments();
+            return $layout;
+        })->sortBy('area');
+
+        $layoutCount = $residential->layouts->count();
 
         if ($request->ajax()) {
-            $residential->layouts = $residential->layouts->transform(function ($layout) {
-                $layout->getRoomLabel();
-                $layout->calculateFloorRangeFromApartments();
-                return $layout;
-            })->sortBy('area');
             return response()
-                ->json($residential->layouts->splice(($request->page - 1) * $request->per_page, $request->per_page))
-                ->header('x-area-range', $request->area_range)
-                ->header('x-total-layouts', $residential->layouts->count());
+                ->json($residential->layouts->slice(($request->page - 1) * $request->per_page, $request->per_page))
+                ->header('x-total-layouts', $layoutCount);
         }
 
         return view('residentials.show', compact('residential'));

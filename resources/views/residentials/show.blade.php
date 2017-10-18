@@ -27,7 +27,7 @@
                                     <h1>{{ !empty(BUILDING_TYPES[$residential->building_type]) ? BUILDING_TYPES[$residential->building_type] : '' }}
                                         <span>&laquo;{{ $residential->title }}&raquo;</span></h1>
 
-                                    <p>{!! $residential->description !!}</p>
+                                    <p>{{ $residential->description }}</p>
 
                                     <ul class="list-unstyled list-params mb10">
                                         <li>Застройщик:<span>{{ $residential->developer->name }}</span></li>
@@ -99,7 +99,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="rc-main-description-wrapper-img">
-                                    <img src="{{ $residential->main_image_original }}">
+                                    <img src="{{ $residential->main_image }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -130,144 +130,63 @@
 
                     <h2>Квартиры от застройщика</h2>
 
-                    <div class="panel-group visible-sm visible-xs" id="accordion" role="tablist"
-                         aria-multiselectable="true">
-                        <div class="panel">
-                            <div class="panel-heading" role="tab" id="headingroom-3">
-                                <div class="panel-heading-button collapsed" role="button" data-toggle="collapse"
-                                     data-parent="#accordion"
-                                     href="#collapseroom-3" aria-expanded="true" aria-controls="collapseroom-3">
-                                    <div class="apartment-acc-info">
-                                        <div class="apartment-acc-info-room"></div>
-                                        <div class="apartment-acc-info-price">
-                                            от 4 409 160 до 8 402 645 руб.
-                                        </div>
-                                    </div>
-                                    <div class="apartment-acc-amount">
-                                        15 вариантов
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div id="collapseroom-3" class="panel-collapse collapse in" role="tabpanel"
-                                 aria-labelledby="headingroom-3">
-                                <div class="visible-xs visible-sm">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-xs-6 search-new-layout-flat-item" data-key="30803">
-                                            <div class="preview-apartment-element block-shadow">
-                                                <div class="quick-view" data-apartment-id="30803"
-                                                     data-floors-list="3-12,14-16"
-                                                     data-url="/apartment/quick-view?id=30803&amp;floors=3-12%2C14-16&amp;pricemin=4409160&amp;pricemax=8402645">
-                                                    <div class="preview-apartment-thumbimage"><img
-                                                                class="img-responsive"
-                                                                src="/uploads/layouts/1640/nsqmcZgGi3vVaSfQ.jpg"
-                                                                alt=""></div>
-                                                    <div class="preview-apartment-typearea">3-ком.|
-                                                        <strong>109.2м<sup>2</sup></strong></div>
-                                                    <div class="preview-apartment-floor-list">3-12,14-16 этажи</div>
-                                                    <div class="preview-apartment-moreinfo">Подробнее</div>
-                                                </div>
+                    <div class="panel-group visible-sm visible-xs" id="accordion" role="tablist" aria-multiselectable="true">
+                        @foreach($residential->ranges as $range)
+                            <div class="panel">
+                                <div class="panel-heading" role="tab" id="headingroom-3">
+                                    <div class="panel-heading-button collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                         href="#collapseroom-3" aria-expanded="true" aria-controls="collapseroom-3">
+                                        <div class="apartment-acc-info">
+                                            <div class="apartment-acc-info-room">
+                                                {{ $range->getRoomLabel() }}
+                                            </div>
+                                            <div class="apartment-acc-info-price">
+                                                {{ $range->getPriceRange() }} руб.
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                        <div class="apartment-acc-amount">
+                                            @php($layoutCount = $residential->layouts->where('rooms', $range->rooms)->count())
+                                            {{ $layoutCount }} {{ number($layoutCount, ['вариант', 'варианта', 'вариантов']) }}
 
-                        <div class="panel">
-                            <div class="panel-heading" role="tab" id="headingroom-4">
-                                <div class="panel-heading-button collapsed" role="button" data-toggle="collapse"
-                                     data-parent="#accordion"
-                                     href="#collapseroom-4" aria-expanded="true" aria-controls="collapseroom-4">
-                                    <div class="apartment-acc-info">
-                                        <div class="apartment-acc-info-room"></div>
-                                        <div class="apartment-acc-info-price">
-                                            от 6 880 366 до 7 970 793 руб.
                                         </div>
+                                        <div class="clearfix"></div>
                                     </div>
-                                    <div class="apartment-acc-amount">
-                                        5 вариантов
-                                    </div>
-                                    <div class="clearfix"></div>
                                 </div>
-                            </div>
-                            <div id="collapseroom-4" class="panel-collapse collapse in" role="tabpanel"
-                                 aria-labelledby="headingroom-4">
-                                <div class="visible-xs visible-sm">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-xs-6 search-new-layout-flat-item" data-key="30710">
-                                            <div class="preview-apartment-element block-shadow">
-                                                <div class="quick-view" data-apartment-id="30710"
-                                                     data-floors-list="10,13-20"
-                                                     data-url="/apartment/quick-view?id=30710&amp;floors=10%2C13-20&amp;pricemin=6880366&amp;pricemax=7970793">
-                                                    <div class="preview-apartment-thumbimage"><img
-                                                                class="img-responsive"
-                                                                src="/uploads/layouts/1644/CKkbswvAvknNB1OZ.jpg"
-                                                                alt=""></div>
-                                                    <div class="preview-apartment-typearea">4-ком.|
-                                                        <strong>113.3м<sup>2</sup></strong></div>
-                                                    <div class="preview-apartment-floor-list">10,13-20 этажи</div>
-                                                    <div class="preview-apartment-moreinfo">Подробнее</div>
+                                <div id="collapseroom-3" class="panel-collapse collapse in" role="tabpanel"
+                                     aria-labelledby="headingroom-3">
+                                    <div class="visible-xs visible-sm">
+                                        <div class="row">
+                                            <div class="col-sm-4 col-xs-6 search-new-layout-flat-item" data-key="30803">
+                                                <div class="preview-apartment-element block-shadow">
+                                                    <div class="quick-view" data-apartment-id="30803"
+                                                         data-floors-list="3-12,14-16"
+                                                         data-url="/apartment/quick-view?id=30803&amp;floors=3-12%2C14-16&amp;pricemin=4409160&amp;pricemax=8402645">
+                                                        <div class="preview-apartment-thumbimage"><img
+                                                                    class="img-responsive"
+                                                                    src="/uploads/layouts/1640/nsqmcZgGi3vVaSfQ.jpg"
+                                                                    alt=""></div>
+                                                        <div class="preview-apartment-typearea">3-ком.|
+                                                            <strong>109.2м<sup>2</sup></strong></div>
+                                                        <div class="preview-apartment-floor-list">3-12,14-16 этажи</div>
+                                                        <div class="preview-apartment-moreinfo">Подробнее</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="panel">
-                            <div class="panel-heading" role="tab" id="heading">
-                                <div class="panel-heading-button collapsed" role="button" data-toggle="collapse"
-                                     data-parent="#accordion"
-                                     href="#collapse" aria-expanded="true" aria-controls="collapse">
-                                    <div class="apartment-acc-info">
-                                        <div class="apartment-acc-info-room"></div>
-                                        <div class="apartment-acc-info-price">
-                                            11 664 420 руб.
-                                        </div>
-                                    </div>
-                                    <div class="apartment-acc-amount">
-                                        1 вариант
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div id="collapse" class="panel-collapse collapse in" role="tabpanel"
-                                 aria-labelledby="heading">
-                                <div class="visible-xs visible-sm">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-xs-6 search-new-layout-flat-item" data-key="30691">
-                                            <div class="preview-apartment-element block-shadow">
-                                                <div class="quick-view" data-apartment-id="30691"
-                                                     data-floors-list="6 этаж"
-                                                     data-url="/apartment/quick-view?id=30691&amp;floors=6+%D1%8D%D1%82%D0%B0%D0%B6&amp;pricemin=11664420&amp;pricemax=11664420">
-                                                    <div class="preview-apartment-thumbimage"><img
-                                                                class="img-responsive"
-                                                                src="/uploads/layouts/1637/6DFFemxoJv5FLsee.jpg"
-                                                                alt=""></div>
-                                                    <div class="preview-apartment-typearea">|
-                                                        <strong>145м<sup>2</sup></strong></div>
-                                                    <div class="preview-apartment-floor-list">6 этаж</div>
-                                                    <div class="preview-apartment-moreinfo">Подробнее</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <form class="visible-md visible-lg">
-
                         <div class="apartment_filter">
                             <div class="apartment_filter_number_rooms2">
                                 <div class="row">
                                     <div class="col-xs-five">
                                         <div class="apartment_filter_number_rooms_group">
-                                            <input type="checkbox" name="type-rooms" id="all">
-                                            <label for="all">
+                                            <input type="checkbox" name="rooms" id="all-rooms" v-model="allRoomCheckbox" @change="checkAllRooms">
+                                            <label for="all-rooms">
                                                 <div class="type-rooms-vlaue">
                                                     Все
                                                 </div>
@@ -282,8 +201,7 @@
                                     @foreach($residential->ranges as $range)
                                         <div class="col-xs-five">
                                             <div class="apartment_filter_number_rooms_group">
-                                                <input type="checkbox" name="rooms" id="room-{{$range->id}}"
-                                                       value="{{$range->rooms}}">
+                                                <input type="checkbox" name="rooms" id="room-{{$range->id}}" value="{{$range->rooms}}" v-model="rooms" @change="fetchLayouts(1)">
                                                 <label for="room-{{$range->id}}">
                                                     <div class="type-rooms-vlaue">
                                                         {{ !empty(ROOMS['short'][$range->rooms]) ? ROOMS['short'][$range->rooms] : '' }}
@@ -302,20 +220,20 @@
                                     <div class="col-xs-five">
                                         <div class="apartment-filter-area">
                                             <p>Площадь, м<sup>2</sup>:</p>
-                                            <input name="area[min]" placeholder="30" v-model="areaRange['from']">
+                                            <input name="area_range[min]" placeholder="30" v-model="areaRange[0]" @change="fetchLayouts(1)">
                                             <span class="h-sep"></span>
-                                            <input name="area[max]" placeholder="145" v-model="areaRange['to']">
+                                            <input name="area_range[max]" placeholder="145" v-model="areaRange[1]" @change="fetchLayouts(1)">
                                         </div>
                                     </div>
                                     <div class="col-xs-five">
                                         <div class="apartment-filter-floor">
                                             <p>Этаж:</p>
-                                            <input name="floor[min]" placeholder="1">
+                                            <input name="floor_range[min]" placeholder="1" v-model="floorRange[0]" @change="fetchLayouts(1)">
                                             <span class="h-sep"></span>
-                                            <input name="floor[max]" placeholder="24">
+                                            <input name="floor_range[max]" placeholder="24" v-model="floorRange[1]" @change="fetchLayouts(1)">
                                         </div>
                                     </div>
-                                    <div class="col-xs-7">
+                                    {{--<div class="col-xs-7">
                                         <div class="apartment_filter_buttons">
                                             <div class="apartment-filter-buttons-container">
                                                 <button class="apartment_filter_buttons_apply" type="button">Показать
@@ -326,7 +244,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
                             </div>
                         </div>
@@ -341,62 +259,62 @@
                                                      class="col-lg-five col-md-3 col-sm-4 col-xs-6 search-new-layout-flat-item">
                                                     <div class="preview-apartment-element block-shadow" @click="
                                                     showPopup('apartment')">
-                                                    <div class="quick-view">
-                                                        <div class="preview-apartment-thumbimage">
-                                                            <div class="preview-apartment-thumbimage-wrapper">
-                                                                <img class="img-responsive" :src="layout.thumbnail">
+                                                        <div class="quick-view">
+                                                            <div class="preview-apartment-thumbimage">
+                                                                <div class="preview-apartment-thumbimage-wrapper">
+                                                                    <img class="img-responsive" :src="layout.thumbnail">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="preview-apartment-typearea">@{{layout.room_label}} |
-                                                            <strong>@{{layout.area}} м<sup>2</sup></strong>
-                                                        </div>
-                                                        <div class="preview-apartment-floor-list">
-                                                            @{{layout.floor_range}}
-                                                        </div>
-                                                        <div class="preview-apartment-moreinfo">
-                                                            Подробнее
+                                                            <div class="preview-apartment-typearea">@{{layout.room_label}} |
+                                                                <strong>@{{layout.area}} м<sup>2</sup></strong>
+                                                            </div>
+                                                            <div class="preview-apartment-floor-list">
+                                                                @{{layout.floor_range}}
+                                                            </div>
+                                                            <div class="preview-apartment-moreinfo">
+                                                                Подробнее
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-xs-12">
-                                                <pagination
-                                                        :current="currentPage"
-                                                        :perPage="perPage"
-                                                        :total="totalLayouts"
-                                                @page-changed="fetchLayouts"
-                                                v-if="totalLayouts > perPage"
-                                                ></pagination>
+                                                <div class="col-xs-12">
+                                                    <pagination
+                                                            :current="currentPage"
+                                                            :perPage="perPage"
+                                                            :total="totalLayouts"
+                                                            @page-changed="fetchLayouts"
+                                                            v-if="totalLayouts > perPage"
+                                                    ></pagination>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-            </div>
-            </form>
-            </section>
-
-
-            @if (!empty($residential->features))
-                <section id="features">
-                    <h2>Особенности жилого комплекса</h2>
-                    <div class="row">
-                        @foreach ($residential->features as $features)
-                            <div class="col-md-3 col-sm-6">
-                                <div class="feature-item block-shadow">
-                                    <h3>{{ $features->title }}
-                                        <span>{{ ($features->subtitle) ? $features->subtitle : "&nbsp;" }}</span>
-                                    </h3>
-                                    <p>{{ $features->text }}</p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
+                    </form>
                 </section>
-            @endif
+
+
+                @if (!empty($residential->features))
+                    <section id="features">
+                        <h2>Особенности жилого комплекса</h2>
+                        <div class="row">
+                            @foreach ($residential->features as $features)
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="feature-item block-shadow">
+                                        <h3>{{ $features->title }}
+                                            <span>{{ ($features->subtitle) ? $features->subtitle : "&nbsp;" }}</span>
+                                        </h3>
+                                        <p>{{ $features->text }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </section>
+                @endif
+            </div>
         </div>
-    </div>
     </div>
     <div class="popup-wrapper" data-popup-window="apartment">
         <div class="popup">
@@ -419,14 +337,10 @@
                     </div>
                     <div class="popup-apartment-right">
                         <ul class="popup-apartment-payment">
-                            <li><i style="background-image: url('/img/apartment/mortgage.png')"></i><span>Ипотека от 8% годовых</span>
-                            </li>
-                            <li><i style="background-image: url('/img/apartment/installment.png')"></i><span>Рассрочка 0% годовых</span>
-                            </li>
-                            <li><i style="background-image: url('/img/apartment/trade-in.png')"></i><span>TRADE-in без переплат</span>
-                            </li>
-                            <li><i style="background-image: url('/img/apartment/down-payment.png')"></i><span>Ипотека без первоначального взноса</span>
-                            </li>
+                            <li><i style="background-image: url({{ url('/img/apartment/mortgage.png') }})"></i><span>Ипотека от 8% годовых</span></li>
+                            <li><i style="background-image: url({{ url('/img/apartment/installment.png') }})"></i><span>Рассрочка 0% годовых</span></li>
+                            <li><i style="background-image: url({{ url('/img/apartment/trade-in.png') }})"></i><span>TRADE-in без переплат</span></li>
+                            <li><i style="background-image: url({{ url('/img/apartment/down-payment.png') }})"></i><span>Ипотека без первоначального взноса</span></li>
                         </ul>
                         <div class="popup-apartment-cta-form">
                             <div class="popup-apartment-price">
@@ -457,42 +371,42 @@
             </div>
         </div>
     </div>
-    @if(\Illuminate\Support\Facades\App::environment() == 'production')
 
-        <section id="gallery">
-            <div class="container"><h2>Фото объекта</h2>
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="slider-main">
-                            <div id="gallery-main-wrapper">
-                                <img id="gallery-main" src="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="slider-nav row">
+    <section id="gallery">
+        <div class="container"><h2>Фото объекта</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="slider-main">
+                        <div id="gallery-main-wrapper">
+                            <img id="gallery-main" src="">
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="slider-nav row">
+                    </div>
+                </div>
             </div>
-            <script>
-                var first = true;
-                {!! 'var images = '.json_encode($residential->getGallery()).';' !!}
-                $.each(images, function (main, thumb) {
-                    if (first) {
-                        $('#gallery-main').attr('src', main);
-                        first = false;
-                    }
-                    $('#gallery .slider-nav').append('<div class="col-md-6 col-sm-3 col-xs-4 p10"><div class="slider-nav-item" data-main-path="' + main + '"><img src="' + thumb + '"></div></div>');
-                });
-                $('#gallery .slider-nav-item').on('click', showBigGalleryImage);
-
-                function showBigGalleryImage() {
-                    $('#gallery-main').attr('src', $(this).data('main-path'));
+        </div>
+        <script>
+            var first = true;
+            {!! 'var images = '.json_encode($residential->getGallery()).';' !!}
+            $.each(images, function (main, thumb) {
+                if (first) {
+                    $('#gallery-main').attr('src', main);
+                    first = false;
                 }
-            </script>
-        </section>
+                $('#gallery .slider-nav').append('<div class="col-md-6 col-sm-3 col-xs-4 p10"><div class="slider-nav-item" data-main-path="' + main + '"><img src="' + thumb + '"></div></div>');
+            });
+            $('#gallery .slider-nav-item').on('click', showBigGalleryImage);
 
+            function showBigGalleryImage() {
+                $('#gallery-main').attr('src', $(this).data('main-path'));
+            }
+        </script>
+    </section>
+
+    @if(\Illuminate\Support\Facades\App::environment() == 'production')
         @if (!empty($residential->latitude) && !empty($residential->longitude))
             <section id="map-rc-new">
                 <div class="container">
@@ -573,7 +487,6 @@
 
             <script type="text/javascript">
                 var map;
-
                 DG.then(function () {
                     map = DG.map('map', {
                         center: [{{$residential->latitude}}, {{$residential->longitude}}],
