@@ -71,23 +71,9 @@ new Vue({
         },
         selectLayout: function (index) {
             this.selectedLayoutIndex = index;
-            this.addInputMask();
         },
         closePopup: function () {
             this.selectedLayoutIndex = -1;
-        },
-        addInputMask: function () {
-            var options = {
-                onComplete: function (e) {
-                    var event = document.createEvent('HTMLEvents');
-                    event.initEvent('input', true, true);
-                    e.currentTarget.dispatchEvent(event);
-                    $("").trigger('change');
-                }
-            };
-            $("#phone").mask("+7 (999) 999-9999", options);
-
-            /* TODO ТЕПЕРЬ почему-то не работает, хотя до этого работало и код я не трогал :( */
         }
     },
     created: function () {

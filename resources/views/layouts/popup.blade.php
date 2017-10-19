@@ -56,8 +56,21 @@
                                         <div class="popup-apartment-form">
                                             <div class="row">
                                                 <div class="col-xs-6">
-                                                    <input id="phone" type="text" v-model="phone"
-                                                           placeholder="+7 (___) ___-__-__">
+                                                    <input type="hidden" name="layout_id" :value="layouts[selectedLayoutIndex].id">
+                                                    <input id="phone" type="text" v-model="phone" onclick="addInputMask(this)" placeholder="+7 (___) ___-__-__">
+                                                    <script>
+                                                        function addInputMask(element) {
+                                                            var options = {
+                                                                onComplete: function (e) {
+                                                                    var event = document.createEvent('HTMLEvents');
+                                                                    event.initEvent('input', true, true);
+                                                                    e.currentTarget.dispatchEvent(event);
+                                                                    $("").trigger('change');
+                                                                }
+                                                            };
+                                                            $(element).mask("+7 (999) 999-99-99", options);
+                                                        }
+                                                    </script>
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <button>Узнать цену</button>
@@ -70,6 +83,7 @@
                                 </div>
                             </div>
                         </div>
+                        <img @click="closePopup" class="close-popup-mobile" src="/img/apartment/close-mobile.png">
                     </div>
                     <img @click="closePopup" class="close-popup" src="/img/icon-close-popup.png">
                 </div>

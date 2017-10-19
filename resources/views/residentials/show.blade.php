@@ -21,6 +21,7 @@
 
     @include('residentials.rc-main-block')
 
+
     {{--DESCRIPTION--}}
 
     @include('residentials.description')
