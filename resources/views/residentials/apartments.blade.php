@@ -17,7 +17,8 @@
             @foreach($residential->ranges as $range)
                 <div class="panel">
                     <div class="panel-heading" role="tab" id="headingroom-{{$range->rooms}}">
-                        <div class="panel-heading-button collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseroom-{{$range->rooms}}" aria-expanded="true" aria-controls="collapseroom-{{$range->rooms}}">
+                        <div class="panel-heading-button collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseroom-{{$range->rooms}}" aria-expanded="true"
+                             aria-controls="collapseroom-{{$range->rooms}}">
                             <div class="apartment-acc-info">
                                 <div class="apartment-acc-info-room">
                                     {{ $range->getRoomLabel() }}
@@ -27,16 +28,17 @@
                                 </div>
                             </div>
                             <div class="apartment-acc-amount" @click="fetchOneRoomLayouts('{{$range->rooms}}')">
-                            @php($layoutCount = $residential->layouts->where('rooms', $range->rooms)->count())
-                            {{ $layoutCount }} {{ number($layoutCount, ['вариант', 'варианта', 'вариантов']) }}
+                                @php($layoutCount = $residential->layouts->where('rooms', $range->rooms)->count())
+                                {{ $layoutCount }} {{ number($layoutCount, ['вариант', 'варианта', 'вариантов']) }}
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="clearfix"></div>
                     </div>
-                </div>
-                <div id="collapseroom-{{$range->rooms}}" role="tabpanel" aria-labelledby="headingroom-{{$range->rooms}}">
-                    <div class="visible-xs visible-sm" v-if="room == {{$range->rooms}}">
-                        <div class="row">
-                            @include('layouts.card', ['layoutsData' => 'oneRoomLayouts'])
+                    <div id="collapseroom-{{$range->rooms}}" role="tabpanel" aria-labelledby="headingroom-{{$range->rooms}}">
+                        <div class="visible-xs visible-sm" v-if="room == {{$range->rooms}}">
+                            <div class="row">
+                                @include('layouts.card', ['layoutsData' => 'oneRoomLayouts'])
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -46,7 +48,7 @@
         {{--APARTMENTS-DESKTOP--}}
 
         <div class="visible-md visible-lg">
-            <div class="apartment_filter">
+            <form class="apartment_filter">
                 <div class="apartment_filter_number_rooms2">
                     <div class="row">
                         <div class="col-xs-five">
@@ -67,7 +69,7 @@
                                     <input type="checkbox" name="rooms" id="room-{{$range->id}}" value="{{$range->rooms}}" v-model="rooms" @change="fetchLayouts(1)">
                                     <label for="room-{{$range->id}}">
                                         <div class="type-rooms-vlaue">
-                                            {{ !empty(ROOMS['short'][$range->rooms]) ? ROOMS['short'][$range->rooms] : '' }}
+                                            {{ $range->getRoomLabel() }}
                                         </div>
                                         <div class="cost-distance">
                                             {{ $range->getPriceRange() }} руб.
@@ -102,15 +104,15 @@
                                     {{--<button class="apartment_filter_buttons_apply" type="button">Показать
                                         результаты
                                     </button>--}}
-                                    <button class="apartment_filter_buttons_reset" type="reset">Сбросить
+                                    {{--<button class="apartment_filter_buttons_reset" type="reset">Сбросить
                                         фильтры
-                                    </button>
+                                    </button>--}}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
             <div class="preview-apartment">
                 <div class="tab-content">
                     <div class="tab-pane active">

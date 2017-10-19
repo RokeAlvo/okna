@@ -23,7 +23,7 @@ class Layout extends Model
     }
 
 
-    public function scopeRoom($q, $room)
+    /*public function scopeRoom($q, $room)
     {
         return $q->select('id', 'residential_complex_id', 'rooms', 'area', 'thumbnail')
             ->whereHas('apartments')
@@ -33,7 +33,7 @@ class Layout extends Model
                 }
             ])
             ->where('rooms', $room);
-    }
+    }*/
 
 
     public function apartments()
@@ -63,6 +63,6 @@ class Layout extends Model
     }
 
     public function getRoomPriceRange() {
-        $this->priceRange = $this->ranges()->where('rooms', $this->rooms)->first();
+        $this->price_range = $this->ranges()->where('rooms', $this->rooms)->first();
     }
 }

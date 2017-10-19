@@ -28,6 +28,12 @@
                                     <h1>{{ !empty(BUILDING_TYPES[$residential->building_type]) ? BUILDING_TYPES[$residential->building_type] : '' }}
                                         <span>&laquo;{{ $residential->title }}&raquo;</span></h1>
 
+                                    <ul class="breadcrumb">
+                                        <li><a href="{{ url('/') }}">Главная</a></li>
+                                        <li><a href="{{ route('developers.show', [$residential->developer->alias]) }}">{{ $residential->developer->name }}</a></li>
+                                        <li class="active">{{ $residential->title }}</li>
+                                    </ul>
+
                                     <p>{{ $residential->description }}</p>
 
                                     <ul class="list-unstyled list-params mb10">

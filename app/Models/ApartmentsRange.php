@@ -13,9 +13,9 @@ class ApartmentsRange extends Model
             : number_format($this->price_min, 0, ',', ' ') . ' - ' . number_format($this->price_max, 0, ',', ' ');
     }
 
-    public function getRoomLabel()
+    public function getRoomLabel($type = 'short')
     {
-        $this->room_label = !empty(ROOMS['short'][$this->rooms]) ? ROOMS['short'][$this->rooms] : 'Квартира';
+        $this->room_label = !empty(ROOMS[$type][$this->rooms]) ? ROOMS[$type][$this->rooms] : 'Квартира';
         return $this->room_label;
     }
 }
