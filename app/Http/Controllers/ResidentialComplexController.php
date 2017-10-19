@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Layout;
 use App\ResidentialComplex;
 use Illuminate\Http\Request;
 
@@ -40,17 +41,33 @@ class ResidentialComplexController extends Controller
         $residential->layouts = $residential->layouts->transform(function ($layout) {
             $layout->getRoomLabel();
             $layout->calculateFloorRangeFromApartments();
+            $layout->getRoomPriceRange();
             return $layout;
         })->sortBy('area');
 
         $layoutCount = $residential->layouts->count();
 
         if ($request->ajax()) {
+            if ($request->has('room')) {
+                return response()->json($residential->layouts->where('rooms', $request->room));
+            }
             return response()
                 ->json($residential->layouts->slice(($request->page - 1) * $request->per_page, $request->per_page))
                 ->header('x-total-layouts', $layoutCount);
         }
 
         return view('residentials.show', compact('residential'));
+    }
+
+    public function getOneRoomLayouts(Request $request)
+    {
+        return response()->json(
+            Layout::room($request->room)->transform(function ($layout) {
+                $layout->getRoomLabel();
+                $layout->calculateFloorRangeFromApartments();
+                $layout->getRoomPriceRange();
+                return $layout;
+            })->get()
+        );
     }
 }

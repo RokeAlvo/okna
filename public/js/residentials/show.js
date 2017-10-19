@@ -1,6 +1,10 @@
 new Vue({
-    el: '#layouts',
+    el: '#layouts-vue',
     data: {
+        fetching: false,
+        oneRoomLayouts: [],
+        room: 0,
+        selectedLayoutIndex: -1,
         layouts: [],
         totalLayouts: 0,
         perPage: 15,
@@ -8,17 +12,17 @@ new Vue({
         rooms: [],
         floorRange: [],
         areaRange: [],
-        oldData: {}
+        phone: ''
     },
     computed: {
-        allRoomCheckbox: function() {
+        allRoomCheckbox: function () {
             return this.rooms.length === 0
         }
     },
     methods: {
         fetchLayouts: function (page) {
 
-            if (page > 0/* && this.oldData != data*/) {
+            if (page > 0) {
 
                 var url = this.$route;
                 var options = {
@@ -30,24 +34,63 @@ new Vue({
                         area_range: this.areaRange
                     }
                 };
-
-                this.$http.get(url, options).then(function (response) {
-
-                    this.oldData = this.data;
-                    this.layouts = response.data;
-                    this.totalLayouts = parseInt(response.headers.get('x-total-layouts'));
-                    this.currentPage = page;
-
-                }, console.log);
-
+                this.fetching = true;
+                this.$http
+                    .get(url, options)
+                    .then(function (response) {
+                        this.layouts = response.data;
+                        this.totalLayouts = parseInt(response.headers.get('x-total-layouts'));
+                        this.currentPage = page;
+                        this.fetching = false;
+                    }, console.log)
+                    .catch(function () {
+                        setTimeout(this.fetchLayouts, 900, page);
+                    });
             }
         },
         checkAllRooms: function () {
+            if (!this.allRoomCheckbox) {
+                this.rooms = [];
+                this.fetchLayouts(1);
+            }
             this.rooms = [];
-            this.fetchLayouts(1);
+        },
+        fetchOneRoomLayouts: function (room) {
+            var url = this.$route;
+            var options = {
+                params: {
+                    room: room
+                }
+            };
+            if (this.room !== room) {
+                this.$http.get(url, options).then(function (response) {
+                    this.oneRoomLayouts = response.data;
+                    this.room = room;
+                }, console.log);
+            }
+        },
+        selectLayout: function (index) {
+            this.selectedLayoutIndex = index;
+            this.addInputMask();
+        },
+        closePopup: function () {
+            this.selectedLayoutIndex = -1;
+        },
+        addInputMask: function () {
+            var options = {
+                onComplete: function (e) {
+                    var event = document.createEvent('HTMLEvents');
+                    event.initEvent('input', true, true);
+                    e.currentTarget.dispatchEvent(event);
+                    $("").trigger('change');
+                }
+            };
+            $("#phone").mask("+7 (999) 999-9999", options);
+
+            /* TODO ТЕПЕРЬ почему-то не работает, хотя до этого работало и код я не трогал :( */
         }
     },
     created: function () {
-        this.fetchLayouts(1);
+        setTimeout(this.fetchLayouts(1), 700);
     }
 });

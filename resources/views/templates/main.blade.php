@@ -87,13 +87,10 @@
     </div>
 @endif
 
-
-<div class="container">
     <div class="content">
         @include('templates.messages')
         @yield('content')
     </div>
-</div>
 
 <div id="global-modal" class="modal fade in" tabindex="-1" role="dialog">
     <div class="global-modal-content"></div>

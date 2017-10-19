@@ -11,6 +11,30 @@ class Layout extends Model
         return 'http://smartcrm.pro' . $value;
     }
 
+    public function getMainImageAttribute($value)
+    {
+        return 'http://smartcrm.pro' . $value;
+    }
+
+
+    public function ranges()
+    {
+        return $this->hasMany('App\ApartmentsRange', 'residential_complex_id', 'residential_complex_id');
+    }
+
+
+    public function scopeRoom($q, $room)
+    {
+        return $q->select('id', 'residential_complex_id', 'rooms', 'area', 'thumbnail')
+            ->whereHas('apartments')
+            ->with([
+                'apartments' => function ($q) {
+                    $q->select('id', 'layout_id', 'floor');
+                }
+            ])
+            ->where('rooms', $room);
+    }
+
 
     public function apartments()
     {
@@ -36,5 +60,9 @@ class Layout extends Model
     public function getRoomLabel()
     {
         $this->room_label = !empty(ROOMS['short'][$this->rooms]) ? ROOMS['short'][$this->rooms] : 'Квартира';
+    }
+
+    public function getRoomPriceRange() {
+        $this->priceRange = $this->ranges()->where('rooms', $this->rooms)->first();
     }
 }
