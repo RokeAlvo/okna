@@ -62,7 +62,14 @@ class Layout extends Model
         $this->room_label = !empty(ROOMS['short'][$this->rooms]) ? ROOMS['short'][$this->rooms] : 'Квартира';
     }
 
-    public function getRoomPriceRange() {
-        $this->price_range = $this->ranges()->where('rooms', $this->rooms)->first();
+    public function getRoomPriceRange()
+    {
+        $range = $this->ranges()->where('rooms', $this->rooms)->first();
+        $this->price_min = $range->price_min;
+        $this->price_min_format = number_format($range->price_min, 0, ',', ' ');
+        $this->price_max = ($range->price_min == $range->price_max) ? $range->price_max * 1.15 : $range->price_max;
+        $this->price_max_format = number_format($this->price_max, 0, ',', ' ');
+        $this->price_range = $this->price_min_format . ' - ' . $this->price_max_format;
+        return $this->price_range;
     }
 }

@@ -46,11 +46,8 @@
                                                 <button>i</button>
                                             </div>
                                             <div class="popup-apartment-price-value">
-                                                <div class="popup-apartment-price-from">от
-                                                    <b>{{--{{ number_format($layout->getOneRoomRange()) }}--}}</b>
-                                                    <sup>руб.</sup></div>
-                                                <div class="popup-apartment-price-to">до <b>2 170 000</b>
-                                                    <sup>руб.</sup></div>
+                                                <div class="popup-apartment-price-from">от <b>@{{layouts[selectedLayoutIndex].price_min_format}}</b><sup> руб.</sup></div>
+                                                <div class="popup-apartment-price-to">до <b>@{{layouts[selectedLayoutIndex].price_max_format}}</b><sup> руб.</sup></div>
                                             </div>
                                         </div>
                                         <div class="popup-apartment-form">

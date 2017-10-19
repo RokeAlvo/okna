@@ -16,7 +16,7 @@ new Vue({
     },
     computed: {
         allRoomCheckbox: function () {
-            return this.rooms.length === 0
+            return this.rooms.length === 0? 'checked' : null
         }
     },
     methods: {
@@ -48,10 +48,12 @@ new Vue({
                     });
             }
         },
-        checkAllRooms: function () {
+        checkAllRooms: function (e) {
+            console.log(e)
             if (!this.allRoomCheckbox) {
                 this.rooms = [];
                 this.fetchLayouts(1);
+                return;
             }
             this.rooms = [];
         },

@@ -129,7 +129,10 @@ class ResidentialComplex extends Model
             },
             'ranges' => function ($q) {
                 $q->orderBy('rooms');
-            },
+            },/*
+            'mortgage',
+            'trade-in',
+            'installment'*/
         ]);
     }
 
