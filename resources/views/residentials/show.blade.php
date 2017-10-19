@@ -7,6 +7,7 @@
 @section('footer-scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.4/vue-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <script src="{{ url('js/residentials/pagination.js') }}"></script>
     <script src="{{ url('js/residentials/show.js') }}"></script>
     <script src="{{ url('js/popup.js') }}"></script>
@@ -115,12 +116,11 @@
                     <ul class="pagination">
                         {{--<li class="first"><span v-if="hasFirst()" @click="changePage(1)">В начало</span></li>--}}
 
-                        <li class="prev"><span @click="changePage(prevPage)">«</span></li>
+                        <li class="prev" :class="{ disabled: current == 1 }"><span @click="changePage(prevPage)">«</span></li>
 
-                        <li v-for="page in pages" :class="{ active: current == page }"><span @click="changePage(page)"
-                            >@{{ page }}</span></li>
+                        <li v-for="page in pages" :class="{ active: current == page }"><span @click="changePage(page)">@{{ page }}</span></li>
 
-                        <li class="next"><span @click="changePage(nextPage)">»</span></li>
+                        <li class="next" :class="{ disabled: current == totalPages }"><span @click="changePage(nextPage)">»</span></li>
 
                         {{--<li class="last"><span v-if="hasLast()" @click="changePage(totalPage)">В конец</span></li>--}}
                     </ul>
@@ -133,9 +133,9 @@
                     <div class="panel-group visible-sm visible-xs" id="accordion" role="tablist" aria-multiselectable="true">
                         @foreach($residential->ranges as $range)
                             <div class="panel">
-                                <div class="panel-heading" role="tab" id="headingroom-3">
+                                <div class="panel-heading" role="tab" id="headingroom-{{$range->rooms}}">
                                     <div class="panel-heading-button collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                         href="#collapseroom-3" aria-expanded="true" aria-controls="collapseroom-3">
+                                         href="#collapseroom-{{$range->rooms}}" aria-expanded="true" aria-controls="collapseroom-{{$range->rooms}}">
                                         <div class="apartment-acc-info">
                                             <div class="apartment-acc-info-room">
                                                 {{ $range->getRoomLabel() }}
@@ -144,34 +144,17 @@
                                                 {{ $range->getPriceRange() }} руб.
                                             </div>
                                         </div>
-                                        <div class="apartment-acc-amount">
+                                        <div class="apartment-acc-amount" @click="fetchOneRoomLayouts('{{$range->rooms}}')">
                                             @php($layoutCount = $residential->layouts->where('rooms', $range->rooms)->count())
                                             {{ $layoutCount }} {{ number($layoutCount, ['вариант', 'варианта', 'вариантов']) }}
-
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
-                                <div id="collapseroom-3" class="panel-collapse collapse in" role="tabpanel"
-                                     aria-labelledby="headingroom-3">
-                                    <div class="visible-xs visible-sm">
+                                <div id="collapseroom-{{$range->rooms}}" {{--class="panel-collapse collapse in"--}} role="tabpanel" aria-labelledby="headingroom-{{$range->rooms}}">
+                                    <div class="visible-xs visible-sm" v-if="room == {{$range->rooms}}">
                                         <div class="row">
-                                            <div class="col-sm-4 col-xs-6 search-new-layout-flat-item" data-key="30803">
-                                                <div class="preview-apartment-element block-shadow">
-                                                    <div class="quick-view" data-apartment-id="30803"
-                                                         data-floors-list="3-12,14-16"
-                                                         data-url="/apartment/quick-view?id=30803&amp;floors=3-12%2C14-16&amp;pricemin=4409160&amp;pricemax=8402645">
-                                                        <div class="preview-apartment-thumbimage"><img
-                                                                    class="img-responsive"
-                                                                    src="/uploads/layouts/1640/nsqmcZgGi3vVaSfQ.jpg"
-                                                                    alt=""></div>
-                                                        <div class="preview-apartment-typearea">3-ком.|
-                                                            <strong>109.2м<sup>2</sup></strong></div>
-                                                        <div class="preview-apartment-floor-list">3-12,14-16 этажи</div>
-                                                        <div class="preview-apartment-moreinfo">Подробнее</div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @include('layouts.card', ['layoutsData' => 'oneRoomLayouts'])
                                         </div>
                                     </div>
                                 </div>
@@ -251,32 +234,12 @@
 
                         <div class="preview-apartment">
                             <div class="tab-content">
-                                <div class="tab-pane active" id="allroom">
+                                <div class="tab-pane active">
                                     <div class="row">
                                         <div id="p0">
-                                            <div id="search-new-layout-flats" class="list-view">
-                                                <div v-for="layout in layouts"
-                                                     class="col-lg-five col-md-3 col-sm-4 col-xs-6 search-new-layout-flat-item">
-                                                    <div class="preview-apartment-element block-shadow" @click="
-                                                    showPopup('apartment')">
-                                                        <div class="quick-view">
-                                                            <div class="preview-apartment-thumbimage">
-                                                                <div class="preview-apartment-thumbimage-wrapper">
-                                                                    <img class="img-responsive" :src="layout.thumbnail">
-                                                                </div>
-                                                            </div>
-                                                            <div class="preview-apartment-typearea">@{{layout.room_label}} |
-                                                                <strong>@{{layout.area}} м<sup>2</sup></strong>
-                                                            </div>
-                                                            <div class="preview-apartment-floor-list">
-                                                                @{{layout.floor_range}}
-                                                            </div>
-                                                            <div class="preview-apartment-moreinfo">
-                                                                Подробнее
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div v-if="fetching">Загрузочка</div>
+                                            <div v-else id="search-new-layout-flats" class="list-view">
+                                                @include('layouts.card', ['layoutsData' => 'layouts'])
                                                 <div class="col-xs-12">
                                                     <pagination
                                                             :current="currentPage"
@@ -293,6 +256,65 @@
                             </div>
                         </div>
                     </form>
+
+                    <transition id="apartment-popup-transition" appear name="fade" v-cloak>
+                        <div class="popup-wrapper" v-if="~selectedLayoutIndex" data-popup-window="apartment" style="display: block">
+                            <div class="popup" @click.self="closePopup">
+                                <div class="popup-block" data-popup-block="true">
+                                    <div class="popup-apartment">
+                                        <div class="popup-apartment-left">
+                                            <div class="popup-apartment-info">
+                                                <div class="popup-apartment-type">
+                                                    <span>@{{layouts[selectedLayoutIndex].room_label}}</span><span>@{{layouts[selectedLayoutIndex].area}} м<sup>2</sup></span>
+                                                </div>
+                                                <div class="popup-apartment-floor">
+                                                    <b>@{{layouts[selectedLayoutIndex].floor_range}}</b>
+                                                </div>
+                                            </div>
+                                            <div class="popup-apartment-layout">
+                                                <div class="popup-apartment-wrapper">
+                                                    <img :src="layouts[selectedLayoutIndex].main_image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="popup-apartment-right">
+                                            <ul class="popup-apartment-payment">
+                                                <li><i style="background-image: url({{ url('/img/apartment/mortgage.png') }})"></i><span>Ипотека от 8% годовых</span></li>
+                                                <li><i style="background-image: url({{ url('/img/apartment/installment.png') }})"></i><span>Рассрочка 0% годовых</span></li>
+                                                <li><i style="background-image: url({{ url('/img/apartment/trade-in.png') }})"></i><span>TRADE-in без переплат</span></li>
+                                                <li><i style="background-image: url({{ url('/img/apartment/down-payment.png') }})"></i><span>Ипотека без первоначального взноса</span></li>
+                                            </ul>
+                                            <div class="popup-apartment-cta-form">
+                                                <div class="popup-apartment-price">
+                                                    <div class="popup-apartment-price-cta">
+                                                        <span>Актуальную цену</br>узнавайте в отделе продаж</span>
+                                                        <button>i</button>
+                                                    </div>
+                                                    <div class="popup-apartment-price-value">
+                                                        <div class="popup-apartment-price-from">от <b>{{--{{ number_format($layout->getOneRoomRange()) }}--}}</b> <sup>руб.</sup></div>
+                                                        <div class="popup-apartment-price-to">до <b>2 170 000</b> <sup>руб.</sup></div>
+                                                    </div>
+                                                </div>
+                                                <div class="popup-apartment-form">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <input id="phone" type="text" v-model="phone" placeholder="+7 (___) ___-__-__">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <button>Узнать цену</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popup-apartment-phone">Телефон отдела продаж: <b>{{ SITE_CONTACTS['phone'] }}</b></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img @click="closePopup" class="close-popup" src="/img/icon-close-popup.png">
+                                </div>
+                            </div>
+                        </div>
+                    </transition>
+
                 </section>
 
 
@@ -313,61 +335,6 @@
                         </div>
                     </section>
                 @endif
-            </div>
-        </div>
-    </div>
-    <div class="popup-wrapper" data-popup-window="apartment">
-        <div class="popup">
-            <div class="popup-block" data-popup-block="true">
-                <div class="popup-apartment">
-                    <div class="popup-apartment-left">
-                        <div class="popup-apartment-info">
-                            <div class="popup-apartment-type">
-                                <span>Студия</span><span>26 м<sup>2</sup></span>
-                            </div>
-                            <div class="popup-apartment-floor">
-                                <b>1, 2, 3, 6-9</b> этаж
-                            </div>
-                        </div>
-                        <div class="popup-apartment-layout">
-                            <div class="popup-apartment-wrapper">
-                                <img src="http://smartcrm.pro/img/selection/stub-layout.png">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="popup-apartment-right">
-                        <ul class="popup-apartment-payment">
-                            <li><i style="background-image: url({{ url('/img/apartment/mortgage.png') }})"></i><span>Ипотека от 8% годовых</span></li>
-                            <li><i style="background-image: url({{ url('/img/apartment/installment.png') }})"></i><span>Рассрочка 0% годовых</span></li>
-                            <li><i style="background-image: url({{ url('/img/apartment/trade-in.png') }})"></i><span>TRADE-in без переплат</span></li>
-                            <li><i style="background-image: url({{ url('/img/apartment/down-payment.png') }})"></i><span>Ипотека без первоначального взноса</span></li>
-                        </ul>
-                        <div class="popup-apartment-cta-form">
-                            <div class="popup-apartment-price">
-                                <div class="popup-apartment-price-cta">
-                                    <span>Актуальную цену</br>узнавайте в отделе продаж</span>
-                                    <button>i</button>
-                                </div>
-                                <div class="popup-apartment-price-value">
-                                    <div class="popup-apartment-price-from">от <b>2 170 000</b> <sup>руб.</sup></div>
-                                    <div class="popup-apartment-price-to">до <b>2 170 000</b> <sup>руб.</sup></div>
-                                </div>
-                            </div>
-                            <div class="popup-apartment-form">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <input type="text" placeholder="+7 (___) ___-__-__">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <button>Узнать цену</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="popup-apartment-phone">Телефон отдела продаж: <b>+7 (383) 248 34 10</b></div>
-                        </div>
-                    </div>
-                </div>
-                <img class="close-popup" src="/img/icon-close-popup.png">
             </div>
         </div>
     </div>

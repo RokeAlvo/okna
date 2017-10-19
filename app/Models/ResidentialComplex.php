@@ -92,7 +92,7 @@ class ResidentialComplex extends Model
             },
             'houses',
             'layouts' => function ($q) use ($request) {
-                $q->select('id', 'residential_complex_id', 'rooms', 'area', 'thumbnail')
+                $q->select('id', 'residential_complex_id', 'rooms', 'area', 'thumbnail', 'main_image')
                     ->whereHas('apartments', function ($q) use ($request) {
                         if ($request->has('floor_range')) {
                             if (!empty($request->floor_range[0]) && !empty($request->floor_range[1])) {

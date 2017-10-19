@@ -63,7 +63,9 @@ Vue.component('pagination', {
             return this.current < this.totalPages;
         },
         changePage: function (page) {
-            this.$emit('page-changed', page)
+            if (page !== this.current) {
+                this.$emit('page-changed', page)
+            }
         }
     }
 });
