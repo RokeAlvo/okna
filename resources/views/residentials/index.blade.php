@@ -4,8 +4,6 @@
 
 @section('content')
     <h1>Новостройки Новосибирска</h1>
-
-    <div class="row">
         <div id="search-new-buildings" class="list-view">
             @foreach($residentials as $residential)
                 <div class="new-building-item" data-key="{{ $residential->id }}">

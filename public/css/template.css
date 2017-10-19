@@ -2503,19 +2503,16 @@ margin-left: -50%;
     background-color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     max-height: 90vh;
-    margin-left: 30px;
 }
 
 .popup-apartment {
     max-height: 510px;
     height: 90vh;
-    width: 1140px;
 }
 
 .popup-apartment-left {
-    width: 60%;
     height: 100%;
-    float: left;
+    width: 100%;
 }
 
 .popup-apartment-info {
@@ -2568,12 +2565,11 @@ margin-left: -50%;
 }
 
 .popup-apartment-right {
-    float: left;
-    width: 40%;
     height: 100%;
     background-color: #eff0f0;
     border-left: 1px solid #d6dcde;
     padding: 20px;
+    width: 100%;
     position: relative;
 }
 
@@ -2609,12 +2605,15 @@ margin-left: -50%;
 }
 
 .popup-apartment-cta-form {
-    bottom: 0;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
     position: absolute;
 }
 
 .popup-apartment-price {
     margin-left: -75px;
+
 }
 
 .popup-apartment-price-cta {
@@ -2622,23 +2621,9 @@ margin-left: -50%;
     padding: 12px 25px;
     width: 325px;
     position: relative;
-    transform: skew(-15deg);
-    -webkit-transform: skew(-15deg);
-    -moz-transform: skew(-15deg);
-    -o-transform: skew(-15deg);
-    -ms-transform: skew(-15deg);
     font-family: "Iosevka Bold";
     color: white;
     vertical-align: middle;
-    box-shadow: 0 2px 5px rgba(62, 64, 68, 0.4);
-    background: rgba(83,91,95,1);
-    background: -moz-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(83,91,95,1)), color-stop(100%, rgba(61,63,67,1)));
-    background: -webkit-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
-    background: -o-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
-    background: linear-gradient(135deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#535b5f', endColorstr='#3d3f43', GradientType=1 );;
 }
 
 .popup-apartment-price-cta span {
@@ -2646,15 +2631,6 @@ margin-left: -50%;
     font-size: 20px;
     display: inline-block;
     line-height: 25px;
-}
-
-.popup-apartment-price-cta span,
-.popup-apartment-price-cta button {
-    transform: skew(15deg);
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    -o-transform: skew(15deg);
-    -ms-transform: skew(15deg);
 }
 
 .popup-apartment-price-cta button {
@@ -2748,12 +2724,42 @@ margin-left: -50%;
 }
 
 .popup-apartment-phone {
-    padding-bottom: 20px;
     text-align: center;
 }
 
 .popup-apartment-floor {
     padding-top: 5px;
+}
+
+.popup-apartment .row {
+    height: 100%;
+}
+
+.popup-apartment-form .row {
+    margin: 0 -10px;
+}
+
+.popup-apartment-form .col-xs-6 {
+    padding: 0 10px;
+}
+
+@media (max-width: 1199px) {
+    .popup-apartment-price-cta {
+        min-width: 270px;
+        font-size: 16px;
+        width: 269px;
+        padding: 12px 22px;
+    }
+    .popup-apartment-price-cta span {
+        font-size: 18px;
+    }
+    .popup-apartment-payment {
+        font-size: 13px;
+    }
+    .popup-apartment-price-value b {
+        font-size: 16px;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -2763,8 +2769,188 @@ margin-left: -50%;
     .new-map .col-md-8 {
         padding-left: 0px;
     }
+    .popup-apartment .col-md-7 {
+        padding-right: 0;
+        height: 100%;
+    }
+    .popup-apartment .col-md-5 {
+        padding-left: 0;
+        height: 100%;
+    }
+    .popup-apartment-price-cta span,
+    .popup-apartment-price-cta button {
+        transform: skew(15deg);
+        -webkit-transform: skew(15deg);
+        -moz-transform: skew(15deg);
+        -o-transform: skew(15deg);
+        -ms-transform: skew(15deg);
+    }
+    .popup-apartment-price-cta {
+        transform: skew(-15deg);
+        -webkit-transform: skew(-15deg);
+        -moz-transform: skew(-15deg);
+        -o-transform: skew(-15deg);
+        -ms-transform: skew(-15deg);
+        box-shadow: 0 2px 5px rgba(62, 64, 68, 0.4);
+        background: rgba(83,91,95,1);
+        background: -moz-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(83,91,95,1)), color-stop(100%, rgba(61,63,67,1)));
+        background: -webkit-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: -o-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: -ms-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: linear-gradient(135deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#535b5f', endColorstr='#3d3f43', GradientType=1 );
+    }
 }
 @media (max-width: 991px) {
+    .popup-apartment-type {
+        color: #ffffff;
+        border: none;
+        box-shadow: 0 2px 5px rgba(62, 64, 68, 0.4);
+        background: rgba(83,91,95,1);
+        background: -moz-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(83,91,95,1)), color-stop(100%, rgba(61,63,67,1)));
+        background: -webkit-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: -o-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: -ms-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: linear-gradient(135deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#535b5f', endColorstr='#3d3f43', GradientType=1 );
+    }
+
+    .popup-apartment-type span + span {
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .popup-apartment-cta-form {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+        padding-top: 15px;
+    }
+
+    .popup-apartment {
+        max-height: 100%;
+    }
+
+    .popup-apartment-payment li {
+        padding: 8px 0;
+    }
+
+    .popup-apartment-payment {
+        border-bottom: 0;
+    }
+
+    .popup-apartment-price {
+        overflow: hidden;
+        margin-right: 0;
+        padding: 0 20px;
+    }
+
+    .popup-apartment-price-value div {
+        padding: 0;
+    }
+
+    .popup-apartment-price-value .popup-apartment-price-from {
+        padding: 0;
+        border-bottom: 0;
+    }
+
+    .popup-apartment-price-cta {
+        color: #262626;
+        padding: 0;
+        width: 230px;
+        min-width: 230px;
+        margin-top: 5px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .popup-apartment-price-value b {
+        font-size: 14px;
+    }
+
+    .popup-apartment-price-value {
+        color: #ffffff;
+    }
+
+    .popup-apartment-price-value {
+        float: right;
+        margin: 5px -32px 0 0;
+        padding: 5px 30px 5px 10px;
+        transform: skew(15deg);
+        -webkit-transform: skew(15deg);
+        -moz-transform: skew(15deg);
+        -o-transform: skew(15deg);
+        -ms-transform: skew(15deg);
+        box-shadow: 0 2px 5px rgba(62, 64, 68, 0.4);
+        background: rgba(83,91,95,1);
+        background: -moz-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(83,91,95,1)), color-stop(100%, rgba(61,63,67,1)));
+        background: -webkit-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: -o-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: -ms-linear-gradient(-45deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        background: linear-gradient(135deg, rgba(83,91,95,1) 0%, rgba(61,63,67,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#535b5f', endColorstr='#3d3f43', GradientType=1 );
+    }
+
+    .popup-apartment-price-value * {
+        transform: skew(-15deg);
+        -webkit-transform: skew(-15deg);
+        -moz-transform: skew(-15deg);
+        -o-transform: skew(-15deg);
+        -ms-transform: skew(-15deg);
+    }
+
+    .popup-apartment-price {
+        margin-left: 0;
+    }
+
+    .popup-apartment-form {
+        padding: 20px;
+    }
+
+    .popup-apartment-price-cta button {
+        display: none;
+    }
+    .popup-apartment-payment i {
+        width: 30px;
+        height: 30px;
+        background-size: 97%;
+    }
+    .popup-apartment {
+        height: auto;
+    }
+
+    .popup .container {
+        width: 430px
+    }
+
+    .popup-apartment-right {
+        height: 350px;
+        padding-top: 0;
+        border-left: 0;
+        border-top: 1px solid #d6dcde;
+    }
+
+    .popup-apartment-phone {
+        display: none;
+    }
+
+    .popup-apartment-floor {
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    .popup-apartment-left {
+        height: 350px;
+    }
+
+    .popup-apartment-wrapper img{
+        max-width: 100%;
+        max-height: 240px;
+    }
+
     .new-map .col-md-8 {
         float: none;
     }

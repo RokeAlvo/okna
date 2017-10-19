@@ -42,6 +42,7 @@
     @yield('styles')
 
     <script src="{{ url('/js/jquery.min.js') }}"></script>
+    <script src="{{ url('/js/bootstrap.min.js') }}"></script>
 
     @if(app('env') === 'production')
         @include('templates.analytics')
@@ -76,9 +77,8 @@
             </div>
         </div>
     </div>
-{{--
-@elseif(str_contains(url()->current(), url('residential-complex')))
---}}
+@elseif(str_contains(url()->current(), url('residential-complex/')))
+
 @else
     <div class="top-page-block">
         <div class="page-bg">
