@@ -3,10 +3,9 @@
 @section('title', 'Все о наиболее популярных застройщиках города Новосибирска')
 
 @section('content')
-    <h1>{{ $developer->name }}</h1>
-
-    <div class="developer-detail-box">
-        <div class="row">
+    <div class="container">
+        <h1>{{ $developer->name }}</h1>
+        <div class="developer-detail-box">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="property-developer-detail">
@@ -36,7 +35,10 @@
                     @endforeach
                 </div>
             </div>
-
+        </div>
+    </div>
+    @if(!$developer->features->isEmpty())
+        <div class="container">
             <div class="property-developer-features">
                 <h2>Особенности застройщика</h2>
 
@@ -46,7 +48,8 @@
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="property-developer-featuries-item">
                                 <div class="property-developer-featuries-number">
-                                    <h3>{{ $feature->title }} <span>{{ ($feature->subtitle) ? $feature->subtitle : "&nbsp;" }}</span></h3>
+                                    <h3>{{ $feature->title }}
+                                        <span>{{ ($feature->subtitle) ? $feature->subtitle : "&nbsp;" }}</span></h3>
                                 </div>
                                 <div class="property-developer-featuries-text">
                                     {{ $feature->text }}
@@ -54,20 +57,14 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div>
-
-            @if($developer->residentials->count())
-                <div class="property-developer-residential-complex">
-                    <h2>Новостройки от застройщика</h2>
-                    <div class="row">
-                        @foreach($developer->residentials as $residential)
-                            @include('residentials.card')
-                        @endforeach
-                    </div>
-                </div>
-            @endif
         </div>
-    </div>
+        @endif
+        {{--@foreach($developer->residentials as $residential)--}}
+        @include('residentials.card', ['residentials' => $developer->residentials])
+        {{--@endforeach--}}
+        </div>
+        </div>
+        </div>
 @endsection

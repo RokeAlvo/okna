@@ -3,6 +3,7 @@
 @section('title', 'Все о наиболее популярных застройщиках города Новосибирска')
 
 @section('content')
+    <div class="container">
     <h1>Новостройки Новосибирска</h1>
         <div id="search-new-buildings" class="list-view">
             @foreach($residentials as $residential)
@@ -80,5 +81,6 @@
             @endforeach
             {{ $residentials->render() }}
         </div>
+    </div>
     </div>
 @endsection

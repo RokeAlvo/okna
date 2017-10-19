@@ -25,6 +25,7 @@ h2 {
     color: #666869;
     font-size: 40px;
     font-family: "Iosevka Bold";
+    margin-bottom: 30px;
 }
 
 h3 {
@@ -66,6 +67,15 @@ h3 {
 }
 
 /* TOP MENU */
+
+.top-page-block {
+    margin-bottom: 20px;
+}
+
+.footer {
+    margin-top: 60px;
+}
+
 .top-menu {
     padding: 0;
     margin: 30px 0;
@@ -332,7 +342,6 @@ h3 {
 
 /* Content */
 .content {
-    margin: 20px 0 40px 0;
     min-height: 300px;
 }
 
@@ -846,7 +855,11 @@ iframe {
 
 .property-developer-residential-complex-info {
     padding: 20px;
-    min-height: 100px;
+    min-height: 300px;
+}
+
+.property-developer-residential-complex-info ul {
+    min-height: 107px;
 }
 
 .property-developer-residential-complex-thumb {

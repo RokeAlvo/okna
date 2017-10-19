@@ -1,8 +1,9 @@
 <section id="other-rc">
     <div class="container">
+        <h2>Новостройки от застройщика</h2>
         <div class="row">
-            @foreach($residential->developer->residentials as $residential)
-                <div class="col-md-3 col-sm-4">
+            @foreach($residentials as $residential)
+                <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="property-developer-residential-complex-item block-shadow">
                         <a href="{{ route('residentials.show', [$residential->alias]) }}">
                             <img class="img-responsive" src="{{ $residential->thumbnail }}"

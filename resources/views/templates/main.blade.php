@@ -78,7 +78,9 @@
         </div>
     </div>
 @elseif(str_contains(url()->current(), url('residential-complex/')))
-
+    <div class="gradient-black-menu">
+        @include('templates.topMenu')
+    </div>
 @else
     <div class="top-page-block">
         <div class="page-bg">
