@@ -11,6 +11,7 @@ class DeveloperController extends Controller
     public function index()
     {
         $developers = Developer::with('statistics')
+            ->active()
             ->get()
             ->sortByDesc(function ($residential) {
                 return count($residential->statistics);

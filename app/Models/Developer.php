@@ -31,5 +31,10 @@ class Developer extends Model
         return $q->where('alias', $alias)->limit(1);
     }
 
+    public function scopeActive($query, $status = true)
+    {
+        return $query->where('status', $status);
+    }
+
 
 }

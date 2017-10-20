@@ -59,7 +59,7 @@ class ResidentialComplexController extends Controller
         return view('residentials.show', compact('residential'));
     }
 
-    public function getOneRoomLayouts(Request $request)
+    /*public function getOneRoomLayouts(Request $request)
     {
         return response()->json(
             Layout::room($request->room)->transform(function ($layout) {
@@ -69,5 +69,5 @@ class ResidentialComplexController extends Controller
                 return $layout;
             })->get()
         );
-    }
+    }*/
 }

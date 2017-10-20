@@ -27,17 +27,23 @@
                                 <div class="popup-apartment-right">
                                     <ul class="popup-apartment-payment">
                                         <li>
-                                            <i style="background-image: url({{ url('/img/apartment/mortgage.png') }})"></i><span>Ипотека от 8% годовых</span>
+                                            <i style="background-image: url({{ url('/img/apartment/mortgage.png') }})"></i><span>Ипотека от {{ !empty($residential->mortgageOST) ? $residential->mortgageOST->percent_from : 9 }}% годовых</span>
                                         </li>
-                                        <li>
-                                            <i style="background-image: url({{ url('/img/apartment/installment.png') }})"></i><span>Рассрочка 0% годовых</span>
-                                        </li>
-                                        <li>
-                                            <i style="background-image: url({{ url('/img/apartment/trade-in.png') }})"></i><span>TRADE-in без переплат</span>
-                                        </li>
-                                        <li>
-                                            <i style="background-image: url({{ url('/img/apartment/down-payment.png') }})"></i><span>Ипотека без первоначального взноса</span>
-                                        </li>
+                                        @if(!empty($residential->installment))
+                                            <li>
+                                                <i style="background-image: url({{ url('/img/apartment/installment.png') }})"></i><span>Рассрочка {{ !empty($residential->installment->percent) ? $residential->installment->percent.'% годовых' : 'на выгодных условиях' }}</span>
+                                            </li>
+                                        @endif
+                                        @if(!empty($residential->tradeIn))
+                                            <li>
+                                                <i style="background-image: url({{ url('/img/apartment/trade-in.png') }})"></i><span>TRADE-in без переплат</span>
+                                            </li>
+                                        @endif
+                                        @if(!empty($residential->mortgageWIF))
+                                            <li>
+                                                <i style="background-image: url({{ url('/img/apartment/down-payment.png') }})"></i><span>Ипотека без первоначального взноса</span>
+                                            </li>
+                                        @endif
                                     </ul>
                                     <div class="popup-apartment-cta-form">
                                         <div class="popup-apartment-price">
@@ -53,8 +59,7 @@
                                         <div class="popup-apartment-form">
                                             <div class="row">
                                                 <div class="col-xs-6">
-                                                    <input type="hidden" name="layout_id" :value="layouts[selectedLayoutIndex].id">
-                                                    <input id="phone" type="text" v-model="phone" onclick="addInputMask(this)" placeholder="+7 (___) ___-__-__">
+                                                    <input type="text" name="client_phone" id="client-phone" onclick="addInputMask(this)" placeholder="+7 (___) ___-__-__">
                                                     <script>
                                                         function addInputMask(element) {
                                                             var options = {
@@ -70,7 +75,7 @@
                                                     </script>
                                                 </div>
                                                 <div class="col-xs-6">
-                                                    <button>Узнать цену</button>
+                                                    <button type="button" @click.prevent="storeRequest">Узнать цену</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -11,19 +11,16 @@ new Vue({
         currentPage: 0,
         rooms: [],
         floorRange: [],
-        areaRange: [],
-        phone: ''
+        areaRange: []
     },
     computed: {
         allRoomCheckbox: function () {
-            return this.rooms.length === 0? 'checked' : null
+            return this.rooms.length === 0 ? 'checked' : null
         }
     },
     methods: {
         fetchLayouts: function (page) {
-
             if (page > 0) {
-
                 var url = this.$route;
                 var options = {
                     params: {
@@ -48,8 +45,7 @@ new Vue({
                     });
             }
         },
-        checkAllRooms: function (e) {
-            console.log(e)
+        checkAllRooms: function () {
             if (!this.allRoomCheckbox) {
                 this.rooms = [];
                 this.fetchLayouts(1);
@@ -65,10 +61,15 @@ new Vue({
                 }
             };
             if (this.room !== room) {
-                this.$http.get(url, options).then(function (response) {
-                    this.oneRoomLayouts = response.data;
-                    this.room = room;
-                }, console.log);
+                this.$http
+                    .get(url, options)
+                    .then(function (response) {
+                        this.oneRoomLayouts = response.data;
+                        this.room = room;
+                    }, console.log)
+                    .catch(function () {
+                        setTimeout(this.fetchOneRoomLayouts, 900, room);
+                    });
             }
         },
         selectLayout: function (index) {
@@ -76,6 +77,28 @@ new Vue({
         },
         closePopup: function () {
             this.selectedLayoutIndex = -1;
+        },
+        storeRequest: function () {
+            var url = window.location.protocol + '//' +window.location.hostname + '/requests/store';
+            var options = {
+                params: {
+                    layout_id: this.layouts[this.selectedLayoutIndex].id,
+                    client_phone: $('#client-phone').val(),
+                    type: 1,
+                    _token: window.Laravel.csrfToken
+                },
+                headers: {
+                    'X-CSRF-TOKEN': window.Laravel.csrfToken
+                }
+            };
+            this.$http
+                .post(url, options)
+                .then(function (response) {
+                    console.log(response);
+                }, console.log)
+                .catch(function () {
+                    setTimeout(this.storeRequest, 900);
+                });
         }
     },
     created: function () {

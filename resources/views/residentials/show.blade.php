@@ -32,13 +32,15 @@
 
     {{--FEATURES--}}
 
-    @if (!empty($residential->features))
+    @if (!$residential->features->isEmpty())
         @include('residentials.features')
     @endif
 
     {{--GALLERY--}}
 
-    @include('residentials.gallery')
+    @if (!$residential->images->isEmpty())
+        @include('residentials.gallery')
+    @endif
 
     {{--MAP--}}
 
@@ -49,7 +51,8 @@
     @endif
 
     {{--OTHER-RC-COMPLEXES--}}
+
     @if(!$residential->developer->residentials->isEmpty())
-    @include('residentials.card', ['residentials' => $residential->developer->residentials])
+        @include('residentials.card', ['residentials' => $residential->developer->residentials])
     @endif
 @endsection
