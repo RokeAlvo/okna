@@ -11,6 +11,7 @@
     <script src="{{ url('js/residentials/pagination.js') }}"></script>
     <script src="{{ url('js/residentials/show.js') }}"></script>
     <script src="{{ url('js/popup.js') }}"></script>
+    <script src="{{ url('js/residentials/apartment-tooltip.js') }}"></script>
 @endsection
 
 @section('title', 'Все о наиболее популярных новостройках города Новосибирска')

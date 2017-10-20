@@ -1547,6 +1547,38 @@ iframe {
 	text-align: left;
 }
 
+.property-developer-search-filters-rooms-item {
+    position: relative;
+    text-align: left;
+    font-size: 16px ;
+}
+
+.property-developer-search-filters-rooms-item-wrapper {
+    padding: 2px 13px 2px 0;
+    display: inline-block;
+}
+
+.property-developer-search-filters-rooms-item-wrapper + .property-developer-search-filters-rooms-item-wrapper {
+    border-left: 1px solid #d1d3d5;
+    padding-left: 15px;
+}
+
+.property-developer-search-filters-rooms-item label {
+    margin-bottom: 0;
+}
+
+.property-developer-search-filters-rooms-item > input[type="checkbox"]:checked + label::before {
+    content: "";
+    height: 16px;
+    width: 15px;
+    background: url(/img/chek.png);
+    display: inline-block;
+    position: absolute;
+    left: 2px;
+    top: 0px;
+}
+
+.property-developer-search-filters-rooms-item label,
 .apartment_filter_number_rooms2  .apartment_filter_number_rooms_group > label {
 	cursor: pointer;
 	color: #a0a5a7;
@@ -1572,10 +1604,12 @@ iframe {
 	font-size: 12px;
 }
 
+.property-developer-search-filters-rooms-item > input[type="checkbox"],
 .apartment_filter_number_rooms2  .apartment_filter_number_rooms_group > input[type="checkbox"] {
 	display: none;
 }
 
+.property-developer-search-filters-rooms-item:before,
 .apartment_filter_number_rooms2  .apartment_filter_number_rooms_group .type-rooms-vlaue::before {
 	content: "";
 	display: inline-block;
@@ -1596,6 +1630,7 @@ iframe {
     top: 6px;
 }
 
+.property-developer-search-filters-rooms-item > input[type="checkbox"]:checked + label,
 .apartment_filter_number_rooms2  .apartment_filter_number_rooms_group > input[type="checkbox"]:checked + label {
 	color: #262626;
 }

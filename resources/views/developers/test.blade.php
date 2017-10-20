@@ -63,18 +63,43 @@
     @endif
     <section id="residentials">
         <div class="container">
+
+            {{--FILTERS--}}
+
             <div class="property-developer-search">
                 <div class="row">
                     <div class="col-md-9">
                         <div class="property-developer-search-filters">
                             <div class="property-developer-search-filters-rooms">
-                                <div class="property-developer-search-filters-rooms-item">
-                                    <input type="checkbox">
-                                    <lable>Все</lable>
+                                <div class="property-developer-search-filters-rooms-item-wrapper">
+                                    <div class="property-developer-search-filters-rooms-item">
+                                        <input type="checkbox" id="1">
+                                        <label for="1">Все</label>
+                                    </div>
                                 </div>
-                                <div class="property-developer-search-filters-rooms-item">
-                                    <input type="checkbox">
-                                    <lable>1-ком.</lable>
+                                <div class="property-developer-search-filters-rooms-item-wrapper">
+                                    <div class="property-developer-search-filters-rooms-item">
+                                        <input type="checkbox" id="2">
+                                        <label for="2">1-ком.</label>
+                                    </div>
+                                </div>
+                                <div class="property-developer-search-filters-rooms-item-wrapper">
+                                    <div class="property-developer-search-filters-rooms-item">
+                                        <input type="checkbox" id="2">
+                                        <label for="2">1-ком.</label>
+                                    </div>
+                                </div>
+                                <div class="property-developer-search-filters-rooms-item-wrapper">
+                                    <div class="property-developer-search-filters-rooms-item">
+                                        <input type="checkbox" id="2">
+                                        <label for="2">1-ком.</label>
+                                    </div>
+                                </div>
+                                <div class="property-developer-search-filters-rooms-item-wrapper">
+                                    <div class="property-developer-search-filters-rooms-item">
+                                        <input type="checkbox" id="2">
+                                        <label for="2">1-ком.</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="property-developer-search-filters-sliders">
@@ -93,12 +118,72 @@
                                 результаты поиска
                             </div>
                             <div class="property-developer-search-result-value">
-                                <span></span>
-                                <span></span>
+                                <span class="property-developer-search-result-value-number">
+                                    254
+                                </span>
+                                <span class="property-developer-search-result-value-description">
+                                    квартир подходящих под Ваш запрос
+                                </span>
                             </div>
                             <div class="property-developer-search-result-button">
-                                <button>Показать</button>
-                                <span></span>
+                                <div class="property-developer-search-result-button-left">
+                                    <button>Показать</button>
+                                </div>
+                                <div class="property-developer-search-result-button-right">
+                                    <button type="reset"><i></i><i></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{--RESIDENTIALS--}}
+
+            <div class="property-developer-rc">
+                <div class="property-developer-rc-block">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="property-developer-rc-left">
+                                <div class="property-developer-rc-left-content">
+                                    <div class="property-developer-rc-title">
+                                        <h3>Аврора</h3>
+                                        <div class="property-developer-rc-info">
+                                            <div class="property-developer-rc-info-item">
+                                                <img src="/img/developer/icon-map.png">
+                                                <div class="property-developer-rc-info-item-text">
+                                                    <div class="property-developer-rc-info-item-title">
+                                                        Район
+                                                    </div>
+                                                    <div class="property-developer-rc-info-item-description">
+                                                        Кировский
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="property-developer-rc-info-item">
+                                                <img src="/img/developer/icon-calendar.png">
+                                                <div class="property-developer-rc-info-item-text">
+                                                    <div class="property-developer-rc-info-item-title">
+                                                        Срок сдачи от
+                                                    </div>
+                                                    <div class="property-developer-rc-info-item-description">
+                                                        4 квартал 2018
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="property-developer-rc-actions">
+                                        <a>Способы оплаты</a>
+                                        <a>Посмотреть на карте</a>
+                                        <a>Подробнее о ЖК</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="property-developer-rc-right">
+
                             </div>
                         </div>
                     </div>

@@ -43,7 +43,10 @@
                                         <div class="popup-apartment-price">
                                             <div class="popup-apartment-price-cta">
                                                 <span>Актуальную цену</br>узнавайте в отделе продаж</span>
-                                                <button>i</button>
+                                                <button onclick="showTooltip(this)">i</button>
+                                                <div class="popup-apartment-tooltip">
+                                                    Стоимость квартиры может варьироваться от этажа, срока сдачи, способа покупки, площади, и множества других факторов.
+                                                </div>
                                             </div>
                                             <div class="popup-apartment-price-value">
                                                 <div class="popup-apartment-price-from">от <b>@{{layouts[selectedLayoutIndex].price_min_format}}</b><sup> руб.</sup></div>
