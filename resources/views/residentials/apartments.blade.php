@@ -57,8 +57,8 @@
                 <div class="row">
                     <div class="col-xs-five">
                         <div class="apartment_filter_number_rooms_group">
-                            <input type="checkbox" name="rooms" v-model="allRoomCheckbox" @change="checkAllRooms">
-                            <label for="all-rooms">
+                            <input type="checkbox" id="all-rooms" name="rooms" :checked="allRoomCheckbox">
+                            <label for="all-rooms" @click="checkAllRooms">
                                 <div class="type-rooms-vlaue">Все</div>
                                 <div class="cost-distance">
                                     {{ number_format($residential->ranges->min('price_min'), 0, ',', ' ') }}
