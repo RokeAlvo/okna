@@ -19,6 +19,11 @@ class ResidentialComplex extends Model
         return 'http://smartcrm.pro' . $value;
     }
 
+    /*public function getMainImageAttribute($value)
+    {
+        return 'http://okna.localhost' . $value;
+    }*/
+
     public function getBgImageOriginalAttribute($value)
     {
         return 'http://smartcrm.pro' . $value;
@@ -71,6 +76,26 @@ class ResidentialComplex extends Model
         return $this->hasMany('App\Layout');
     }
 
+    public function tradeIn()
+    {
+        return $this->hasOne('App\TradeIn');
+    }
+
+    public function installment()
+    {
+        return $this->hasOne('App\Installment');
+    }
+
+    public function mortgageOST()
+    {
+        return $this->hasOne('App\MortgageOST');
+    }
+
+    public function mortgageWIF()
+    {
+        return $this->hasOne('App\MortgageWIF');
+    }
+
 
     public function scopeActive($query, $status = true)
     {
@@ -105,7 +130,7 @@ class ResidentialComplex extends Model
                         }
                     })->with([
                         'apartments' => function ($q) {
-                            $q->select('id', 'layout_id', 'floor');
+                            $q->select('id', 'layout_id', 'floor', 'rooms');
                         }
                     ]);
                 if ($request->has('area_range')) {
@@ -129,10 +154,11 @@ class ResidentialComplex extends Model
             },
             'ranges' => function ($q) {
                 $q->orderBy('rooms');
-            },/*
-            'mortgage',
-            'trade-in',
-            'installment'*/
+            },
+            'mortgageOST',
+            'mortgageWIF',
+            'tradeIn',
+            'installment'
         ]);
     }
 

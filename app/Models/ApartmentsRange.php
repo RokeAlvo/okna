@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ApartmentsRange extends Model
 {
+
     public function getPriceRange()
     {
         return ($this->price_min == $this->price_max)

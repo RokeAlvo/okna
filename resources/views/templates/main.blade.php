@@ -41,6 +41,9 @@
 
     @yield('styles')
 
+    <script>
+        window.Laravel = {!! json_encode(['csrfToken' => csrf_token()]) !!}
+    </script>
     <script src="{{ url('/js/jquery.min.js') }}"></script>
     <script src="{{ url('/js/bootstrap.min.js') }}"></script>
 
@@ -89,10 +92,10 @@
     </div>
 @endif
 
-    <div class="content">
-        @include('templates.messages')
-        @yield('content')
-    </div>
+<div class="content">
+    @include('templates.messages')
+    @yield('content')
+</div>
 
 <div id="global-modal" class="modal fade in" tabindex="-1" role="dialog">
     <div class="global-modal-content"></div>
