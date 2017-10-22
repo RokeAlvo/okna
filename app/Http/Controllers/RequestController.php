@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateRequestRequest;
 use Illuminate\Http\Request;
 use App\Request as ClientRequest;
 
@@ -17,12 +18,11 @@ class RequestController extends Controller
         return view('requests.contacts');
     }
 
-    public function store(Request $request)
+    public function store(CreateRequestRequest $request)
     {
-        $this->validate($request, [
-            'client_phone' => 'required|string'
-        ]);
-        $clientRequest = ClientRequest::create($request->all());
-        return true;
+        $clientRequest = new ClientRequest;
+        $clientRequest->fill($request->only('client_phone', 'type', 'layout_id'));
+        $clientRequest = ClientRequest::firstOrCreate($clientRequest->toArray());
+        return ($clientRequest) ? 1 : 0;
     }
 }

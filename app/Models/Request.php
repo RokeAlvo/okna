@@ -17,5 +17,11 @@ class Request extends Model
         $this->attributes['client_phone'] = preg_replace("/[^0-9]/", "", $value);
     }
 
+    public function createIfNotExists($attributes) {
+        foreach ($attributes as $attr) {
+
+        }
+    }
+
 
 }

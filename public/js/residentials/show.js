@@ -11,11 +11,15 @@ new Vue({
         currentPage: 0,
         rooms: [],
         floorRange: [],
-        areaRange: []
+        areaRange: [],
+        requestSend: false
     },
     computed: {
         allRoomCheckbox: function () {
             return this.rooms.length === 0 ? 'checked' : null
+        },
+        requestStoreBtnText: function () {
+            return (!this.requestSend) ? 'Узнать цену' : 'Спасибо за заявку!'
         }
     },
     methods: {
@@ -79,26 +83,32 @@ new Vue({
             this.selectedLayoutIndex = -1;
         },
         storeRequest: function () {
-            var url = window.location.protocol + '//' +window.location.hostname + '/requests/store';
+            //var url = window.location.protocol + '//' +window.location.hostname + '/requests';
+            var url = 'http://okna.localhost/requests';
             var options = {
+                headers: {
+                    'X-CSRF-TOKEN': window.Laravel.csrfToken
+                },
                 params: {
                     layout_id: this.layouts[this.selectedLayoutIndex].id,
                     client_phone: $('#client-phone').val(),
                     type: 1,
                     _token: window.Laravel.csrfToken
-                },
-                headers: {
-                    'X-CSRF-TOKEN': window.Laravel.csrfToken
                 }
             };
             this.$http
-                .post(url, options)
-                .then(function (response) {
-                    console.log(response);
+                .post(url, options['params'], options['headers'])
+                .then(function (saveStatus) {
+                        this.requestSend = saveStatus;
+                        setTimeout(this.toggleRequestSend, 10000);
                 }, console.log)
-                .catch(function () {
-                    setTimeout(this.storeRequest, 900);
+                .catch(function (error) {
+                    console.log(error);
+                    setTimeout(this.storeRequest, 1000);
                 });
+        },
+        toggleRequestSend: function () {
+            this.requestSend = !this.requestSend;
         }
     },
     created: function () {

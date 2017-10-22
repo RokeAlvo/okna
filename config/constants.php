@@ -12,6 +12,10 @@ const SITE_CONTACTS = [
     'facebook' => 'https://www.facebook.com/groups/261802710882933',
 ];
 
+const MAILABLE = [
+    'ratibor' => 'ratiborro@gmail.com'
+];
+
 const SPECIFIC_RESIDENTIALS = [
     26 => 'Аврора',
     27 => 'Матрешкин двор',

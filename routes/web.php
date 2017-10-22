@@ -11,4 +11,4 @@ Route::get('residential-complex/{alias}', 'ResidentialComplexController@show')->
 
 Route::get('mortgage', 'RequestController@mortgage')->name('requests.mortgage');
 Route::get('contacts', 'RequestController@contacts')->name('requests.contacts');
-Route::post('requests/store', 'RequestController@store')->name('requests.store');
+Route::post('requests', 'RequestController@store')->name('requests.store');

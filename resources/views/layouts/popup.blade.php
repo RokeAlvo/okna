@@ -62,7 +62,7 @@
                                         <div class="popup-apartment-form">
                                             <div class="row">
                                                 <div class="col-xs-6">
-                                                    <input type="text" name="client_phone" id="client-phone" onclick="addInputMask(this)" placeholder="+7 (___) ___-__-__">
+                                                    <input v-if="!requestSend" type="text" name="client_phone" id="client-phone" onclick="addInputMask(this)" placeholder="+7 (___) ___-__-__">
                                                     <script>
                                                         function addInputMask(element) {
                                                             var options = {
@@ -78,7 +78,7 @@
                                                     </script>
                                                 </div>
                                                 <div class="col-xs-6">
-                                                    <button type="button" @click.prevent="storeRequest">Узнать цену</button>
+                                                    <button type="button" @click.prevent="storeRequest">@{{ requestStoreBtnText }}</button>
                                                 </div>
                                             </div>
                                         </div>
