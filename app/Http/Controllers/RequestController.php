@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateRequestRequest;
+use App\Mail\NewClientRequest;
 use Illuminate\Http\Request;
 use App\Request as ClientRequest;
+use Illuminate\Support\Facades\Mail;
 
 class RequestController extends Controller
 {
@@ -22,7 +24,12 @@ class RequestController extends Controller
     {
         $clientRequest = new ClientRequest;
         $clientRequest->fill($request->only('client_phone', 'type', 'layout_id'));
-        $clientRequest = ClientRequest::firstOrCreate($clientRequest->toArray());
+        $clientRequest = ClientRequest::with('layout.residential')->firstOrCreate($clientRequest->toArray());
+
+        if ($clientRequest->wasRecentlyCreated) {
+            Mail::to(MAILABLE)->send(new NewClientRequest($clientRequest));
+        }
+
         return ($clientRequest) ? 1 : 0;
     }
 }

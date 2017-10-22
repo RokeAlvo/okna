@@ -22,24 +22,16 @@ class Layout extends Model
         return $this->hasMany('App\ApartmentsRange', 'residential_complex_id', 'residential_complex_id');
     }
 
-
-    /*public function scopeRoom($q, $room)
-    {
-        return $q->select('id', 'residential_complex_id', 'rooms', 'area', 'thumbnail')
-            ->whereHas('apartments')
-            ->with([
-                'apartments' => function ($q) {
-                    $q->select('id', 'layout_id', 'floor');
-                }
-            ])
-            ->where('rooms', $room);
-    }*/
-
-
     public function apartments()
     {
         return $this->hasMany('App\Apartment');
     }
+
+    public function residential()
+    {
+        return $this->belongsTo('App\ResidentialComplex');
+    }
+
 
     public function calculateFloorRangeFromApartments()
     {

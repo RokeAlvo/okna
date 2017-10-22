@@ -13,7 +13,7 @@ const SITE_CONTACTS = [
 ];
 
 const MAILABLE = [
-    'ratibor' => 'ratiborro@gmail.com'
+    'ratiborro@gmail.com'
 ];
 
 const SPECIFIC_RESIDENTIALS = [
