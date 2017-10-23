@@ -9,7 +9,7 @@ class Request extends Model
     protected $table = 'requests';
 
     protected $fillable = [
-        'type', 'client_phone', 'client_name', 'layout_id', 'comment'
+        'type', 'client_name', 'client_phone', 'layout_id', 'comment'
     ];
 
 
@@ -19,7 +19,8 @@ class Request extends Model
     }
 
 
-    public function layout() {
+    public function layout()
+    {
         return $this->belongsTo('App\Layout');
     }
 

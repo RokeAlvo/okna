@@ -3,6 +3,6 @@
     <meta charset="text/html">
 </head>
 <body>
-<h1>Новая заявка по {{ $clientRequest->layout->residential->title }}!</h1>
+<h1>Новая заявка!</h1>
 </body>
 </html>

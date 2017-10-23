@@ -2,7 +2,10 @@
 
 @section('head-scripts')
     <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full&lazy=true"></script>
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.4/vue-resource.min.js"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    {{--<script src="{{ url('js/residentials/show.js') }}"></script>--}}
 @endsection
 
 @section('content')
@@ -46,7 +49,7 @@
                         <h3>Форма обратной связи</h3>
                         <form id="contact-form" class="custom-form" action="{{ route('requests.store') }}" method="post">
                             {{csrf_field()}}
-                            <input type="hidden"  class="form-control" name="type" value="2">
+                            <input type="hidden"  class="form-control" name="type" value="3">
                             <div class="row">
                                 <div class="col-xs-6">
                                     <div class="form-group field-contactform-name required">
@@ -56,7 +59,7 @@
                                 </div>
                                 <div class="col-xs-6">
                                     <div class="form-group field-contactform-phone required">
-                                        <input type="text" class="form-control" name="client_phone" placeholder="Контактный телефон" onclick="addInputMask(this)" aria-required="true">
+                                        <input type="text" id="client_phone" class="form-control" name="client_phone" placeholder="Контактный телефон" onclick="addInputMask(this)" aria-required="true">
                                         <script>
                                             function addInputMask(element) {
                                                 var options = {
@@ -79,7 +82,7 @@
                                 <p class="help-block help-block-error"></p>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-block btn-lg btn-custom-lg btn-green" name="contact-button">Отправить</button>
+                                <button class="btn btn-block btn-lg btn-custom-lg btn-green" name="contact-button" type="submit">Отправить</button>
                             </div>
                         </form>
                     </div>

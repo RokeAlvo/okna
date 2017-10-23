@@ -23,13 +23,19 @@ class RequestController extends Controller
     public function store(CreateRequestRequest $request)
     {
         $clientRequest = new ClientRequest;
-        $clientRequest->fill($request->only('client_phone', 'type', 'layout_id'));
+        $clientRequest->fill($request->only('client_name', 'client_phone', 'type', 'layout_id', 'comment'));
         $clientRequest = ClientRequest::with('layout.residential')->firstOrCreate($clientRequest->toArray());
 
         if ($clientRequest->wasRecentlyCreated) {
             Mail::to(MAILABLE)->send(new NewClientRequest($clientRequest));
         }
 
-        return ($clientRequest) ? 1 : 0;
+        if ($request->ajax()) {
+            return ($clientRequest) ? 1 : 0;
+        } else {
+            return ($clientRequest)
+                ? back()->with('message_success', 'Спасибо за заявку!')
+                : back()->with('message_error', 'Ошибка при сохранении заявки!');
+        }
     }
 }

@@ -100,7 +100,7 @@ new Vue({
                 this.$http
                     .post(url, options['params'], options['headers'])
                     .then(function (saveStatus) {
-                        this.requestSend = saveStatus;
+                        this.requestSend = true;
                         setTimeout(this.toggleRequestSend, 10000);
                     }, console.log)
                     .catch(function (error) {
