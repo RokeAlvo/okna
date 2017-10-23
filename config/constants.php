@@ -13,7 +13,7 @@ const SITE_CONTACTS = [
 ];
 
 const MAILABLE = [
-    'ratiborro@gmail.com'
+    'ads@oknareal.com'
 ];
 
 const SPECIFIC_RESIDENTIALS = [
