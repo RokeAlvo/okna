@@ -13,7 +13,9 @@ const SITE_CONTACTS = [
 ];
 
 const MAILABLE = [
-    'ads@oknareal.com'
+    //'ads@oknareal.com'
+    //'albertovna2405@mail.ru'
+    'ratiborro@gmail.com'
 ];
 
 const SPECIFIC_RESIDENTIALS = [

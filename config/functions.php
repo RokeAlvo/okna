@@ -10,11 +10,19 @@ function getRanges($nums)
         while (isset($nums[$i + 1]) && $nums[$i + 1] - $nums[$i] == 1) {
             $rEnd = $nums[++$i];
         }
-        $ranges[] = ($rStart == $rEnd)
+        if ($rStart == $rEnd) {
+            $ranges[] = $rStart;
+        } elseif ($rEnd == $rStart + 1) {
+            $ranges[] = $rStart;
+            $ranges[] = $rEnd;
+        } else {
+            $ranges[] = $rStart . '-' . $rEnd;
+        }
+        /*$ranges[] = ($rStart == $rEnd)
             ? $rStart
             : (($rEnd == $rStart + 1)
                 ? ($rStart . ',' . $rEnd)
-                : ($rStart . '-' . $rEnd));
+                : ($rStart . '-' . $rEnd));*/
     }
     return $ranges;
 }

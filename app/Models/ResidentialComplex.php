@@ -19,11 +19,6 @@ class ResidentialComplex extends Model
         return 'http://smartcrm.pro' . $value;
     }
 
-    /*public function getMainImageAttribute($value)
-    {
-        return 'http://okna.localhost' . $value;
-    }*/
-
     public function getBgImageOriginalAttribute($value)
     {
         return 'http://smartcrm.pro' . $value;

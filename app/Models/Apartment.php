@@ -10,4 +10,9 @@ class Apartment extends Model
     {
         return $this->belongsTo('App\Layout');
     }
+
+    public function house()
+    {
+        return $this->belongsTo('App\House');
+    }
 }

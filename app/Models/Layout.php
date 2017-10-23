@@ -16,6 +16,11 @@ class Layout extends Model
         return 'http://smartcrm.pro' . $value;
     }
 
+    public function getMainImageOriginalAttribute($value)
+    {
+        return 'http://smartcrm.pro' . $value;
+    }
+
 
     public function ranges()
     {
@@ -27,31 +32,63 @@ class Layout extends Model
         return $this->hasMany('App\Apartment');
     }
 
-    public function residential()
+    public function residentialComplex()
     {
         return $this->belongsTo('App\ResidentialComplex');
     }
 
 
-    public function calculateFloorRangeFromApartments()
+    public function calculateFloorRangeFromApartments($type = 'short')
     {
         $floors = $this->apartments->pluck('floor')->toArray();
         $this->floor_range = getRanges($floors);
         $this->floor_min = min($floors);
         $this->floor_max = max($floors);
 
-        if (count($this->floor_range) > 2) {
-            $this->floor_range = implode(',', array_slice($this->floor_range, 0, 2)) . ' и др. этажи';
-        } elseif (count($this->floor_range) > 1) {
-            $this->floor_range = implode(',', $this->floor_range) . ' этажи';
-        } else {
-            $this->floor_range = implode(',', $this->floor_range) . ' этаж';
+        if ($type == 'short') {
+            if (count($this->floor_range) > 3) {
+                $this->floor_range = implode(',', array_slice($this->floor_range, 0, 3)) . ' и др. этажи';
+            } elseif (count($this->floor_range) > 1) {
+                $this->floor_range = implode(',', $this->floor_range) . ' этажи';
+            } else {
+                $this->floor_range = implode(',', $this->floor_range) . ' этаж';
+            }
+        } elseif ($type == 'full') {
+            if (count($this->floor_range) > 1) {
+                $this->floor_range = implode(',', $this->floor_range) . ' этажи';
+            } else {
+                $this->floor_range = implode(',', $this->floor_range) . ' этаж';
+            }
         }
+        return $this->floor_range;
     }
 
-    public function getRoomLabel()
+    public function getPriceRange()
     {
-        $this->room_label = !empty(ROOMS['short'][$this->rooms]) ? ROOMS['short'][$this->rooms] : 'Квартира';
+        $apartments = $this->apartments;
+        $this->apartment_price_min = $apartments->min('price');
+        $this->apartment_price_max = $apartments->max('price');
+        $this->apartment_price_range = ($this->apartment_price_min == $this->apartment_price_max)
+            ? number_format($this->apartment_price_min, 0, ',', ' ')
+            : number_format($this->apartment_price_min, 0, ',', ' ') . ' - ' . number_format($this->apartment_price_max, 0, ',', ' ');
+        return $this->apartment_price_range;
+    }
+
+    public function getPriceMeterRange()
+    {
+        $apartments = $this->apartments;
+        $this->apartment_price_meter_min = $apartments->min('price_meter');
+        $this->apartment_price_meter_max = $apartments->max('price_meter');
+        $this->apartment_price_meter_range = ($this->apartment_price_meter_min == $this->apartment_price_meter_max)
+            ? number_format($this->apartment_price_meter_min, 0, ',', ' ')
+            : number_format($this->apartment_price_meter_min, 0, ',', ' ') . ' - ' . number_format($this->apartment_price_meter_max, 0, ',', ' ');
+        return $this->apartment_price_meter_range;
+    }
+
+    public function getRoomLabel($type = 'short')
+    {
+        $this->room_label = !empty(ROOMS[$type][$this->rooms]) ? ROOMS[$type][$this->rooms] : 'Квартира';
+        return $this->room_label;
     }
 
     public function getRoomPriceRange()

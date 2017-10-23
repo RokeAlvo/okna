@@ -24,7 +24,7 @@ class RequestController extends Controller
     {
         $clientRequest = new ClientRequest;
         $clientRequest->fill($request->only('client_name', 'client_phone', 'type', 'layout_id', 'comment'));
-        $clientRequest = ClientRequest::with('layout.residential')->firstOrCreate($clientRequest->toArray());
+        $clientRequest = ClientRequest::firstOrCreate($clientRequest->toArray());
 
         if ($clientRequest->wasRecentlyCreated) {
             Mail::to(MAILABLE)->send(new NewClientRequest($clientRequest));

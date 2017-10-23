@@ -24,4 +24,12 @@ class Request extends Model
         return $this->belongsTo('App\Layout');
     }
 
+
+    public function getFormattedClientPhone()
+    {
+        return '+' . substr($this->client_phone, 0, 1)
+            . ' (' . substr($this->client_phone, 1, 3) . ') '
+            . substr($this->client_phone, 4, 3)
+            . ' - ' . substr($this->client_phone, 7);
+    }
 }
