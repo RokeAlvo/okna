@@ -1,11 +1,32 @@
 <html lang="ru">
 <head>
     <meta charset="text/html">
+    <style>
+        p {
+            color: #AFB2B3;
+            margin: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        li span+span {
+            color: #262626;
+        }
+        .left-span {
+            width: 170px;
+            color: #898989;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
 @if($clientRequest->type == 1)
-    <p>{{ $layout->residentialComplex->developer->name }}</p>
     <h1>{{ $layout->residentialComplex->title }}</h1>
+    <p>{{ $layout->residentialComplex->developer->name }}</p>
     <ul>
         <li>Кол-во комнат: <span>{{ $layout->getRoomLabel('full') }}</span></li>
         <li>Площадь: <span>{{ $layout->area }}</span></li>

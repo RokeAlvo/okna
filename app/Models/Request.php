@@ -30,6 +30,6 @@ class Request extends Model
         return '+' . substr($this->client_phone, 0, 1)
             . ' (' . substr($this->client_phone, 1, 3) . ') '
             . substr($this->client_phone, 4, 3)
-            . ' - ' . substr($this->client_phone, 7);
+            . '-' . substr($this->client_phone, 7);
     }
 }
