@@ -143,7 +143,7 @@
             <div class="property-developer-rc">
                 <div class="property-developer-rc-block">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-8 col-lg-9">
                             <div class="property-developer-rc-left"
                                  style="background-image: url('https://novosibirsk.okna-novostroyki.com/uploads/residentials/3/HgfDTvnjwXeB7bCN.jpg')">
                                 <div class="property-developer-rc-left-content">
@@ -182,7 +182,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4 col-lg-8">
                             <div class="property-developer-rc-right">
                                 <div class="property-developer-rc-apartments">
                                     <div class="property-developer-rc-apartments-amount">
