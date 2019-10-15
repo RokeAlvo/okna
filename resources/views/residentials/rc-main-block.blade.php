@@ -14,18 +14,13 @@
                                         <li><a href="{{ route('developers.show', [$residential->developer->alias]) }}">{{ $residential->developer->name }}</a></li>
                                         <li class="active">{{ $residential->title }}</li>
                                     </ul>
-                                    <p>{{ $residential->description }}</p>
+                                    <p>{!! $residential->description !!}</p>
 
                                     <ul class="list-unstyled list-params mb10">
                                         <li>Застройщик:<span>{{ $residential->developer->name }}</span></li>
-                                        <li>Район:
-                                            <span>{{ ($residential->district) ? $residential->district->name : "Не указано" }}</span>
-                                        </li>
-                                        <li>Срок сдачи
-                                            от:<span>{{ $residential->getHousesCompletionDatesRange() }}</span>
-                                        </li>
-                                        <li>Класс
-                                            жилья:<span>{{ COMFORT_CLASSES[$residential->comfort_class] }}</span>
+                                        <li>Район:<span>{{ ($residential->district) ? $residential->district->name : "Не указано" }}</span></li>
+                                        <li>Срок сдачи от:<span>{{ $residential->getCompletionDate() }}</span></li>
+                                        <li>Класс жилья:<span>{{ COMFORT_CLASSES[$residential->comfort_class] }}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -36,7 +31,7 @@
                                     <div class="rc-feature">
                                         <img src="{{ url('/img/price-icon.png') }}">
                                         <p>Цена от</p>
-                                        <p class="rc-feature-big-number"><?= number_format($residential->price_meter_from, 0, ',', ' ') ?></p>
+                                        <p class="rc-feature-big-number">{{ number_format($residential->price_meter_from, 0, ',', ' ') }}</p>
                                         <p>руб/м<sup>2</sup></p>
                                     </div>
                                 @endif

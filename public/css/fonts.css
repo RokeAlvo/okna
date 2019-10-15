@@ -6,7 +6,7 @@
         url('../fonts/Iosevka-Bold.woff') format('woff'),
         url('../fonts/Iosevka-Bold.ttf') format('truetype'),
         url('../fonts/Iosevka-Bold.svg#Iosevka-Bold') format('svg');
-        font-weight: normal;
+    font-weight: normal;
     font-style: normal;
 }
 

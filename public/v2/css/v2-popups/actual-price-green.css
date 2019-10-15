@@ -1,0 +1,1396 @@
+.popup-right {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+
+.popup-apartment-specifications-title {
+    color: #7C858B;
+    font-size: 100%;
+    font-family: Montserrat Regular;
+    white-space: nowrap;
+    padding: 0;
+    padding-bottom: 5px;
+}
+
+.call-some-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 23px;
+}
+
+
+
+.popup-apartment-specifications-value {
+
+    font-family: MontserratBold;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+
+    color: #42484D;
+
+    opacity: 0.8;
+}
+
+.call-some__text {
+    font-family: Montserrat;
+
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+
+    color: #7C858B;
+    margin-bottom: 5px;
+}
+
+.sale-popup-wrapper {
+    width: 100%;
+    position: absolute;
+
+    left: -48px;
+    top: 20px;
+    position: absolute;
+    right: calc(93% - 35px);
+    /* left: calc(16% - 50px);
+    top: 20px; */
+
+}
+
+.sale-icon {
+    width: 84px;
+    height: 77px;
+    position: absolute;
+    z-index: 3;
+
+    background: url('/img/sale.svg');
+    cursor: pointer;
+}
+
+.sale-text--hiden~.sale-text {
+    display: none;
+}
+
+.sale-departes {
+    font-weight: 600;
+}
+
+.sale-text {
+    z-index: 1;
+    position: absolute;
+    left: 50px;
+    max-width: 375px;
+    /* height: 86px; */
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #FDFDFD;
+    background: #2E9C46;
+    box-shadow: 0px 16px 25px rgba(90, 88, 99, 0.1);
+    border-radius: 8px;
+    padding: 11px 34px;
+    padding-left: 40px;
+}
+
+.sale-text div {
+    text-decoration: underline;
+}
+
+.button__phone__input__back-phone {
+    background: #FDFDFD;
+    border: 1px solid rgba(167, 203, 213, 0.1);
+    box-shadow: inset 0px 0px 4px rgba(90, 88, 99, 0.15);
+    border-radius: 100px;
+    padding: 13px 23px;
+
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #5A5863;
+
+}
+
+.input__back-phone {
+    margin: 0 auto;
+    background: #FDFDFD;
+    border: 1px solid rgba(167, 203, 213, 0.1);
+    box-shadow: inset 0px 0px 4px rgba(90, 88, 99, 0.15);
+    border-radius: 100px;
+    padding: 13px 23px;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #5A5863;
+    position: relative;
+}
+
+
+
+
+.button__phone__input__back-phone--hiden {
+    display: none;
+}
+
+.to-order-call__input__back-phone--hiden {
+    display: none;
+}
+
+.btn--hiden~.button__phone__input__back-phone {
+    display: block;
+    transition: 1s ease;
+    margin: 0 auto;
+}
+
+.btn--hiden {
+    display: none;
+}
+
+
+
+.modal-bottom {
+    text-align: center;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #7C858B;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 17px;
+    opacity: 0.5;
+    max-width: 240px;
+}
+
+.modal-bottom__conf {
+    margin-bottom: 5px;
+}
+
+.modal-bottom__conf a {
+    color: #7C858B;
+
+    text-decoration: underline;
+}
+
+.time-job {
+    display: none;
+}
+
+.input__back--phone--hiden {
+    display: none;
+}
+
+.main-phone {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    text-decoration-line: underline;
+
+    color: #5A5863;
+
+    opacity: 0.9;
+    width: 155px;
+    margin: 0 auto;
+}
+
+.main-phone:hover {
+    color: #5A5863;
+
+    opacity: 0.9;
+}
+
+
+.popup-apartment-specifications-title.callback {
+    padding: 10px 0;
+}
+
+.popup-apartment-payment-methods {
+    padding-left: 10px;
+    font-family: Montserrat Regular;
+}
+
+.popup-text-info {
+    color: #fff;
+
+    font-family: MontserratBold;
+    padding-bottom: 5px;
+}
+
+.methods-pay {
+    color: #1F1D39;
+    font-size: 115%;
+    font-family: Montserrat Regular;
+    padding: 12px 0 10px 0;
+}
+
+
+.plan-image {
+    margin: auto;
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.plan-image-box {
+    /* padding: 25px 16px; */
+    width: 85vw;
+    height: 85vw;
+    padding: 25px 15px;
+    margin: 0 auto;
+
+
+}
+
+.welcome__bottom {
+    display: none;
+}
+
+.number-room-wrapper:last-child {
+    margin-right: 0;
+    width: 44%;
+}
+
+.price-number-wrapper--call {
+    padding-bottom: 25px;
+}
+
+.number-room-date {
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    background: #fff;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.plan-info {
+    border-top: 1px solid #EFEFF1;
+    display: flex;
+    justify-content: space-between;
+    align-content: stretch;
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    width: 88%;
+    /* min-width: 270px; */
+
+}
+
+.plan-info-cont-wrapper {
+    background: #FFFFFF;
+    /* padding: 30px; */
+}
+
+.popup-apartment-specifications-title.confidential-policy {
+    font-size: 83%;
+    color: #7C858B;
+    font-family: Montserrat Regular;
+    padding: 15px 0 15px 0;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+
+}
+
+.confidential-policy a {
+    color: #4EBB00;
+    font-weight: bold;
+    display: inline;
+}
+
+.method {
+    display: flex;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    padding: 10px 10px 10px 20px;
+    margin-bottom: 20px;
+}
+
+.price-number-wrapper {
+    background: #EFEFF1;
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 95%;
+    min-width: 270px;
+}
+
+.welcome-wrapper {
+    background: #EFEFF1;
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 95%;
+    min-width: 270px;
+}
+
+.popup-text-under {
+    font-family: Montserrat Regular;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #7C858B;
+}
+
+.popup-text-under span {
+    font-weight: 600;
+}
+
+.price-number-wrapper b a {
+    font-size: 172%;
+    text-decoration: none;
+    color: #1F1D39;
+    font-family: MontserratBold;
+}
+
+.button__phone a {
+    text-decoration: none;
+}
+
+.number-send {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 14px;
+}
+
+.label--green-btn {
+    display: none;
+}
+
+.bottom__phone {
+    display: none;
+}
+
+.number-button {
+    cursor: pointer;
+    background: #5DBF16;
+    box-shadow: 0px 8px 15px rgba(66, 72, 77, 0.1);
+    border-radius: 68px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #FAFBFB;
+    padding: 15px 0;
+    transition: 0.5s ease;
+
+}
+
+.number-button:hover {
+    background: #6CA100;
+}
+
+.number-button:active {
+    box-shadow: none;
+}
+
+.know-price {
+    width: 100%;
+    max-width: 273px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.number-placeholder {
+    margin: 0 auto;
+    max-width: 273px;
+    min-width: 240px;
+    box-sizing: border-box;
+    /* padding-right: 0;  */
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+.input__back-phone {
+    width: 100%;
+    background: #FDFDFD;
+    border: 1px solid rgba(167, 203, 213, 0.1);
+    box-shadow: inset 0px 0px 4px rgba(90, 88, 99, 0.15);
+    border-radius: 100px;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 1px;
+
+    color: #5A5863;
+}
+
+.input__back-phone:hover {
+    border: 1px solid rgba(167, 203, 213, 0.3);
+}
+
+.input__back-phone:focus {
+    border: 1px solid rgba(167, 203, 213, 0.5);
+    box-shadow: none;
+}
+
+.input__back-phone::placeholder {
+    color: #5A5863;
+
+    /* #5A5863 */
+    opacity: 0.4;
+}
+
+.popup-phone-box {
+
+
+    padding: 26px 10px 17px 10px;
+    margin: 0 auto;
+    width: 84%;
+    min-width: 270px;
+}
+
+.schedule {
+    line-height: 24px;
+    width: 249px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-bottom: 27px;
+
+}
+
+.to-order-call {
+    display: none;
+}
+
+.time {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #42484D;
+
+    opacity: 0.7;
+}
+
+.popup-text-welcome {
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #5A5863;
+
+    /* #5A5863 */
+    opacity: 0.9;
+    width: 225px;
+    margin: 0 auto;
+    padding-top: 71px;
+    margin-bottom: 20px;
+}
+
+.popup-text-welcome-under {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #7C858B;
+    width: 244px;
+    margin: 0 auto;
+    margin-bottom: 31px;
+    padding-bottom: 70px;
+}
+
+.btn--white {
+    cursor: pointer;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 15px rgba(66, 72, 77, 0.1);
+    border-radius: 68px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #5A5863;
+    opacity: 0.9;
+    padding: 13px 0;
+    margin: 0 auto;
+    width: 88%;
+    position: relative;
+    max-width: 273px;
+
+
+}
+
+.btn--white a {
+    padding-left: 19px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #5A5863;
+}
+
+.btn--white:hover {
+    transition: 0.5s;
+    color: #5A5863;
+    box-shadow: 0px 4px 10px rgba(66, 72, 77, 0.1);
+}
+
+.btn--white:active {
+    box-shadow: none;
+}
+
+.button__phone {
+    display: block;
+    text-decoration: none;
+    min-width: 240px;
+    margin: 0 auto;
+}
+
+
+.button__phone::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: url(/img/phone-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    position: absolute;
+    left: calc(38% - 65px);
+
+    top: 17px;
+}
+
+.button__phone~.input__back-phone {
+    display: none;
+}
+
+.close-popup {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    z-index: 10;
+}
+
+.method span {
+    display: inline;
+}
+
+.marg-15 {
+    padding-left: -15px;
+    padding-right: -15px;
+}
+
+.popup-body {
+
+    /* overflow: scroll; */
+    padding: 0;
+    max-width: 630px;
+    min-height: 1000px;
+    background: #FFFFFF;
+    position: relative;
+    width: 84.37%;
+    min-width: 270px;
+
+}
+
+.popup-body::-webkit-scrollbar {
+    display: none;
+}
+
+.house-info {
+    /* display: flex; */
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    padding: 10px 10px 10px 20px;
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 15px;
+
+}
+
+.pad-left {
+    padding-left: 5px;
+}
+
+.wrapper-string {
+    display: flex;
+}
+
+.info-popup-title {
+    font-size: 16px;
+    font-family: Montserrat Regular;
+    color: #1F1D39;
+    padding: 20px;
+
+}
+
+.info-popup-wrapper {
+    background: #fff;
+    border-radius: 5px;
+    /* box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15); */
+    box-shadow: 0px 4px 15px rgba(26, 23, 64, 0.1);
+    margin-bottom: 20px;
+}
+
+.data-popup {
+    color: #9DA0A3;
+    font-family: Montserrat Regular;
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+.data-popup-base {
+    color: #42484D;
+    font-family: Montserrat Regular;
+    font-size: 14px;
+}
+
+.info-popup-wrapper-list {
+    display: block;
+    border-top: 1px #D9DDDF solid;
+    margin: 0 30px 0 30px;
+    padding: 20px 0;
+}
+
+.info-popup-wrapper-list-item {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.info-popup-wrapper-list-item>div {
+    width: 100%;
+}
+
+.table-wrapper {
+    border-radius: 0 0 5px 5px;
+}
+
+.popup .accordion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 20px;
+    width: 100%;
+}
+
+.popup .accordion:after {
+    content: 'Показать';
+    margin: 25px 0;
+    width: 130px;
+    color: #56B811;
+    font-family: MontserratBold;
+
+    border-left: 1px solid #C8CFD3;
+}
+
+.popup .accordion-active:after {
+    content: 'Скрыть';
+    color: #56B811;
+
+}
+
+.popup-apartment-form-success {
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+
+.call-self {
+    color: #fff;
+    text-align: right;
+
+}
+
+.call-self a,
+.call-self a:hover {
+    font-family: MontserratBold;
+    color: #fff;
+}
+
+.info-popup-title-full {
+    display: inline;
+}
+
+.info-popup-title-short {
+    display: none;
+}
+
+.popup-text-info span {
+    display: none;
+}
+
+
+.popup-text-info img {
+    position: absolute;
+    top: -5px;
+    left: -40px;
+}
+
+.popup-text-title-rub {
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #5A5863;
+
+    /* #5A5863 */
+    opacity: 0.9;
+    width: 84%;
+    margin: 0 auto;
+}
+
+.close-popup-m {
+    display: none;
+}
+
+.input__back-phone--error {
+
+    border: 1px solid rgba(185, 86, 15, 0.3);
+    color: #B37D57;
+}
+
+.input__back-phone--error:hover {
+    border: 1px solid rgba(185, 86, 15, 0.3);
+    color: #B37D57;
+}
+
+.schedule-req {
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #42484D;
+    opacity: 0.5;
+    width: 209px;
+    margin: 0 auto;
+    padding-top: 9px;
+    padding-bottom: 20px;
+}
+
+.call-some-wrapper a {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #5A5863;
+
+    opacity: 0.9;
+    text-decoration: underline;
+}
+
+.number-room-wrapper--deadline:last-child {
+    width: unset;
+}
+
+@media(min-width:0px) and (max-width:768px) {
+    .info-popup-wrapper-list {
+        margin: 0 15px;
+    }
+
+    .popup .accordion {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0 10px 20px;
+        width: 100%;
+    }
+
+    .popup .accordion:after {
+        content: url('/img/down.png');
+        margin: 15px 0;
+        width: 60px;
+        border-left: none;
+    }
+
+    .popup .accordion-active:after {
+        content: url('/img/up.png');
+    }
+
+
+    .was-passed {
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+        background: #fff;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .call-back {
+        padding: 10px 15px;
+        background: #4EBB00;
+        color: #fff;
+        font-size: 110%;
+        font-family: Montserrat Regular;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .call-button-box {
+        display: flex;
+        background: #fff;
+        font-family: MontserratBold;
+        color: #4EBB00;
+        font-size: 122%;
+        margin: 10px 20px;
+        padding: 15px 20px;
+        border-radius: 30px;
+        justify-content: center;
+    }
+
+    .call-image img {
+        padding-right: 10px;
+    }
+
+    .call-back a {
+        display: block;
+        color: #4EBB00;
+        text-decoration: none;
+    }
+
+    .all-rooms-popup {
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+        background: #fff;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+        color: #4EBB00;
+        font-size: 120%;
+        font-family: MontserratBold;
+        text-align: center;
+    }
+
+    .close-popup-m {
+        transform: rotate(-90deg);
+        cursor: pointer;
+        position: absolute;
+        right: calc(93% - 35px);
+        top: 47%;
+        /* margin-bottom: -65px; */
+        padding: 10px;
+        font-family: MontserratSemiBold;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 110%;
+        z-index: 10;
+        letter-spacing: 0.2em;
+        display: flex;
+    }
+
+    .close-popup-m img {
+        padding-right: 15px;
+    }
+
+    .popup-apartment-specifications-title {
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: 0.1px;
+
+        color: #7C858B;
+
+        opacity: 0.9;
+    }
+
+    .method {
+        display: block;
+        padding: 10px 10px 10px 20px;
+        margin-bottom: 20px;
+        padding: 10px 10px 10px 15px;
+    }
+
+    .popup-apartment-payment-methods {
+        color: #111;
+        font-size: 14px;
+        font-family: Montserrat Regular;
+        padding-left: 0;
+    }
+
+
+    .call-text {
+        font-size: 13px;
+        font-family: Montserrat Regular;
+
+    }
+
+    .call-button {
+        font-size: 14px;
+        font-family: MontserratBold;
+
+    }
+
+    .call-button-box {
+
+        margin: 15px 5px 3px 5px;
+        padding: 10px 5px;
+        line-height: 1;
+        vertical-align: 0%;
+    }
+
+    .call-back {
+        margin-bottom: 15px;
+    }
+
+    .house-info {
+        /* display: flex; */
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+        padding: 10px 10px 10px 20px;
+        margin-bottom: 10px;
+        padding: 10px 10px 10px 15px;
+
+    }
+
+    .pad-left {
+        padding-left: 5px;
+    }
+
+    .date-width {
+        margin: 0 0 20px 0;
+        width: 100%;
+    }
+
+    .info-popup-title {
+        font-size: 14px;
+    }
+
+    .info-popup-title-full {
+        display: none;
+    }
+
+    .info-popup-title-short {
+        display: inline;
+    }
+
+    .popup-text-info {
+        font-size: 16px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .popup {
+        width: 100%;
+    }
+
+    .popup-apartment-specifications-title {
+        font-size: 14px;
+        line-height: 25px;
+        letter-spacing: 0.1px;
+
+        color: #7C858B;
+
+        opacity: 0.9;
+    }
+
+    .popup-apartment-specifications-value {
+        font-weight: 600;
+        font-size: 26px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+
+        color: #42484D;
+
+        opacity: 0.8;
+    }
+
+    .plan-info {
+        padding-top: 23px;
+        width: 570px;
+        padding-bottom: 37px;
+    }
+
+    .plan-image-box {
+        width: 450px;
+        height: 300px;
+        padding: 0;
+        margin: 50px auto;
+    }
+
+    .number-room-wrapper {
+        margin-right: 0;
+    }
+
+    .number-room-wrapper:first-child {
+        width: 110px;
+
+    }
+
+    .number-room-wrapper:nth-child(2) {
+        width: 90px;
+
+    }
+
+    .number-room-wrapper:last-child {
+        width: 345px;
+    }
+
+    .price-number-wrapper {
+        width: 90%;
+        padding-bottom: 20px;
+    }
+
+    .number-send {
+        flex-direction: row;
+    }
+
+    .time-job {
+        display: block;
+    }
+
+    .call-some-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 380px;
+        margin: 0 auto;
+        padding-bottom: 0;
+    }
+
+    .call-some-wrapper a {
+        text-decoration: underline;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .modal-bottom {
+        max-width: 470px;
+    }
+
+    .popup-text-info {
+
+        padding-bottom: 18px;
+    }
+
+    .popup-phone-box {
+        width: 100%;
+        padding-bottom: 28px;
+    }
+
+
+
+    .price-number-wrapper--call {
+        padding-bottom: 26px;
+    }
+
+    .button__phone {
+        background: inherit;
+        box-shadow: none;
+
+        padding: 0;
+        margin-bottom: 25px;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: 0.1px;
+        color: #5A5863;
+        opacity: 0.9;
+        max-width: 278px;
+        padding-left: 33px;
+    }
+
+    .button__phone:hover {
+        box-shadow: none;
+        border: none;
+    }
+
+    .button__phone a {
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 24px;
+    }
+
+    .button__phone::before {
+        top: 0px;
+        left: 1px;
+        width: 22px;
+        height: 22px;
+        background-size: 22px;
+    }
+
+
+    .to-order-call {
+        display: block;
+        cursor: pointer;
+        /* width: 278px; */
+        padding: 13px 39px;
+        font-size: 16px;
+        line-height: 24px;
+        max-width: 278px;
+    }
+
+    .to-order-call~.input__back-phone {
+        display: none;
+    }
+
+    .to-order-call:hover {
+        box-shadow: 0px 4px 10px rgba(66, 72, 77, 0.1);
+    }
+
+    .to-order-call:active {
+        box-shadow: none;
+    }
+
+    .btn--hiden {
+        display: none;
+
+    }
+
+    .label--green-btn {
+        display: none;
+        width: 63px;
+        height: 48px;
+        position: relative;
+        left: 390px;
+        bottom: 28px;
+        background: #5DBF16;
+        box-shadow: 0px 8px 15px rgba(66, 72, 77, 0.1);
+        border-radius: 68px;
+
+    }
+
+    .label--green-btn:hover {
+        background: #6CA100;
+    }
+
+    .label--green-btn::before {
+        content: '';
+        width: 43px;
+        height: 24px;
+        background: url('/img/Vector.svg');
+
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 0;
+        top: 10px;
+
+    }
+
+    .btn--hiden~.input__back-phone {
+        width: 281px;
+        padding-left: 13px;
+        display: block;
+        padding-right: 63px;
+        transition: 1s;
+    }
+
+    .input__back-phone:hover {
+        border: 1px solid rgba(167, 203, 213, 0.3);
+    }
+
+    .input__back-phone:focus {
+        border: 1px solid rgba(167, 203, 213, 0.5);
+        box-shadow: none;
+    }
+
+    .input__back-phone--error {
+
+        border: 1px solid rgba(185, 86, 15, 0.3);
+        color: #B37D57;
+    }
+
+    .input__back-phone--error:hover {
+        border: 1px solid rgba(185, 86, 15, 0.3);
+        color: #B37D57;
+    }
+
+    .btn--hiden~.label--green-btn {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+    }
+
+    .popup-text-welcome {
+        width: 250px;
+        margin: 0 auto;
+        padding-top: 46px;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+        letter-spacing: 0.1px;
+
+        color: #5A5863;
+
+        /* #5A5863 */
+        opacity: 0.9;
+    }
+
+    .popup-text-welcome-under {
+        width: 472px;
+        font-size: 16px;
+        padding-bottom: 0;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: 0.1px;
+
+        color: #7C858B;
+        margin-bottom: 33px;
+    }
+
+    .schedule {
+        display: flex;
+        width: 355px;
+        line-height: 24px;
+        justify-content: space-between;
+    }
+
+    .bottom__phone a {
+        background: inherit;
+        box-shadow: none;
+        pointer-events: none;
+        padding: 0;
+        padding-bottom: 25px;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: 0.1px;
+        color: #5A5863;
+        opacity: 0.9;
+        max-width: 278px;
+        padding-left: 33px;
+        text-decoration: none;
+        min-width: 240px;
+        margin: 0 auto;
+    }
+
+    .bottom__phone::before {
+        content: '';
+        width: 23px;
+        height: 23px;
+        background: url(/img/phone-icon.svg);
+        background-size: 23px;
+        background-repeat: no-repeat;
+        position: absolute;
+        left: 0;
+        top: 3px;
+
+    }
+
+    .input__back-phone--green-icon {
+        width: unset;
+    }
+
+    .schedule-req {
+        font-size: 16px;
+        line-height: 24px;
+        width: 280px;
+    }
+
+    .number-placeholder {
+        padding: 0;
+        margin-left: 20px;
+        max-width: 237px;
+    }
+
+    .know-price {
+        padding: 0;
+        margin-right: 20px;
+    }
+
+    .popup-text-title-rub {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .welcome__bottom {
+        display: block;
+        padding-bottom: 33px;
+        position: relative;
+        max-width: 278px;
+        margin: 0 auto;
+    }
+
+    .popup-text-under {
+        width: 446px;
+        margin: 0 auto;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .popup-text-under--deadline {
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: 0.1px;
+        color: #7C858B;
+        width: 400px;
+    }
+
+    .popup-text-under--deadline-phone {
+        width: 435px;
+    }
+
+    .number-room-wrapper--deadline:last-child {
+        text-align: right;
+        width: 170px;
+    }
+
+    .plan-info-cont-wrapper {
+        position: relative;
+    }
+
+    .popup-body {
+        min-height: 900px;
+    }
+
+    .btn--white a {
+        padding: 0;
+    }
+
+}
+
+
+
+
+
+.info-popup-wrapper {
+    margin-bottom: 20px;
+}
+
+.info-popup-wrapper-list-item {
+    flex-direction: column;
+    padding: 8px 0;
+}
+
+.data-popup {
+    padding-bottom: 1px;
+}
+
+.popup-text-info span {
+    display: inline-block;
+}
+
+.popup-text-info img {
+    display: none;
+}
+
+.maxsize-wrapper {
+    display: none;
+}
+
+.minsize-wrapper {
+    display: none;
+}

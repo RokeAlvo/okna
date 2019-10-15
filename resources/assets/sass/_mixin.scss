@@ -1,0 +1,28 @@
+$phone: 320px;
+$tablet: 768px;
+$pc: 1024px;
+$pc-md: 1240px;
+$pc-extra: 1920px;
+@mixin respond-to($media) {
+  @if $media == phone {
+    @media only screen and (min-width: $phone) and (max-width: $tablet) {
+      @content;
+    }
+  } @else if $media == tablet {
+    @media only screen and (min-width: $tablet) {
+      @content;
+    }
+  } @else if $media == pc {
+    @media only screen and (min-width: $pc) {
+      @content;
+    }
+  } @else if $media == pc-md {
+    @media only screen and (min-width: $pc-md) {
+      @content;
+    }
+  } @else if $media == pc-extra {
+    @media only screen and (min-width: $pc-extra) {
+      @content;
+    }
+  }
+}

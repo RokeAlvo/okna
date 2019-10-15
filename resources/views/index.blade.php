@@ -1,8 +1,8 @@
 @extends('templates.main')
 
-@section('title', '«Окна - новостройки» портал о недвижимости в Новосибирске')
-@section('description', 'Вся информация о наиболее выгодных предложениях по продаже новостроек в городе Новосибирск. Портал предлагает полный список предложений для будущих жильцов.')
-@section('keywords', 'новостройки, Новосибирск, портал')
+@section('title', '«Окна - новостройки» портал о недвижимости в ' . SITE_CONTACTS[getUrlPathFirstPart()]['cityNameForms'][5])
+@section('description', 'Вся информация о наиболее выгодных предложениях по продаже новостроек в городе ' . SITE_CONTACTS[getUrlPathFirstPart()]['cityNameForms'][0] . '. Портал предлагает полный список предложений для будущих жильцов.')
+@section('keywords', 'новостройки, ' . SITE_CONTACTS[getUrlPathFirstPart()]['cityNameForms'][0] . ', портал')
 
 @section('content')
     <div class="container">
@@ -90,7 +90,7 @@
                             <div class="col-md-6">
                                 <div class="about-company-img">
                                     <img src="{{ url('/img/about_company_home.png') }}"
-                                         alt="<{{ SITE_CONTACTS['company_name'] }}">
+                                         alt="<{{ SITE_CONTACTS[getUrlPathFirstPart()]['company_name'] }}">
                                 </div>
                             </div>
                         </div>

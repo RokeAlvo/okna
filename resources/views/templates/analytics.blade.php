@@ -11,7 +11,7 @@
         a.src = g;
         m.parentNode.insertBefore(a, m)
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-86186445-1', 'auto');
+    ga('create', 'UA-86186445-3', 'auto');
     ga('send', 'pageview');
 </script>
 
@@ -30,73 +30,57 @@
     var google_remarketing_only = true;
     /* ]]> */
 </script>
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 829808782;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/829808782/?guid=ON&amp;script=0"/>
+    </div>
+</noscript>
 
-
-{{-- Yandex.Metrika --}}
-<script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function () {
             try {
-                w.yaCounter40405240 = new Ya.Metrika({
-                    id: 40405240,
-                    clickmap: true,
-                    trackLinks: true,
-                    accurateTrackBounce: true,
-                    webvisor: true
-                });
+                    @if(!empty(SITE_CONTACTS[getUrlPathFirstPart()]))
+                        w.yaCounter{{SITE_CONTACTS[getUrlPathFirstPart()]['yandexMetrika']}} = new Ya.Metrika2({
+                            id:{{SITE_CONTACTS[getUrlPathFirstPart()]['yandexMetrika']}},
+                            clickmap: true,
+                            trackLinks: true,
+                            accurateTrackBounce: true,
+                            webvisor: true
+                        });
+                    @endif
             } catch (e) {
             }
         });
 
         var n = d.getElementsByTagName("script")[0],
             s = d.createElement("script"),
-            f = function () {
-                n.parentNode.insertBefore(s, n);
-            };
+            f = function () { n.parentNode.insertBefore(s, n); };
         s.type = "text/javascript";
         s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        s.src = "https://mc.yandex.ru/metrika/tag.js";
 
         if (w.opera == "[object Opera]") {
             d.addEventListener("DOMContentLoaded", f, false);
-        } else {
-            f();
-        }
-    })(document, window, "yandex_metrika_callbacks");
+        } else { f(); }
+
+    })(document, window, "yandex_metrika_callbacks2");
 </script>
 <noscript>
-    <div><img src="https://mc.yandex.ru/watch/40405240" style="position:absolute; left:-9999px;" alt=""/></div>
-</noscript>
-
-
-{{-- Callibri --}}
-<script src="//cdn.callibri.ru/callibri.js" type="text/javascript"></script>
-
-
-{{-- Rating@Mail.ru counter --}}
-<script type="text/javascript">
-    var _tmr = window._tmr || (window._tmr = []);
-    _tmr.push({id: "2846152", type: "pageView", start: (new Date()).getTime()});
-    (function (d, w, id) {
-        if (d.getElementById(id)) return;
-        var ts = d.createElement("script");
-        ts.type = "text/javascript";
-        ts.async = true;
-        ts.id = id;
-        ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
-        var f = function () {
-            var s = d.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(ts, s);
-        };
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else {
-            f();
-        }
-    })(document, window, "topmailru-code");
-</script>
-<noscript>
-    <div style="position:absolute;left:-10000px;">
-        <img src="//top-fwz1.mail.ru/counter?id=2846152;js=na" style="border:0;" height="1" width="1" alt="Рейтинг@Mail.ru"/>
+    <div>
+            @if(!empty(SITE_CONTACTS[getUrlPathFirstPart()]))
+                <img src="https://mc.yandex.ru/watch/@php echo SITE_CONTACTS[getUrlPathFirstPart()]['yandexMetrika'];@endphp" style="position:absolute; left:-9999px;" alt=""/>
+            @endif
     </div>
 </noscript>
+<!-- /Yandex.Metrika counter -->

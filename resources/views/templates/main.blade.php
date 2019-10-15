@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    @include('templates.google-tag-manager-head')
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
@@ -19,6 +22,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="{{url('/img/favicon/favicon-96x96.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{url('/img/favicon/favicon-16x16.png')}}">
     <link rel="manifest" href="{{url('/img/favicon/manifest.json')}}">
+    <link href='{{ route('sitemap') }}' rel='alternate' title='Sitemap' type='application/rss+xml'/>
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{url('/img/favicon/ms-icon-144x144.png')}}">
     <meta name="theme-color" content="#ffffff">
@@ -49,30 +53,63 @@
 
     @if(app('env') === 'production')
         @include('templates.analytics')
+    @else
+        <script>
+          // Emulate function "ga" for develop mode,
+          // if "ga" is "undefined", scripts with "ga" break
+          // in development mode
+          if( typeof window.ga === 'undefined' || !window.ga ) {
+            window.ga = function () {
+              // Do nothing
+            };
+          }
+        </script>
     @endif
-
+    <script>
+        function reachGoal(alias)
+        {
+            $.ajax({
+                type: "POST",
+                url: "{{ '/' . getUrlPathFirstPart() . '/goals/create' }}",
+                data: {goal : alias, _token : "{!! csrf_token() !!}"},
+                success: function( msg ) {
+                    console.log(msg);
+                },
+                error: function( error ) {
+                    console.log('Ошибка при сохранении цели');
+                }
+            });
+        }
+    </script>
     @yield('head-scripts')
 
 </head>
 <body>
-
+@include('templates.google-tag-manager-body')
 <div class="stick-phone">
     <i class="fa fa-phone stick-phone-button" aria-hidden="true"></i>
     <div class="stick-phone-value">
-        <p>Отдел продаж:</p>{{ SITE_CONTACTS['phone'] }}
+        <p>Отдел продаж:</p>{!! SITE_CONTACTS[getUrlPathFirstPart()]['phone'] !!}
     </div>
 </div>
 @if(url()->current() == route('site.index'))
-    <div class="main-bg">
+        @if(getUrlPathFirstPart() !== 'novosibirsk' && file_exists( public_path() . SITE_CONTACTS[getUrlPathFirstPart()]['background']))
+            @php
+                $background = SITE_CONTACTS[getUrlPathFirstPart()]['background'];
+            @endphp
+            <div class="main-bg" style="background-image: url({{ url($background) }})">
+            @else
+            <div class="main-bg">
+        @endif
         @include('templates.topMenu')
         <div class="container main-block-content-middle">
             <div class="top-text-wrapper">
-                <h1>Проверенные новостройки Новосибирска</h1>
+                <h1>Проверенные новостройки {{SITE_CONTACTS[getUrlPathFirstPart()]['cityNameForms'][1]}}</h1>
                 <p>Найди свою идеальную квартиру</p>
 
                 <div class="top-search">
                     <div class="decor">
-                        <a class="btn btn-lg btn-round btn-yellow btn-custom-lg btn-shadow" href="{{ route('residentials.index') }}">Найти прямо
+                        <a class="btn btn-lg btn-round btn-yellow btn-custom-lg btn-shadow" href="{{ route('residentials.spa') }}">Найти прямо
                             сейчас</a>
                     </div>
                 </div>
@@ -80,7 +117,25 @@
             </div>
         </div>
     </div>
-@elseif(str_contains(url()->current(), url('residential-complex/')))
+@elseif(str_contains(url()->current(), url(getUrlPathFirstPart() . '/residential-complex/')))
+    <div id="top-sticky-menu-wrapper">
+        <div class="container">
+
+            <div class="pull-left">
+                <div class="top-sticky-menu-working-hours">
+                    <i class="fa fa-clock-o"></i> ПН - ПТ с 9:00 до 18:00
+                </div>
+            </div>
+
+            <div class="pull-right">
+                <div class="top-sticky-menu-phone">
+                    <i class="fa fa-mobile"></i> Отдел продаж: <span>{!! SITE_CONTACTS[getUrlPathFirstPart()]['phone'] !!}</span>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
     <div class="gradient-black-menu">
         @include('templates.topMenu')
     </div>
@@ -105,15 +160,15 @@
 
 <script>
     var mql = window.matchMedia('only screen and (min-width: 991px)'),
-        handleMQL = function (mql) {
-            if (mql.matches) {
-                $('.panel-collapse').addClass("in").removeAttr('style');
-                $('.label-collapse').removeClass("collapsed");
-            } else {
-                $('.panel-collapse').removeClass("in").removeAttr('style');
-                $('.label-collapse').addClass("collapsed");
-            }
-        };
+            handleMQL = function (mql) {
+                if (mql.matches) {
+                    $('.panel-collapse').addClass("in").removeAttr('style');
+                    $('.label-collapse').removeClass("collapsed");
+                } else {
+                    $('.panel-collapse').removeClass("in").removeAttr('style');
+                    $('.label-collapse').addClass("collapsed");
+                }
+            };
     mql.addListener(handleMQL);
     handleMQL(mql);
 </script>
@@ -123,6 +178,22 @@
         $(".stick-phone-value").toggleClass("stick-phone-active");
     });
 </script>
+
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 875956403;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/875956403/?guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+
 
 @yield('footer-scripts')
 </body>

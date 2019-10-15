@@ -26,7 +26,8 @@ class CreateRequestRequest extends FormRequest
         return [
             'client_phone' => 'required',
             'type' => 'required|integer',
-            'layout_id' => 'required_if:type,1|integer|exists:layouts,id'
+            'layout_id' => 'required_if:type,1|integer|exists:layouts,id',
+            'residential_complex_id' => 'required_if:type,4|integer|exists:residential_complexes,id'
         ];
     }
 }

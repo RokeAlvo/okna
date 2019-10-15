@@ -62,11 +62,22 @@
                                             Отдел продаж:
                                         </div>
                                         <div class="new-map-info-element-value-description">
-                                            {{ SITE_CONTACTS['phone'] }}
+                                            {!! SITE_CONTACTS[getUrlPathFirstPart()]['phone'] !!}
                                         </div>
                                     </div>
                                 </div>
                             @endif
+                            <div class="new-map-info-element">
+                                <!-- <img src="/img/map-developer.png"> -->
+                                <div class="new-map-info-element-value">
+                                    <div class="new-map-info-element-value-title">
+                                        <!-- Застройщик: -->
+                                    </div>
+                                    <div class="new-map-info-element-value-description project-declaration">
+                                        Ссылка на <a href="{{ $residential->project_declaration }}" target="_blank">проектную декларацию</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

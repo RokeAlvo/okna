@@ -40,6 +40,11 @@ h3 {
     }
 }
 
+@media (max-width: 768px) {
+.container {
+    width: 100%;
+}
+}
 .navbar-default {
     background: transparent;
     border-color: inherit;
@@ -143,6 +148,14 @@ h3 {
     text-align: right;
     margin: 15px 0 0 0;
     float: right;
+}
+
+.top-menu-phone > a {
+    color: #ffc90f;
+}
+
+.popup-apartment-phone .main-phone {
+    color: #262626;
 }
 
 .top-menu-phone i,
@@ -299,6 +312,7 @@ h3 {
     background: #ffffff;
 }
 
+
 @media (max-width: 991px) {
     .top-text-wrapper p {
         font-size: 30px;
@@ -358,8 +372,20 @@ h3 {
     margin: 0;
 }
 
-.footer-action-block p span {
+/* .main-phone {
     color: #ffc90f;
+}
+.main-phone:hover {
+    color: #ffc90f;
+} */ 
+/* #212121 */
+.main-phone {
+    color: #ffc90f; 
+}
+
+.main-phone:hover {
+    color: #ffc90f;
+    /* text-decoration: none; */
 }
 
 .footer-copyright-block {
@@ -405,9 +431,9 @@ h3 {
     text-align: right;
 }
 
-iframe {
+/* iframe {
     display: none;
-}
+} */
 
 @media (max-width: 991px) {
     .footer-copyright-block,
@@ -626,7 +652,9 @@ iframe {
     margin: 0;
     padding: 0;
 }
-
+.contact-info ul li a {
+    color: #666869;
+}
 .contact-info ul li {
     font-size: 16px;
     font-weight: 100;
@@ -704,10 +732,76 @@ iframe {
     font-size: 16px;
 }
 
+.developer-detail-box {
+    margin-bottom: 30px;
+}
+
 .property-developer-detail {
     background: #fff;
     padding: 30px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.property-developer-detail-logo-wrapper {
+    margin-top: -50px;
+    padding-bottom: 20px;
+}
+.property-developer-detail-logo {
+    display: inline-block;
+    padding: 20px;
+    background: white;
+    border: 1px solid #d3d5d6;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.property-developer-number {
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin-bottom: 20px;
+    padding: 22px 30px 39px;
+    overflow: hidden;
+}
+
+.property-developer-number-description,
+.property-developer-number-value {
+    display: inline-block;
+    font-family: 'Iosevka Bold';
+}
+
+.property-developer-number-value {
+    font-size: 60px;
+    color: #4ebb00;
+    line-height: 1;
+    margin-right: 5px;
+}
+
+.property-developer-number-description {
+    font-size: 24px;
+    line-height: 26px;
+    text-transform: uppercase;
+}
+
+.property-developer-number-notation {
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px 30px;
+    font-size: 12px;
+    letter-spacing: 10px;
+    color: #949799;
+    background-color: #e9eced;
+}
+
+.property-developer-number-image {
+    position: absolute;
+    right: 10px;
+    top: 30px;
 }
 
 /*PROPERTY-DEVELOPER-STATISTIC*/
@@ -1178,6 +1272,140 @@ iframe {
     font-family: "Century Gothic";
 }
 
+/* Residential Complexes */
+
+.new-building-filter {
+    border: 1px solid #969797;
+    margin-bottom: 45px;
+}
+
+.new-building-filter-block {
+    padding: 20px 20px 15px;
+}
+
+.new-building-filter-block + .new-building-filter-block {
+    border-top: 1px solid #cfd0d1;
+}
+
+.accordion-triangle {
+    display: inline-block;
+    width: 16px;
+    height: 9px;
+    background-image: url('/img/residential/accordion-triangle.png');
+}
+.new-building-filter select,
+.new-building-filter input[type=number] {
+    border: 1px solid #d3d6d7;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    padding-left: 5px;
+    width: 100%;
+}
+
+.new-building-filter input[type=checkbox] {
+    opacity: 0;
+    width: 26px;
+    height: 17px;
+    margin-top: 0;
+}
+
+.new-building-filter input + label:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+    background-color: #d1d3d4;
+    top: 3px;
+}
+
+.new-building-filter input[type=checkbox]:checked + label:before {
+    background: url('/img/residential/check-mark.png') center center no-repeat #4ebb00;
+    background-size: 80%;
+}
+
+.new-building-filter label {
+    font-weight: normal;
+    cursor: pointer;
+    margin: 0;
+}
+
+.new-building-filter-block-title {
+    color: #262626;
+    font-size: 14px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+.new-building-filter-block-title i {
+    transition: transform ease-out 0.2s;
+    transform: rotate(180deg);
+}
+
+.new-building-filter-block-title.collapsed i {
+    transform: rotate(0deg);
+}
+
+.new-building-filter-block-content-wrapper {
+    overflow: hidden;
+}
+
+.new-building-filter-block-content {
+    padding-bottom: 5px;
+}
+
+.new-building-filter-block-content.collapse-in {
+    display: none;
+}
+
+.new-building-filter-block-title span {
+    margin-left: 10px;
+}
+
+.new-building-filter-block-content .row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.new-building-filter-block-content .col-md-12,
+.new-building-filter-block-content .col-md-6 {
+    padding: 10px 10px 0;
+}
+
+.new-building-filter-block-item {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+
+.new-building-filter-block-item .new-building-filter-block-item-left,
+.new-building-filter-block-item .new-building-filter-block-item-right {
+    display: table-cell;
+}
+
+.new-building-filter-block-item-left {
+    width: 27px;
+}
+
+.new-building-filter-button {
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: 'Iosevka Medium';
+    text-transform: uppercase;
+    background-color: #ffc90f;
+    color: #534104;
+    width: 100%;
+    line-height: 1;
+    padding: 10px;
+    border: none;
+    box-shadow: 0 1px 3px rgba(255, 201, 15, 0.6);
+    margin-bottom: 5px;
+}
+
+.new-building-filter-button:hover {
+    background-color: #ffd106;
+    box-shadow: 0 1px 1px rgba(255, 201, 15, 0.6);
+}
+
 .new-building-item {
     margin: 0 0 20px 0;
 }
@@ -1393,7 +1621,9 @@ iframe {
     font-family: "Iosevka Bold";
     text-align: center;
     padding: 30px 30px 20px;
-    border-bottom: 1px solid #d3d6d7;
+    /*border-bottom: 1px solid #d3d6d7;*/
+
+    min-height: 100px;
 }
 
 .mortgage-features sup {
@@ -1414,7 +1644,8 @@ iframe {
 
 .mortgage-description {
     padding: 30px 30px 15px;
-    min-height: 282px;
+    /*min-height: 282px;*/
+    min-height: 343px;
 }
 
 .mortgage-description ol {
@@ -1606,7 +1837,10 @@ iframe {
 
 .property-developer-search-filters-rooms-item > input[type="checkbox"],
 .apartment_filter_number_rooms2  .apartment_filter_number_rooms_group > input[type="checkbox"] {
-	display: none;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
 }
 
 .property-developer-search-filters-rooms-item:before,
@@ -1651,4 +1885,27 @@ iframe {
 
 #gallery {
     margin-bottom: 30px;
+}
+
+.oferta{
+    font-size: 11px;
+}
+.project-declaration{
+    font-size: 11px;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: #262626;
+}
+.project-declaration a{
+    color: #262626;
+    text-decoration: underline;
+}
+.footer-oferta{
+    color: #fff;
+}
+.partners{
+    padding: 50px 30px;
 }

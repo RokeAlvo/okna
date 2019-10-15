@@ -1,0 +1,518 @@
+.modal-apartment-img {
+    display: table-cell;
+    vertical-align: middle;
+    height: 570px;
+    text-align: center;
+    width: 569px;
+    padding: 30px;
+}
+
+.modal-apartment-img img {
+    max-height: 510px;
+}
+
+.modal-on-detail-rc .custom-form .form-control {
+    height: auto;
+    font-size: 16px;
+    color: #666869;
+    background: #ffffff;
+    padding: 10px 16px;
+    border-radius: 0px;
+    border: 1px solid #d3d6d7;
+    margin-top: 15px;
+    box-shadow: none;
+    font-family: "Iosevka Light";
+}
+
+.apartment-modal-form .row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.apartment-modal-form .col-xs-6 {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.modal-apartment-content {
+    height: 570px;
+    padding: 30px;
+    background-color: #eff0f0;
+    position: relative;
+}
+
+.modal-apartment-container {
+}
+
+.apartment-modal-form-cta {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.modal-on-detail-rc .custom-form .btn {
+    margin-bottom: 15px;
+    padding: 13px 0px 12px 0px;
+    font-size: 16px;
+}
+
+.modal-on-detail-rc .modal-footer {
+    padding: 30px;
+    border: none;
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    left: 0px;
+}
+
+.modal-on-detail-rc .modal-body {
+    text-align: left;
+    padding: 30px 0px 0px 0px;
+}
+
+.modal-on-detail-rc .modal-title {
+    text-align: left;
+    font-family: 'Iosevka Bold';
+    text-transform: uppercase;
+    font-size: 28px;
+    color: #666869;
+    padding-top: 10px;
+    padding-left: 0px;
+}
+
+.modal-apartment-info {
+    border-bottom: 1px dashed gray;
+    position: relative;
+    height: 16px;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.modal-apartment-info img {
+    margin-top: -5px;
+    padding-right: 10px;
+    background-color: #eff0f0;
+    width: 28px;
+}
+
+.modal-apartment-info span {
+    background-color: #eff0f0;
+}
+
+.modal-apartment-info .modal-apartment-info-value {
+    float: right;
+    width: 230px;
+    background: #eff0f0;
+    color: #262626;
+}
+
+.modal-on-detail-rc .close {
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+.modal-on-detail-rc .apartment-description {
+    text-align: center;
+    font-family: 'Iosevka Medium';
+    font-size: 18px;
+    padding: 15px 0px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #d3d6d7;
+    margin-bottom: 30px;
+    color: #262626;
+}
+
+.modal-on-detail-rc .modal-header {
+    padding: 0px;
+    border-bottom: 3px solid #c1c5c5;
+}
+
+.modal-on-detail-rc .info-privacy {
+    background: #e5e9ea;
+    padding: 30px;
+    text-align: center;
+}
+
+.modal-on-detail-rc .info-privacy i {
+    margin-right: 15px;
+}
+
+.modal-footer-phone {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-apartment-phone {
+    height: 49px;
+    border-radius: 0;
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.modal-button {
+    box-shadow: 0px 2px 10px 0px rgba(119, 43, 5, 0.5);
+    background: rgba(250, 153, 68, 1);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(250, 153, 68, 1)), color-stop(100%, rgba(232, 100, 39, 1)));
+    background: -webkit-linear-gradient(top, rgba(250, 153, 68, 1) 0%, rgba(232, 100, 39, 1) 100%);
+    background: linear-gradient(to bottom, rgba(250, 153, 68, 1) 0%, rgba(232, 100, 39, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa9944', endColorstr='#e86427', GradientType=0);
+    color: white;
+    border: 1px solid rgb(232, 101, 39);
+    text-shadow: 0px -1px 1px #a53704;
+}
+
+.modal-button:focus {
+    background: rgba(250, 153, 68, 1);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(250, 153, 68, 1)), color-stop(100%, rgba(232, 100, 39, 1)));
+    background: -webkit-linear-gradient(top, rgba(250, 153, 68, 1) 0%, rgba(232, 100, 39, 1) 100%);
+    background: linear-gradient(to bottom, rgba(250, 153, 68, 1) 0%, rgba(232, 100, 39, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa9944', endColorstr='#e86427', GradientType=0);
+    color: white;
+    color: white;
+    border: 1px solid rgb(232, 101, 39);
+    text-shadow: 0px -1px 1px #a53704;
+}
+
+.modal-button:hover {
+    background: rgba(255, 161, 79, 1);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 161, 79, 1)), color-stop(100%, rgba(240, 108, 51, 1)));
+    background: -webkit-linear-gradient(top, rgba(255, 161, 79, 1) 0%, rgba(240, 108, 51, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 161, 79, 1) 0%, rgba(240, 108, 51, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa14f', endColorstr='#f06c33', GradientType=0);
+    color: white;
+    border: 1px solid rgb(232, 101, 39);
+    text-shadow: 0px -1px 1px #a53704;
+}
+
+.modal-open .modal {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.custom-form .has-error .help-block {
+    font-size: 12px;
+}
+
+.apartment-modal-form {
+    border: 2px solid #c1c5c5;
+    width: 100%;
+    padding: 30px 30px 20px;
+    position: relative;
+    text-align: left;
+}
+
+.apartment-modal-form-title {
+    font-size: 20px;
+    font-family: 'Iosevka Bold';
+    text-transform: uppercase;
+    position: absolute;
+    top: -15px;
+    background: #eff0f0;
+    padding: 0px 15px;
+    left: 15px;
+    color: #262626;
+}
+
+.apartment-modal-form-sub-title {
+    font-size: 16px;
+    font-family: 'Century Gothic Regular';
+    position: absolute;
+    bottom: -10px;
+    background: #eff0f0;
+    padding: 0px 15px;
+    right: 15px;
+    color: #262626;
+}
+
+.modal-header-sm {
+    display: none;
+}
+
+.modal-apartment-discont {
+    display: inline-block;
+    background: #f9bd1b;
+    padding: 6px 15px 7px 20px;
+    top: 30px;
+    left: -3px;
+    position: absolute;
+}
+
+.modal-apartment-discont:after {
+    content: '';
+    background: url(/img/discount-flag.png);
+    width: 9px;
+    height: 43px;
+    display: inline-block;
+    position: absolute;
+    right: -9px;
+    top: 0px;
+}
+
+.modal-apartment-discont:before {
+    content: '';
+    background: url(/img/discount-triangle.png);
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: absolute;
+    bottom: -18px;
+    left: 0px;
+}
+
+.modal-apartment-discount-value {
+    display: inline-block;
+    font-family: 'Iosevka Bold';
+    color: #4f3b04;
+    font-size: 26px;
+    line-height: 1;
+}
+
+.modal-apartment-discount-unit {
+    display: inline-block;
+    color: #4f3b04;
+    font-size: 12px;
+    line-height: 14px;
+    padding-left: 10px;
+}
+
+.apartment-modal-price-info {
+    background: white;
+    padding: 5px 5px;
+    border-radius: 50px;
+    float: right;
+    width: 50%;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+
+.apartment-modal-price-info b {
+    display: inline-block;
+    background: #f9bd1b;
+    width: 30px;
+    height: 30px;
+    float: left;
+    border-radius: 20px;
+    color: white;
+    font-weight: bolder;
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.apartment-modal-price-info span {
+    padding-top: 3px;
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog-custom-rc {
+        width: 540px;
+        margin: 30px auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-dialog-custom-rc {
+        width: 940px;
+        margin: 30px auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal-dialog-custom-rc {
+        width: 1140px;
+        margin: 30px auto;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .apartment-modal-form {
+        border: solid #c1c5c5;
+        width: 100%;
+        padding: 30px 0px 20px;
+        position: relative;
+        text-align: left;
+        border-width: 2px 0px;
+    }
+
+    .apartment-modal-form-title {
+        font-size: 20px;
+        font-family: 'Iosevka Bold';
+        text-transform: uppercase;
+        position: absolute;
+        top: -15px;
+        background: #eff0f0;
+        padding-right: 15px;
+        padding-left: 0px;
+        left: 0px;
+        color: #262626;
+    }
+
+    .apartment-modal-form-sub-title {
+        font-size: 16px;
+        font-family: 'Century Gothic Regular';
+        position: absolute;
+        bottom: -10px;
+        background: #eff0f0;
+        padding-left: 15px;
+        padding-right: 0px;
+        right: 0px;
+        color: #262626;
+    }
+
+    .modal-apartment-content {
+        height: 545px;
+    }
+
+    .modal-apartment-img {
+        height: 545px;
+        width: 469px;
+    }
+
+    .modal-apartment-info {
+        font-size: 14px;
+    }
+
+    .modal-apartment-info-value {
+        width: 205px;
+    }
+
+    .apartment-modal-price-info {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 991px) {
+    .pr0 {
+        padding-right: 15px;
+    }
+
+    .pl0 {
+        padding-left: 15px;
+    }
+
+    .modal-header {
+        display: none;
+    }
+
+    .apartment-modal-form-title {
+        display: none;
+    }
+
+    .apartment-modal-form-sub-title {
+        display: none;
+    }
+
+    .modal-apartment-img img {
+        max-height: 300px;
+    }
+
+    .modal-apartment-img {
+        height: auto;
+        width: 100%;
+        display: block;
+    }
+
+    .modal-apartment-content {
+        height: 390px;
+    }
+
+    .modal-on-detail-rc .modal-footer {
+        padding: 0px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        background: #eff0f0;
+    }
+
+    .modal-on-detail-rc .modal-body {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .apartment-modal-form {
+        border: 0px;
+        border-top: 2px solid #c1c5c5;
+    }
+
+    .modal-apartment-content {
+        background: white;
+    }
+
+    .modal-apartment-info img {
+        background: white;
+    }
+
+    .modal-apartment-info span {
+        background: white;
+    }
+
+    .modal-apartment-info .modal-apartment-info-value {
+        background: white;
+    }
+
+    .modal-header-sm {
+        display: block;
+        padding: 10px 30px;
+        border-bottom: 2px solid #c1c5c5;
+    }
+
+    .modal-apartment-discont {
+        top: 100px
+    }
+
+    .apartment-modal-price-info {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-apartment-img img {
+        max-height: 240px;
+    }
+
+    .modal-apartment-info {
+        font-size: 14px;
+    }
+
+    .modal-apartment-info img {
+        display: none;
+    }
+
+    .apartment-modal-price-info {
+        font-size: 12px;
+    }
+
+    .modal-apartment-content {
+        max-height: 370px;
+    }
+
+    .apartment-modal-price-info {
+        display: none;
+    }
+
+    .modal-apartment-img {
+        padding-bottom: 0px;
+    }
+
+    .apartment-modal-form {
+        padding-top: 20px;
+    }
+
+    .modal-on-detail-rc .modal-title {
+        font-size: 24px;
+    }
+
+    .modal-on-detail-rc .close {
+        margin-top: 10px;
+    }
+}

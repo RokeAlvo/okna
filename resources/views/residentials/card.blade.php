@@ -11,7 +11,7 @@
                         </a>
                         <div class="property-developer-residential-complex-info">
                             <div class="property-developer-residential-complex-title">
-                                <a href="/residential-complex/elbrus">{{ $residential->title }}</a></div>
+                                <a href="{{ route('residentials.show', [$residential->alias]) }}">{{ $residential->title }}</a></div>
                             <ul class="list-unstyled list-params">
                                 <li>Район:
                                     <span>{{ !empty($residential->district) ? $residential->district->name : '' }}</span>

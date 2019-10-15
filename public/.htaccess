@@ -4,7 +4,21 @@
     </IfModule>
 
     RewriteEngine On
+    
+    RewriteBase /
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    
+    RewriteEngine On
+    RewriteCond %{SERVER_PORT} !^443$
+    RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+    
+    RewriteCond %{REQUEST_METHOD}  !=POST
+    RewriteRule novosibirsk/search/new-buildings novosibirsk/novostroyki [L,R=301]
 
+    RewriteCond %{REQUEST_METHOD}  !=POST
+    RewriteRule ^novosibirsk/residential-complex/(.*)$ /novosibirsk/novostroyki/$1 [R=301,NC,L]
+    
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
@@ -18,4 +32,46 @@
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
 </IfModule>
+
+# Enable GZIP
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml 
+  AddOutputFilterByType DEFLATE application/x-font  
+  AddOutputFilterByType DEFLATE application/x-font-truetype  
+  AddOutputFilterByType DEFLATE application/x-font-ttf  
+  AddOutputFilterByType DEFLATE application/x-font-otf 
+  AddOutputFilterByType DEFLATE application/x-font-opentype 
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE font/ttf 
+  AddOutputFilterByType DEFLATE font/otf 
+  AddOutputFilterByType DEFLATE font/opentype
+# For Older Browsers Which Can't Handle Compression
+  BrowserMatch ^Mozilla/4 gzip-only-text/html 
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</IfModule>
+
+<FilesMatch ".(eot|ttf|otf|woff|woff2)">
+  Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+<FilesMatch ".(js|css)$">
+    Header set Cache-Control "max-age=300"
+</FilesMatch>
+
+<FilesMatch ".(jpg|svg|jpeg|png|ico|pdf|woff)$">
+    Header set Cache-Control "max-age=31536000"
+</FilesMatch>

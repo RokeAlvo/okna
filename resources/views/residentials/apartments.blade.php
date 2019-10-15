@@ -1,5 +1,5 @@
 <section id="apartments">
-    <template id="pagination-template">
+    <template id="pagination-template" data-ga-popup-open-label="{{ $gaLabel }}">
         <ul class="pagination">
             {{--<li class="first"><span v-if="hasFirst()" @click="changePage(1)">В начало</span></li>--}}
             <li class="prev" :class="{ disabled: current == 1 }"><span @click="changePage(prevPage)">«</span></li>
@@ -11,17 +11,14 @@
     </template>
     <div class="container" id="layouts-vue">
         <h2>Квартиры от застройщика</h2>
-
         {{--APARTMENTS-MOBILE--}}
 
         <div class="panel-group visible-sm visible-xs" id="accordion" role="tablist" aria-multiselectable="true">
             @foreach($residential->ranges as $range)
                 @if($layoutCount = $residential->layouts->where('rooms', $range->rooms)->count())
                     <div class="panel">
-                        <div class="panel-heading" role="tab" id="headingroom-{{$range->rooms}}">
-                            <div class="panel-heading-button collapsed" role="button" data-toggle="collapse"
-                                 data-parent="#accordion" href="#collapseroom-{{$range->rooms}}" aria-expanded="true"
-                                 aria-controls="collapseroom-{{$range->rooms}}">
+                        <div :class="{ 'accordion-active': room == {{$range->rooms}} &&  accordionActive }">
+                            <div class="panel-heading-button">
                                 <div class="apartment-acc-info">
                                     <div class="apartment-acc-info-room">
                                         {{ $range->getRoomLabel() }}
@@ -36,10 +33,25 @@
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                        <div id="collapseroom-{{$range->rooms}}" role="tabpanel"
-                             aria-labelledby="headingroom-{{$range->rooms}}">
+                        <div class="accordion-content">
                             <div class="visible-xs visible-sm" v-if="room == {{$range->rooms}}">
                                 <div class="row">
+                                    <div v-if="fetchingMobile">
+                                        <div class="sk-fading-circle" style="height: @{{ layoutsHeight }}">
+                                            <div class="sk-circle1 sk-circle"></div>
+                                            <div class="sk-circle2 sk-circle"></div>
+                                            <div class="sk-circle3 sk-circle"></div>
+                                            <div class="sk-circle4 sk-circle"></div>
+                                            <div class="sk-circle5 sk-circle"></div>
+                                            <div class="sk-circle6 sk-circle"></div>
+                                            <div class="sk-circle7 sk-circle"></div>
+                                            <div class="sk-circle8 sk-circle"></div>
+                                            <div class="sk-circle9 sk-circle"></div>
+                                            <div class="sk-circle10 sk-circle"></div>
+                                            <div class="sk-circle11 sk-circle"></div>
+                                            <div class="sk-circle12 sk-circle"></div>
+                                        </div>
+                                    </div>
                                     @include('layouts.card', ['layoutsData' => 'oneRoomLayouts'])
                                 </div>
                             </div>
@@ -123,7 +135,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active">
                         <div v-if="fetching">
-                            <div class="sk-fading-circle">
+                            <div class="sk-fading-circle" style="height: @{{ layoutsHeight }}">
                                 <div class="sk-circle1 sk-circle"></div>
                                 <div class="sk-circle2 sk-circle"></div>
                                 <div class="sk-circle3 sk-circle"></div>
@@ -139,10 +151,9 @@
                             </div>
                         </div>
                         <div v-else id="search-new-layout-flats" class="list-view">
-                            <div class="row">
+                            <div class="row" ref="layoutFlats">
                                 @include('layouts.card', ['layoutsData' => 'layouts'])
                             </div>
-
                             <pagination
                                     :current="currentPage"
                                     :perPage="perPage"
@@ -155,6 +166,6 @@
                 </div>
             </div>
         </div>
-        @include('layouts.popup')
+        @include('layouts.popup-lite-hybrid')
     </div>
 </section>

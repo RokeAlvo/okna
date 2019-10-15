@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'novosibirsk'),
 
     /*
     |--------------------------------------------------------------------------
@@ -33,13 +33,7 @@ return [
 
     'connections' => [
 
-        'sqlite' => [
-            'driver' => 'sqlite',
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
-            'prefix' => '',
-        ],
-
-        'mysql' => [
+        'novosibirsk' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
@@ -52,6 +46,302 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+            'timezoneSettings' => 'Asia/Novosibirsk',
+            'shortName' => 'nsk',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'sankt-peterburg' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_spb',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Europe/Moscow',
+            'shortName' => 'spb',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'barnaul' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_brn',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Asia/Barnaul',
+            'shortName' => 'brn',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'perm' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_prm',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Asia/Yekaterinburg',
+            'shortName' => 'prm',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'krasnoyarsk' => [
+			'driver' => 'mysql',
+			'host' => '127.0.0.1',
+			'port' => '3306',
+			'database' => 'smartcrm_kry',
+			'username' => 'adminsmartcrm',
+			'password' => '0H0u7K1u',
+			'unix_socket' => env('DB_SOCKET', ''),
+			'charset' => 'utf8mb4',
+			'collation' => 'utf8mb4_unicode_ci',
+			'prefix' => '',
+			'strict' => true,
+			'engine' => null,
+			'timezoneSettings' => 'Asia/Krasnoyarsk',
+			'shortName' => 'kry',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'ryazan' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_ryz',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Europe/Moscow',
+            'shortName' => 'ryz',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'moskva' => [
+			'driver' => 'mysql',
+			'host' => '127.0.0.1',
+			'port' => '3306',
+			'database' => 'smartcrm_msk',
+			'username' => 'adminsmartcrm',
+			'password' => '0H0u7K1u',
+			'unix_socket' => env('DB_SOCKET', ''),
+			'charset' => 'utf8mb4',
+			'collation' => 'utf8mb4_unicode_ci',
+			'prefix' => '',
+			'strict' => true,
+			'engine' => null,
+			'timezoneSettings' => 'Europe/Moscow',
+			'shortName' => 'msk',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'voronezh' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_vrn',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Europe/Moscow',
+            'shortName' => 'vrn',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'kirov' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_kir',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Europe/Moscow',
+            'shortName' => 'kir',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'krasnodar' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_krd',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Europe/Moscow',
+            'shortName' => 'krd',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'krym' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_krm',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Europe/Moscow',
+            'shortName' => 'krm',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'orel' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_orl',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Europe/Moscow',
+            'shortName' => 'orl',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'penza' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_pnz',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Europe/Moscow',
+            'shortName' => 'pnz',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'chelyabinsk' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'smartcrm_chl',
+            'username' => 'adminsmartcrm',
+            'password' => '0H0u7K1u',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'timezoneSettings' => 'Asia/Yekaterinburg',
+            'shortName' => 'chl',
+            'workTime' => ['09:00', '18:00']
+        ],
+
+        'testing' => [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => '',
+        ],
+
+        //@preg_city_config_path метка для обозначения места для программной инъекции конфигов дб, системно необходима
+
+        /*'mysql-old-local' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => 'okna_novosib',
+            'username' => 'okna_novosib',
+            'password' => 'R7w5J5g3',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'mysql-old-test' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => 'okna_novosib_dev',
+            'username' => 'okna_novosib',
+            'password' => 'R7w5J5g3',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'mysql-old-prod' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => 'okna_novosib',
+            'username' => 'okna_novosib',
+            'password' => 'R7w5J5g3',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],*/
+
+        /*'sqlite' => [
+            'driver' => 'sqlite',
+            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'prefix' => '',
         ],
 
         'pgsql' => [
@@ -76,7 +366,7 @@ return [
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
-        ],
+        ],*/
 
     ],
 

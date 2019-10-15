@@ -1,5 +1,5 @@
 <div v-for="(layout, index) in {{ $layoutsData }}" class="col-lg-five col-md-3 col-sm-4 col-xs-6 search-new-layout-flat-item">
-    <div class="preview-apartment-element block-shadow" @click="selectLayout(index)">
+    <div class="preview-apartment-element block-shadow" @click="selectLayout(layout, index)">
         <div class="quick-view">
             <div class="preview-apartment-thumbimage">
                 <div class="preview-apartment-thumbimage-wrapper">
@@ -10,7 +10,7 @@
                 @{{layout.room_label}} | <strong>@{{layout.area}} м<sup>2</sup></strong>
             </div>
             <div class="preview-apartment-floor-list">
-                @{{layout.floor_range}}
+                @{{layout.floor_range_etc}}
             </div>
             <div class="preview-apartment-moreinfo">
                 Подробнее

@@ -1,0 +1,367 @@
+.popup-right{
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+.popup-apartment-specifications-title{
+    color: #7C858B;
+    font-size: 100%;
+    font-family: Montserrat Regular;
+    white-space: nowrap;
+    padding:0;
+}
+.popup-apartment-specifications-title.callback {
+    padding: 10px 0;
+}
+.popup-apartment-payment-methods {
+    padding-left: 10px;
+    font-family: Montserrat Regular;
+}
+.popup-text-info{
+    color: #1F1D39;
+    font-size: 100%;
+    font-family: MontserratSemiBold;
+    padding-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+.methods-pay{
+    color: #1F1D39;
+    font-size: 115%;
+    font-family: Montserrat Regular;
+    padding: 12px 0 10px 0;
+}
+.popup-apartment-specifications-value{
+    color: #42484D;
+    font-size: 220%;
+    font-family: MontserratBold;   /* line-height: 3; */
+}
+.popup-apartment-specifications-value sup{
+    display: inline;
+}
+
+.plan-image{
+    margin: auto;
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.number-room-wrapper{
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    background: #fff;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.2;
+    margin: 0 10px;
+    flex-grow: 1;
+}
+.number-room-date{
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    background: #fff;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+/* .plan-info .number-room-wrapper {
+    margin-right: 4%;
+}
+.plan-info .number-room-wrapper:last-child {
+    margin-right: 0%;
+} */
+.plan-info{
+    display: flex;
+    justify-content: space-between;
+    align-content: stretch;
+    margin: 0 -10px;
+
+    padding-bottom: 20px;
+}
+.plan-info-cont-wrapper{
+    background: #EFEFF1;
+    padding: 30px;
+}
+.popup-apartment-specifications-title.confidential-policy{
+    font-size: 83%;
+    color: #7C858B;
+    font-family: Montserrat Regular;
+    padding: 15px 0 15px 0;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+
+}
+.confidential-policy a{
+    color: #4EBB00;
+    font-weight: bold;
+    display: inline;
+}
+.method{
+    display: flex;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    padding: 10px 10px 10px 20px;
+    margin-bottom: 20px;
+}
+.price-number-wrapper{
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    padding: 20px;
+}
+.price-number-wrapper b a{
+    font-size: 172%;
+    text-decoration: none;
+    color: #1F1D39;
+    font-family: MontserratBold;
+}
+.number-send{
+    display: flex;
+    justify-content: space-between;
+}
+.number-button{
+    color: #4EBB00;
+    font-weight: 700;
+    border: 2px #4EBB00 solid;
+    border-radius: 5px;
+    padding: 13px 0;
+    margin: 0;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+}
+.number-placeholder {
+    box-sizing: border-box;
+    padding-right: 0;
+}
+.number-placeholder input{
+    border-radius: 5px;
+    background: #F8F8F9;
+    border: 1px rgb(248, 248, 249) solid;
+    box-shadow: inset 0px 2px 5px 0px rgba(26, 23, 64, 0.2);
+    color:#BDC0C3;
+    padding: 12px;
+    font-size: 125%;
+    font-family: Montserrat Regular;
+    width: 100%;
+}
+::placeholder{
+    color:#BDC0C3;
+}
+/* .number-placeholder input placeholder{
+    border-radius: 5px;
+    background: #F8F8F9;
+    border: 1px rgb(248, 248, 249) solid;
+    box-shadow: inset 0px 2px 5px 0px rgba(26, 23, 64, 0.2);
+    color:#BDC0C3;
+    padding: 12px 9px;
+    font-size: 125%;
+    font-family: Montserrat Regular; 
+} */
+.popup-phone-box{
+    border-bottom: 1px #D9DDDF solid;
+    padding-bottom: 10px;
+}
+.close-popup{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    z-index: 10;
+}
+.method span{
+    display: inline;
+}
+.marg-15{
+    padding-left: -15px;
+    padding-right: -15px;
+}
+
+.popup-body {
+    padding: 0;
+    max-width: 550px;
+    background: #EFEFF1;
+    position: relative;
+}
+.house-info-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    margin: 0 -10px;
+}
+ .house-info{
+     width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px 0 rgba(26, 23, 64, 0.15);
+    margin: 0 10px 20px 10px;
+    padding: 10px 10px 10px 15px;
+
+}
+.pad-left{
+    padding-left: 5px;
+}
+.close-popup-m {
+    display: none;
+}
+
+
+@media(min-width:0px) and (max-width:768px){
+    .house-info-wrapper {
+        flex-wrap: wrap;
+    }
+    .was-passed{
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+        background: #fff;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .call-back{
+        padding: 10px 15px;
+        background: #4EBB00;
+        color: #fff;
+        font-size: 110%;
+        font-family: Montserrat Regular;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .call-button-box{
+        display: flex;
+        background: #fff;
+        font-family: MontserratBold;
+        color: #4EBB00;
+        font-size: 122%;
+        margin: 10px 20px;
+        padding: 15px 20px;
+        border-radius: 30px;
+        justify-content: center;
+    }
+    .call-image img{
+        padding-right: 10px;
+    }
+    .call-back a{
+        display: block;
+        color: #4EBB00;
+        text-decoration: none;
+    }
+    .all-rooms-popup{
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+        background: #fff;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+        color: #4EBB00;
+        font-size: 120%;
+        font-family: MontserratBold;
+        text-align: center;
+    }
+    .close-popup-m {
+        transform: rotate(-90deg);
+        cursor: pointer;
+        position: absolute;
+        right: calc(93% - 90px);
+        top: 47%;
+        /* margin-bottom: -65px; */
+        padding: 10px;
+        font-family: MontserratSemiBold;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 110%;
+        z-index: 10;
+        letter-spacing: 1px;
+        display: flex;
+    }
+    .close-popup-m img{
+        padding-right: 15px;
+    }
+    .popup-body{
+        width:80%;
+    }
+
+    .plan-info-cont-wrapper {
+        padding: 15px;
+    }
+    .popup-apartment-specifications-value {
+        font-size: 20px;
+        font-family: MontserratBold;
+        line-height: 1.4;
+    }
+    .popup-apartment-specifications-title {
+        font-size: 12px;
+    }
+    .method {
+            display: block;
+            padding: 10px 10px 10px 20px;
+            margin-bottom: 20px;
+        padding: 10px 10px 10px 15px;
+    }
+    .popup-apartment-payment-methods{
+        color:#111;
+        font-size: 14px;
+        font-family: Montserrat Regular;
+        padding-left: 0;
+    }
+    .date-width {
+        margin: 0 0 20px 0;
+        width: 100%;
+    }
+    .plan-info {
+        padding-bottom: 0px;
+        margin: 0px -7.5px;
+    }
+    .number-room-wrapper {
+        margin-bottom: 15px;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-left: 7.5px;
+        margin-right: 7.5px;
+    }
+    .call-text {
+        font-size: 13px;
+        font-family: Montserrat Regular;
+
+    }
+    .call-button{
+        font-size: 14px;
+        font-family: MontserratBold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .call-button-box {
+
+        margin: 15px 5px 3px 5px;
+        padding: 10px 5px;
+        line-height: 1;
+        vertical-align: 0%;
+    }
+    .call-back {
+        margin-bottom: 15px;
+    }
+    .house-info{
+        /* display: flex; */
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+        padding: 10px 10px 10px 20px;
+        margin-bottom: 10px;
+        padding: 10px 10px 10px 15px;
+
+    }
+    .pad-left{
+        padding-left: 5px;
+    }
+}

@@ -49,6 +49,7 @@ class NewClientRequest extends Mailable
      */
     public function build()
     {
-        return $this->subject(REQUEST_TYPES[$this->clientRequest->type])->view('emails.newRequest');
+        return $this->from(MAIL_FROM[getUrlPathFirstPart()]['email'], MAIL_FROM[getUrlPathFirstPart()]['mailName'])
+            ->subject(REQUEST_TYPES[$this->clientRequest->type])->view('emails.newRequest');
     }
 }

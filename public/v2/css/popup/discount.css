@@ -1,0 +1,635 @@
+.popup-right {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+
+.popup-apartment-specifications-title {
+    color: #7C858B;
+    font-size: 100%;
+    font-family: Montserrat Regular;
+    white-space: nowrap;
+    padding: 0;
+    padding-bottom: 5px;
+}
+
+.popup-apartment-specifications-title.callback {
+    padding: 10px 0;
+}
+
+.popup-apartment-payment-methods {
+    padding-left: 10px;
+    font-family: Montserrat Regular;
+}
+
+.popup-text-info {
+    color: #fff;
+    font-size: 20px;
+    font-family: MontserratBold;
+    padding-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.methods-pay {
+    color: #1F1D39;
+    font-size: 115%;
+    font-family: Montserrat Regular;
+    padding: 12px 0 10px 0;
+}
+
+.popup-apartment-specifications-value {
+    color: #42484D;
+    font-size: 26px;
+    font-family: MontserratBold;
+    /* line-height: 3; */
+}
+
+.popup-apartment-specifications-value sup {
+    display: inline;
+}
+
+.plan-image {
+    margin: auto;
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.number-room-wrapper {
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    background: #fff;
+    padding: 15px 20px;
+    /* width: 100%; */
+    box-sizing: border-box;
+    line-height: 1.2;
+    margin: 0 10px;
+    flex-grow: 1;
+}
+
+.number-room-date {
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    background: #fff;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+/* .plan-info .number-room-wrapper {
+    margin-right: 4%;
+}
+.plan-info .number-room-wrapper:last-child {
+    margin-right: 0%;
+} */
+.plan-info {
+    display: flex;
+    justify-content: space-between;
+    align-content: stretch;
+    margin: 0 -10px;
+
+    padding-bottom: 20px;
+}
+
+.plan-info-cont-wrapper {
+    background: #EFEFF1;
+    padding: 30px;
+}
+
+.popup-apartment-specifications-title.confidential-policy {
+    font-size: 83%;
+    color: #7C858B;
+    font-family: Montserrat Regular;
+    padding: 15px 0 15px 0;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+
+}
+
+.confidential-policy a {
+    color: #4EBB00;
+    font-weight: bold;
+    display: inline;
+}
+
+.method {
+    display: flex;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    padding: 10px 10px 10px 20px;
+    margin-bottom: 20px;
+}
+
+.price-number-wrapper {
+    background: linear-gradient(170deg, rgba(92, 191, 22, 1) 0%, rgba(78, 173, 9, 1) 100%);
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(78, 187, 0, 0.4);
+    padding: 25px 25px 15px 25px;
+}
+
+.popup-text-under {
+    font-family: Montserrat Regular;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 13px;
+}
+
+.price-number-wrapper b a {
+    font-size: 172%;
+    text-decoration: none;
+    color: #1F1D39;
+    font-family: MontserratBold;
+}
+
+.number-send {
+    display: flex;
+    justify-content: space-between;
+}
+
+.number-button {
+    color: #4EAD09;
+    /* font-weight: 700; */
+    /* border: 2px #4EBB00 solid; */
+    background: #fff;
+    border-radius: 35px;
+    padding: 10px 5px;
+    margin: 0;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: MontserratBold;
+    font-size: 16px;
+    box-shadow: 0px 3px 7px 0px rgba(43, 103, 0, 0.4);
+    border: 1px #fff solid;
+    line-height: 1;
+    height: 50px;
+    box-sizing: border-box;
+
+}
+
+.number-button span {
+    font-size: 24px;
+    padding-right: 5px;
+}
+
+
+.number-placeholder {
+    box-sizing: border-box;
+    /* padding-right: 0;  */
+}
+
+.number-placeholder input {
+    border-radius: 35px;
+    background: #4FAE0A;
+    border: 1px rgb(103, 198, 36) solid;
+    box-shadow: inset 0px 3px 10px 0px rgba(35, 84, 0, 0.2);
+    color: #B5DD98;
+    padding: 12px;
+    font-size: 16px;
+    font-family: MontserratSemiBold;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+::placeholder {
+    color: #B5DD98;
+}
+
+/* .number-placeholder input placeholder{
+    border-radius: 5px;
+    background: #F8F8F9;
+    border: 1px rgb(248, 248, 249) solid;
+    box-shadow: inset 0px 2px 5px 0px rgba(26, 23, 64, 0.2);
+    color:#BDC0C3;
+    padding: 12px 9px;
+    font-size: 125%;
+    font-family: Montserrat Regular; 
+} */
+/* .popup-phone-box{
+    border-bottom: 1px #D9DDDF solid;
+    padding-bottom: 10px;
+} */
+.close-popup {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    z-index: 10;
+}
+
+.method span {
+    display: inline;
+}
+
+.marg-15 {
+    padding-left: -15px;
+    padding-right: -15px;
+}
+
+.popup-body {
+    padding: 0;
+    max-width: 630px;
+    background: #EFEFF1;
+    position: relative;
+}
+
+.house-info {
+    /* display: flex; */
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    padding: 10px 10px 10px 20px;
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 15px;
+
+}
+
+.pad-left {
+    padding-left: 5px;
+}
+
+.wrapper-string {
+    display: flex;
+}
+
+.info-popup-title {
+    font-size: 16px;
+    font-family: Montserrat Regular;
+    color: #1F1D39;
+    padding: 20px;
+
+}
+
+.info-popup-wrapper {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+    margin-bottom: 20px;
+}
+
+.data-popup {
+    color: #9DA0A3;
+    font-family: Montserrat Regular;
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+.data-popup-base {
+    color: #42484D;
+    font-family: Montserrat Regular;
+    font-size: 14px;
+}
+
+.info-popup-wrapper-list {
+    display: block;
+    border-top: 1px #D9DDDF solid;
+    margin: 0 30px 0 30px;
+    padding: 20px 0;
+}
+
+.info-popup-wrapper-list-item {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.info-popup-wrapper-list-item>div {
+    width: 100%;
+}
+
+.table-wrapper {
+    border-radius: 0 0 5px 5px;
+}
+
+.popup .accordion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 20px;
+    width: 100%;
+}
+
+.popup .accordion:after {
+    content: 'Показать';
+    margin: 25px 0;
+    width: 130px;
+    color: #56B811;
+    font-family: MontserratBold;
+
+    border-left: 1px solid #C8CFD3;
+}
+
+.popup .accordion-active:after {
+    content: 'Скрыть';
+    color: #56B811;
+
+}
+
+.popup-apartment-form-success {
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+
+.number-send {
+    margin-bottom: 15px;
+    border-bottom: 1px #75C33D solid;
+}
+
+.call-self {
+    color: #fff;
+
+}
+
+.call-self a,
+.call-self a:hover {
+    font-family: MontserratBold;
+    color: #fff;
+}
+
+.info-popup-title-full {
+    display: inline;
+}
+
+.info-popup-title-short {
+    display: none;
+}
+
+.popup-text-info span {
+    display: none;
+}
+
+.close-popup-m {
+    display: none;
+}
+
+@media(min-width:0px) and (max-width:768px) {
+    .info-popup-wrapper-list {
+        margin: 0 15px;
+    }
+
+    .number-send {
+        border-bottom: none;
+    }
+
+    .popup .accordion {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0 10px 20px;
+        width: 100%;
+    }
+
+    .popup .accordion:after {
+        content: url('/img/down.png');
+        margin: 15px 0;
+        width: 60px;
+        border-left: none;
+    }
+
+    .popup .accordion-active:after {
+        content: url('/img/up.png');
+    }
+
+
+    .was-passed {
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+        background: #fff;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .call-back {
+        padding: 10px 15px;
+        background: #4EBB00;
+        color: #fff;
+        font-size: 110%;
+        font-family: Montserrat Regular;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .call-button-box {
+        display: flex;
+        background: #fff;
+        font-family: MontserratBold;
+        color: #4EBB00;
+        font-size: 122%;
+        margin: 10px 20px;
+        padding: 15px 20px;
+        border-radius: 30px;
+        justify-content: center;
+    }
+
+    .call-image img {
+        padding-right: 10px;
+    }
+
+    .call-back a {
+        display: block;
+        color: #4EBB00;
+        text-decoration: none;
+    }
+
+    .all-rooms-popup {
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+        background: #fff;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+        color: #4EBB00;
+        font-size: 120%;
+        font-family: MontserratBold;
+        text-align: center;
+    }
+
+    .close-popup-m {
+        transform: rotate(-90deg);
+        cursor: pointer;
+        position: absolute;
+        right: calc(93% - 90px);
+        top: 47%;
+        /* margin-bottom: -65px; */
+        padding: 10px;
+        font-family: MontserratSemiBold;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 110%;
+        z-index: 10;
+        letter-spacing: 1px;
+        display: flex;
+    }
+
+    .close-popup-m img {
+        padding-right: 15px;
+    }
+
+    .popup-body {
+        width: 80%;
+    }
+
+
+
+    .plan-info-cont-wrapper {
+        padding: 15px;
+    }
+
+    .popup-apartment-specifications-value {
+        font-size: 20px;
+        font-family: MontserratBold;
+        line-height: 1.4;
+    }
+
+    .popup-apartment-specifications-title {
+        font-size: 12px;
+    }
+
+    .method {
+        display: block;
+        padding: 10px 10px 10px 20px;
+        margin-bottom: 20px;
+        padding: 10px 10px 10px 15px;
+    }
+
+    .popup-apartment-payment-methods {
+        color: #111;
+        font-size: 14px;
+        font-family: Montserrat Regular;
+        padding-left: 0;
+    }
+
+    .date-width {
+        margin: 0 0 20px 0;
+        width: 100%;
+    }
+
+    .plan-info {
+        padding-bottom: 0px;
+        margin: 0px -7.5px;
+    }
+
+    .number-room-wrapper {
+        margin-bottom: 15px;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-left: 7.5px;
+        margin-right: 7.5px;
+    }
+
+    .call-text {
+        font-size: 13px;
+        font-family: Montserrat Regular;
+
+    }
+
+    .call-button {
+        font-size: 14px;
+        font-family: MontserratBold;
+
+    }
+
+    .call-button-box {
+
+        margin: 15px 5px 3px 5px;
+        padding: 10px 5px;
+        line-height: 1;
+        vertical-align: 0%;
+    }
+
+    .call-back {
+        margin-bottom: 15px;
+    }
+
+    .house-info {
+        /* display: flex; */
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px 0px rgba(26, 23, 64, 0.15);
+        padding: 10px 10px 10px 20px;
+        margin-bottom: 10px;
+        padding: 10px 10px 10px 15px;
+
+    }
+
+    .pad-left {
+        padding-left: 5px;
+    }
+
+    .info-popup-title {
+        font-size: 14px;
+    }
+
+    .info-popup-title-full {
+        display: none;
+    }
+
+    .info-popup-title-short {
+        display: inline;
+    }
+
+    .popup-text-info {
+        font-size: 16px;
+    }
+
+    .popup-text-under {
+        font-size: 13px;
+    }
+
+    .number-send {
+        display: block;
+    }
+
+    .number-placeholder input {
+        font-size: 14px;
+        margin-bottom: 20px;
+        background: #00B000;
+    }
+
+    .number-placeholder {
+        padding-right: 15px;
+    }
+
+    .number-button {
+        font-size: 14px;
+        padding: 16px 5px;
+    }
+
+    .number-button span {
+        display: none;
+    }
+
+    .price-number-wrapper {
+        background: #00BB00;
+    }
+
+    .info-popup-wrapper {
+        margin-bottom: 20px;
+    }
+
+    .info-popup-wrapper-list-item {
+        flex-direction: column;
+        padding: 8px 0;
+    }
+
+    .data-popup {
+        padding-bottom: 1px;
+    }
+
+    .popup-text-info span {
+        display: inline-block;
+    }
+
+}

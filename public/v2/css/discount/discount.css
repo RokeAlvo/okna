@@ -1,0 +1,410 @@
+.discount-overlay-off {
+    width: 100%;
+    /* position: fixed; */
+    bottom: 0;
+
+    height: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* background-color: rgba(26, 23, 55, 0.7); */
+    /* z-index: 99; */
+    margin: 0 0 30px 0;
+
+    order: 1;
+}
+
+.discount__button--head {
+    display: none;
+}
+
+.btn--discount {
+    box-shadow: 0px 10px 20px rgba(66, 72, 77, 0.2), 0px 9px 40px rgba(96, 189, 30, 0.2);
+    transition: 0.3s ease-in;
+}
+
+
+
+.discount-overlay-on {
+    position: fixed;
+    background-color: rgba(26, 23, 55, 0.7);
+    margin: 0;
+    padding: 0 15px;
+    z-index: 100;
+}
+
+.discount-overlay-on .discount-wrapper {
+    border-radius: 8px 8px 0 0;
+}
+
+.discount__img {
+    text-align: center;
+}
+
+.discount__img img {
+    opacity: 0.8;
+}
+
+.discount__close {
+    display: none;
+    cursor: pointer;
+
+    background: url("/img/close.svg");
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 999;
+    right: 22px;
+    top: 22px;
+    position: absolute;
+}
+
+.discount__button {
+
+    position: absolute;
+
+    top: 241px;
+    left: 15px;
+
+    order: 1;
+    background: linear-gradient(180deg, #68A500 0%, #68C22B 100%);
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+
+    color: #FDFCFE;
+    width: 164px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.discount__button::before {
+    content: '';
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    left: 33px;
+    background: url(/img/procent.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.5;
+}
+
+.discount__button div {
+    padding-left: 31px;
+}
+
+
+
+.discount-wrapper {
+    position: relative;
+    background: linear-gradient(315.89deg, #68A500 0%, #5DBF16 100%);
+    mix-blend-mode: normal;
+    border-radius: 8px;
+    padding-bottom: 41px;
+
+    margin: 0 auto;
+    width: 100%;
+    /* max-height: 400px; */
+}
+
+.discount__title-wrapper {
+    padding-top: 28px;
+    margin-bottom: 20px;
+}
+
+.discount-sale-departes {
+    font-weight: bold;
+}
+
+
+
+.discount__content {
+    width: 85%;
+
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #FFFFFF;
+}
+
+.discount__detail {
+    width: 222px;
+
+    margin: 0 auto;
+    margin-bottom: 25px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #FDFDFD;
+
+}
+
+.discount__title {
+    width: 111px;
+    margin: 0 auto;
+
+    padding: 7px 25px;
+    background: #3E9416;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+
+    color: #FDFDFD;
+}
+
+.discount__phone {
+    display: block;
+    text-decoration: none;
+    width: 240px;
+    cursor: pointer;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 15px rgba(66, 72, 77, 0.1);
+    border-radius: 68px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #5A5863;
+
+    padding: 13px 0;
+    margin: 0 auto;
+    position: relative;
+    max-width: 273px;
+}
+
+
+.discount__phone::before {
+    content: '';
+    width: 20px;
+    height: 24px;
+    background: url(/img/phone-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    position: absolute;
+
+    left: 22px;
+
+    top: 16px;
+}
+
+.discount__phone:hover {
+    transition: 0.5s;
+    color: #5A5863;
+    box-shadow: 0px 4px 10px rgba(66, 72, 77, 0.1);
+}
+
+.discount__phone:active {
+    box-shadow: none;
+}
+
+.discount__phone a {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    padding-left: 20px;
+    text-decoration: none;
+    color: #5A5863;
+}
+
+@media (min-width: 768px) {
+    .btn--discount:hover {
+        background: #6CA100;
+        box-shadow: 0px 4px 10px rgba(66, 72, 77, 0.1);
+
+    }
+
+    .btn--discount:active {
+        box-shadow: none;
+
+    }
+
+    .discount__img {
+        position: absolute;
+        top: 0;
+
+
+        background: url("/img/discount-bg.png");
+        background-position: center;
+        background-repeat: no-repeat;
+
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .discount__button {
+        top: -70px;
+        left: 20px;
+    }
+
+    .discount__img img {
+        display: none;
+    }
+
+    .discount-wrapper {
+        padding-bottom: 51px;
+    }
+
+    .discount__title-wrapper {
+        padding-top: 29px;
+        margin-bottom: 26px;
+    }
+
+    .discount-overlay-off {
+        width: 66.66%;
+        padding: 0 15px;
+        display: block;
+        order: 0;
+    }
+
+    .discount-overlay-on {
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .discount-overlay-on .discount-wrapper {
+        border-radius: 8px;
+    }
+
+    .discount-overlay-on .discount-wrapper {
+        max-width: 581px;
+    }
+
+    .discount__title {
+        margin-left: 30px;
+        text-align: left;
+        padding: 8px 25px;
+    }
+
+    .discount__content {
+        margin-left: 30px;
+        text-align: left;
+        font-size: 24px;
+        line-height: 30px;
+        letter-spacing: 0.1px;
+        width: 347px;
+        /* mix-blend-mode: normal; */
+        margin-bottom: 29px;
+    }
+
+    .discount__detail {
+        margin-left: 30px;
+        text-align: left;
+        font-size: 14px;
+        line-height: 20px;
+        width: 365px;
+        margin-bottom: 15px;
+    }
+
+    .discount__phone {
+        margin-left: 30px;
+    }
+
+    .main-phone {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        padding-left: 20px;
+    }
+
+    .discount__button {
+        background: #5DBF16;
+    }
+
+    .discount__button--head {
+        display: block;
+        order: 1;
+        background: #5DBF16;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: center;
+        letter-spacing: 0.1px;
+        text-transform: uppercase;
+
+        color: #FDFCFE;
+        width: 164px;
+        height: 46px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 30px;
+    }
+}
+
+
+@media (min-width: 992px) {
+
+    .discount-overlay-off {
+        width: 50%;
+    }
+
+    .discount-overlay-on {
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .discount-overlay-on .discount-wrapper {
+        max-width: 581px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .discount__button--head {
+        display: flex;
+    }
+
+    .discount-overlay-off {
+        width: 40%;
+    }
+
+    .discount-overlay-on {
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .discount-overlay-on .discount-wrapper {
+        max-width: 581px;
+    }
+}

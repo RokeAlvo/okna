@@ -1,22 +1,79 @@
+import Vue from 'vue';
+import App from './components/App';
+import VueRouter from 'vue-router';
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import VueIziToast from 'vue-izitoast';
+import 'izitoast/dist/css/iziToast.css';
+import vSelect from 'vue-select';
 
-require('./bootstrap');
+import vSlider from 'vue-slider-component';
+// import VModal from 'vue-js-modal';
+import VShowSlide from 'v-show-slide';
+import VueLazyload from 'vue-lazyload';
+import { ContentLoader } from 'vue-content-loader'
+window.$ = window.jQuery = require('jquery');
+Vue.component('content-loader', ContentLoader);
 
-window.Vue = require('vue');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+// import phoneInput from 'vue-inputmask';
+// import vNumeric from 'vue-numeric'; //delete
+// import { Money } from 'v-money';
+// Vue.component('v-phone', phoneInput);
+// Vue.component('v-money', Money);z
 
-Vue.component('example', require('./components/Example.vue'));
 
-const app = new Vue({
-    el: '#app'
+
+const VueInputMask = require('vue-inputmask').default;
+
+Vue.use(VShowSlide);
+Vue.use(VueInputMask);
+Vue.use(VueIziToast);
+// Vue.use(VModal);
+Vue.use(VueLazyload);
+Vue.component('v-select', vSelect);
+
+Vue.component('v-slider', vSlider);
+
+
+
+import router from './routers/routers.js';
+import { store } from './store/store.js';
+
+import Selection from './components/selection/index.vue';
+import Star from './components/selection/icons/iconStar.vue';
+import Whatsup from './components/selection/icons/whatsup.vue';
+import Viber from './components/selection/icons/viber.vue';
+import Telegram from './components/selection/icons/telegram.vue';
+import Vk from './components/selection/icons/vk.vue';
+import Icons from './components/selection/icons/icons-share.vue';
+Vue.component('icon-star', Star);
+Vue.component('icon-whatsup', Whatsup);
+Vue.component('icon-viber', Viber);
+Vue.component('icon-telegram', Telegram);
+Vue.component('icons-share', Icons);
+
+// import VueYandexMetrika from '@bchteam/vue-yandex-metrika';
+import VueYandexMetrika from 'vue-yandex-metrika'
+var dataBackend = document.getElementById('js-backend-parameters');
+// console.log('dataBackend: ', dataBackend);  
+if (dataBackend) {
+  var yandexMetrixId = +dataBackend.getAttribute('data-yandex-metrika');
+}
+// console.log('yandexMetrixId: ', yandexMetrixId);
+Vue.use(VueYandexMetrika, {
+  id: dataBackend ? yandexMetrixId : 99999,
+  router: router,
+  webvisor: true,
+  // env: process.env.NODE_ENV,
+  env: 'production'
+});
+
+export const whatsAppTel = "79537615339";
+
+
+new Vue({
+  el: '#app',
+  render: h => h(App),
+  store,
+  router
 });
