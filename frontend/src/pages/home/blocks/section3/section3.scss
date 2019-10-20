@@ -1,0 +1,63 @@
+@import "./../../../../includes/variables.scss";
+
+.section3 {
+  width: 1200px;
+  display: flex;
+  margin-bottom: 124px;
+
+  &__article {
+    width: 560px;
+    min-width: 560px;
+  }
+
+  &__header {
+    font-size: 24/14 * 1rem;
+    line-height: 35/24 * 1em;
+    margin-bottom: 29px;
+
+    span {
+      color: $font-logo-color;
+    }
+  }
+
+  &__description {
+    max-width: 500px;
+    font-size: 16/14 * 1rem;
+    line-height: 25/16 * 1em;
+    letter-spacing: 0.2px;
+    font-weight: normal;
+
+    span {
+      font-weight: bold;
+      font-style: normal;
+      color: rgba($color: #5A5863,  $alpha: 0.9)
+    }
+  }
+
+  &__logos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 70px;
+  }
+
+  &__logos-row {
+    width: 100%;
+    height: 55px;
+    margin-bottom: 38px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    width: 200px;
+  }
+
+  &__wrap {
+    height: 669px;
+    background-image:  radial-gradient(86.58% 86.58% at 50% 50%, #FDFDFD 0%, #F1F1F1 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}

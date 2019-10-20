@@ -1,0 +1,12 @@
+include ./../../../../blocks/feedback-form/feedback-form.pug
+mixin section2()
+  section.section2
+    .section2__slogan
+      h2.section2__header Бесплатный подбор квартиры в один клик
+      article.section2__article 
+        | Отсейте все неподходящие варианты одним махом 
+        | и получите персональную подборку подходящих ЖК с планировками и ценами
+    .section2__triangle
+    .section2__form
+      +feedback-form('section2-form')
+    .section2__image

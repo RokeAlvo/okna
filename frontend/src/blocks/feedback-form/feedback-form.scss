@@ -1,0 +1,33 @@
+@import './../../includes/variables.scss';
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__input-title {
+    margin-bottom: 26px;
+  }
+
+  &__input-phone {
+    margin-bottom: 15px;
+  }
+
+  &__button {
+    width: 100%;
+    margin-bottom: 26px;
+  }
+
+  &__policy {
+    width: 195px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10/14*1rem;
+    line-height: 1.6em;
+    letter-spacing: 0.1px;
+
+    /* #5A5863 */
+    color: rgba($color: $font-main2-color, $alpha: 0.6);
+  }
+}

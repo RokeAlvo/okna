@@ -1,0 +1,23 @@
+mixin input-text(type, placeholder, mods)
+
+  //- Принимает:
+  //-   type           {string} - тип инпута
+  //-   placeholder    {string} - placeholder
+  //-   mods           {string} - список модификаторов
+  //- Вызов:
+        +input-text('type','placeholder', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' input-text--' + modsList[i].trim();
+      }
+    }
+
+  .input-text(class=allMods)&attributes(attributes)
+    .input-text__wrap
+      input(type=type, placeholder=placeholder).input-text__input
+      block

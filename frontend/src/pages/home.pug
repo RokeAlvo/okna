@@ -1,0 +1,142 @@
+include ./../blocks/header/header.pug
+include ./../blocks/button/button.pug
+include ./home/blocks/section2/section2.pug
+include ./../blocks/promo-card/promo-card.pug
+include ./../blocks/feedback-form/feedback-form.pug
+include ./../blocks/icon/icon.pug
+
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title главная страница
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  body.home
+    header.home__header
+      +header()
+    section.section1
+      article.section1__content
+        h2.section1__slogan Экономьте время и деньги на поиск лучшего жилья в новостройке 
+        p.section1__description Выбирайте из 13 164 квартир в 123 ЖК Новосибирска
+        .section1__button
+          +button('Перейти в поиск', 'main-color,raised')
+    +section2()
+    section.section3__wrap
+      .section3
+        .section3__article
+          h2.section3__header 
+            span okna.io 
+            |— самая полная в Новосибирске база новостроек с актуальными ценами и акциями напрямую от застройщиков
+          article.section3__description Благодаря партнёрским соглашениям с застройщиками услуги портала для вас 
+            span абсолютно бесплатны
+        .section3__logos
+          .section3__logos-row
+            .section3__logo-item
+              .builder-logo.builder-logo_brusnika
+            .section3__logo-item
+              .builder-logo.builder-logo_strizhi
+            .section3__logo-item
+              .builder-logo.builder-logo_sibir
+          .section3__logos-row
+            .section3__logo-item
+              .builder-logo.builder-logo_vira-stroy
+            .section3__logo-item
+              .builder-logo.builder-logo_stroitel
+            .section3__button
+              +button('50+ партнёров', 'outlined')
+    section.section4
+      ul.section4__content
+        li.promo-card
+          .promo-card__img
+            +promo-card(1)
+          h3.promo-card__header Всегда актуальная база новостроек Новосибирска
+          article.promo-card__article Все свежие предложения от надёжных застройщиков для объективного выбора
+        li.promo-card
+          .promo-card__img
+            +promo-card(2)
+          h3.promo-card__header Оформление ипотеки без очередей и визита в банк
+          article.promo-card__article Отправляем документы за вас в несколько банков, чтобы выбрать лучшее решение
+        li.promo-card
+          .promo-card__img
+            +promo-card(3)
+          h3.promo-card__header Прозрачное участие без договоров и комиссии
+          article.promo-card__article Вы не подписываете ничего с нами и покупаете квартиру напрямую у застройщика 
+        li.promo-card
+          .promo-card__img
+            +promo-card(4)
+          h3.promo-card__header Бесплатное юридическое сопровождение сделки
+          article.promo-card__article Помогаем и консультируем на всём пути от выбора к оформлению покупки
+    section.section5
+      .section5__main
+        .section5__promo
+          h2.section5__header Одобрим ипотеку от 6% за 2 дня
+          ul.section5__article
+            li.section5__row 
+              +icon('checked')
+              p Бесплатное оформление без визита в банк
+            li.section5__row 
+              +icon('checked')
+              p Одобрение в 98% случаев, даже если был отказ 
+            li.section5__row
+              +icon('checked')
+              p Подадим за вас заявку во все ведущие банки
+        .section5__arrow
+          <svg width="263" height="50" viewBox="0 90 263 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M261.226 121.765C149.473 152.425 68.8545 126.484 1.44393 87.5643" stroke="#60CE78" stroke-width="2" stroke-linecap="round"/>
+          <path d="M238.799 117.022C246.548 118.112 254.228 119.411 261.849 121.156" stroke="#60CE78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M261.682 121.508C253.492 129.525 244.513 136.382 235.244 143.092" stroke="#60CE78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        .section5__form
+          +feedback-form('section3-form')
+      .section5__logos 
+        a(href="#")
+          img(src="src/pages/home/images/sber.png")
+        a(href="#")
+          img(src="src/pages/home/images/vtb.png")
+        a(href="#")
+          img(src="src/pages/home/images/otkririe.png")
+        a(href="#")
+          img(src="src/pages/home/images/gazprom.png")
+        a(href="#")
+          img(src="src/pages/home/images/raifaizen.png")
+        a(href="#")
+          img(src="src/pages/home/images/alfa.png")
+        //- a(href="#") 
+        //-   p И еще 10+
+    section.section6
+      h2.section6__header Лучшие предложения от застройщиков за апрель
+      article.section6__cards
+        ul
+          li.zhk-card
+            .zhk-card__img(style="background-image: url('src/images/na-pesochnoy.jpg');")
+              .zhk-card__promo  
+                p Скидка до 3 000 ₽ на м
+                  sup 2
+            h3.zhk-card__title На Песочной
+            p.zhk-card__description от 3 705 232 ₽
+          li.zhk-card
+            .zhk-card__img(style="background-image: url('src/images/na-pesochnoy.jpg');")
+              .zhk-card__promo  
+                p Скидка до 3 000 ₽ на м
+                  sup 2
+            h3.zhk-card__title На Песочной
+            p.zhk-card__description от 3 705 232 ₽
+          li.zhk-card
+            .zhk-card__img(style="background-image: url('src/images/na-pesochnoy.jpg');")
+              .zhk-card__promo  
+                p Скидка до 3 000 ₽ на м
+                  sup 2
+            h3.zhk-card__title На Песочной
+            p.zhk-card__description от 3 705 232 ₽
+          li.zhk-card
+            .zhk-card__img(style="background-image: url('src/images/na-pesochnoy.jpg');")
+              .zhk-card__promo  
+                p Скидка до 3 000 ₽ на м
+                  sup 2
+            h3.zhk-card__title На Песочной
+            p.zhk-card__description от 3 705 232 ₽
+      .section6__button
+        +button('Показать ещё 4 из 26', 'secondary-color')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

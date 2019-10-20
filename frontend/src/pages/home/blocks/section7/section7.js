@@ -1,0 +1,1 @@
+import './section7.scss'

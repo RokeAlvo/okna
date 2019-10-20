@@ -1,0 +1,36 @@
+@import "./../../../../includes/variables.scss";
+
+.section6 {
+  padding-top: 127px;
+
+  &__header {
+    margin-bottom: 46px;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24/14*1rem;
+    line-height: 35/24*1em;
+    color: $font-main2-color;
+  }
+
+  &__cards {
+    margin-bottom: 80px;
+
+    ul {
+      display: flex;
+      justify-content: center;
+      margin-left: -10px;
+
+      li {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__button {
+    margin: auto;
+    margin-bottom: 80px;
+    width: 280px;
+    height: 50px;
+  }
+}

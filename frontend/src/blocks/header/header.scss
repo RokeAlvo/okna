@@ -1,0 +1,59 @@
+@import "../../includes/variables.scss";
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: $bg-light;
+  text-transform: uppercase;
+  min-height: 100%;
+  box-shadow: 0px 16px 25px rgba(66, 72, 77, 0.05);
+
+  &__burger {
+    display: none;
+    cursor: pointer;
+    margin-left: 12px;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      display: block;
+    }
+  }
+
+  &__logo {
+    margin-left: 40px;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      display: none;
+    }
+  }
+
+  &__city {
+    margin-left: 24px;
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    margin-left: 90px;
+    
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      display: none;
+    }
+  }
+
+  &__phone {
+    margin: 0 40px 0 auto;
+    a,
+    a.text:active,
+    a.text:hover,
+    a.text {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      margin: 0 20px 0 auto;
+    }
+  }
+}

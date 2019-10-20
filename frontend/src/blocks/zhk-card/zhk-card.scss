@@ -1,0 +1,61 @@
+@import './../../includes/variables.scss';
+
+.zhk-card {
+  position: relative;
+  width: 293px;
+  box-shadow: 0px 16px 25px rgba(90, 88, 99, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: 0px 2px 4px rgba(66, 72, 77, 0.1);
+  }
+
+  &__img {
+    width: 293px;
+    height: 280px;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: 20px;
+  }
+
+  &__promo {
+    position: absolute;
+    top: 10px;
+    padding: 11px 14px 8px 19px;
+    background: linear-gradient(101.5deg, #5dbf16 0%, #60d40c 100%);
+    border-radius: 0px 4px 4px 0px;
+
+    p {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 20/14 * 1em;
+      letter-spacing: 0.2px;
+      color: #ffffff;
+    }
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18/14 * 1rem;
+    line-height: 20/18 * 1em;
+    letter-spacing: 0.1px;
+    color: $font-main2-color;
+    margin-bottom: 6px;
+    padding-left: 20px;
+  }
+
+  &__description {
+    border-radius: 0 0 4px 4px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 24/14*1em;
+    color: $button-outlined-color;
+    margin-bottom: 10px;
+    padding-left: 20px;
+  }
+}

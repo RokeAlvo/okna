@@ -1,0 +1,32 @@
+include ../logo/logo.pug
+
+mixin header()
+  .header
+    .header__burger
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.5">
+      <path d="M8.90566 13H31.0943C31.5943 13 32 12.552 32 12C32 11.448 31.5943 11 31.0943 11H8.90566C8.40574 11 8 11.448 8 12C8 12.552 8.40574 13 8.90566 13Z" fill="#5A5863"/>
+      <path d="M8.90566 21H31.0943C31.5943 21 32 20.552 32 20C32 19.448 31.5943 19 31.0943 19H8.90566C8.40574 19 8 19.448 8 20C8 20.552 8.40574 21 8.90566 21Z" fill="#5A5863"/>
+      <path d="M8.90566 29H31.0943C31.5943 29 32 28.552 32 28C32 27.448 31.5943 27 31.0943 27H8.90566C8.40574 27 8 27.448 8 28C8 28.552 8.40574 29 8.90566 29Z" fill="#5A5863"/>
+      </g>
+      </svg>
+    .header__logo
+      +logo()
+    .header__city.nav
+      .nav__item.nav__item_selectable 
+        a(href="#") Новосибирск
+    nav.header__nav
+      ul.nav
+        li.nav__item.nav__item_active
+          a(href="#") Главная
+        li.nav__item 
+          a(href="#") Новостройки
+        li.nav__item 
+          a(href="#") Застройщики
+        li.nav__item 
+          a(href="#") Ипотека
+    .header__phone
+      a(href="tel: +73838952664")
+        .phone
+          .phone__icon
+          .phone__number +7 (383) 895-26-64

@@ -1,0 +1,16 @@
+.phone{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+  &__icon {
+    background-image: url("./phone.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1em;
+    height: 1em;
+  }
+
+  &__number {
+  }
+}

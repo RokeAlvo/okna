@@ -1,0 +1,30 @@
+@import "./../../includes/variables.scss";
+
+.promo-card {
+  width: 245px;
+  // height: 360px;
+  background: $bg-light;
+  border-radius: 8px;
+  padding-bottom: 39px;
+
+  &__img {
+    min-height: 56px + 108px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+  }
+
+  &__header {
+    font-weight: 600;
+    font-size: 16/14*1rem;
+    line-height: 1.5em;
+    letter-spacing: 0.1px;
+    margin-bottom: 8px;
+  }
+
+  &__article {
+    color: $button-outlined-color;
+    font-weight: normal;
+  }
+}

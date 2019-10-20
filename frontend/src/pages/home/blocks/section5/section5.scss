@@ -1,0 +1,84 @@
+@import "./../../../../includes/variables.scss";
+
+.section5 {
+  width: 100%;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('./../../images/bg-image-sc5.jpg');
+
+  &__main {
+    width: 1200px;
+    display: flex;
+    margin-top: 130px;
+  }
+
+  &__promo {
+    width: 438px;
+  }
+
+  &__header {
+    width: 420px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40/14 * 1rem;
+    line-height: 54/40 * 1em;
+    margin-bottom: 32px;
+    color: $h4-color;
+  }
+
+  &__article {
+    font-weight: 500;
+    font-size: 16/14*1rem;
+    line-height: 28/16*1em;
+    color: $button-outlined-color;
+
+    p {
+      margin-left: 12px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+
+    p {
+      color: $button-outlined-color;
+    }
+  }
+
+  &__arrow {
+    margin: 88px 0 0 auto;
+  }
+
+  &__form {
+    justify-self: flex-end;
+    margin-left: 30px;
+    background: $bg-light;
+    box-shadow: 0px 16px 25px rgba(90, 88, 99, 0.1);
+    border-radius: 8px;
+    padding: 24px 54px;
+  }
+
+  &__logos {
+    display: flex;
+    width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 154px auto 88px auto;
+
+
+    a,
+    a.text:active, 
+    a.text:hover, 
+    a.text {
+    color: inherit;
+    text-decoration: inherit;
+    }
+
+    p {
+      text-transform: uppercase;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import "./../../includes/variables.scss";
+@import "./../../blocks/header/header.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: $font-main-color;
+}
+
+*, ul, li, h2, h3, h4, p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+.home {
+  max-width: 1920px;
+  &__header {
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+}
