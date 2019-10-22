@@ -3,7 +3,7 @@
 .section2 {
   position: absolute;
   top: 690px;
-  left: calc(100vw/2 - 600px);
+  left: calc(100vw / 2 - 600px);
   margin: auto;
   height: 330px;
   width: 1200px;
@@ -12,12 +12,27 @@
   display: flex;
   background: #f1f1f1;
 
+  @media screen and (min-width: $screen-md) and (max-width: $screen-xl - 1px) {
+    display: block;
+    width: calc(100vw - 80px);
+    max-height: 620px;
+    left: 40px;
+    margin: auto;
+    height: auto;
+  }
+
   &__slogan {
     min-width: 531px;
     height: 100%;
     width: 531px;
     padding: 75px 0 0 67px;
     background: $bg-light;
+
+    @media screen and (min-width: $screen-md) and (max-width: $screen-xl - 1px) {
+      width: 100%;
+      display: block;
+      padding-bottom: 51px;
+    }
   }
 
   &__header {
@@ -37,6 +52,10 @@
     font-size: 16/14 * 1rem;
     line-height: 27/16em;
     color: rgba($color: #5a5863, $alpha: 0.7);
+
+    @media screen and (min-width: $screen-md) and (max-width: $screen-xl - 1px) {
+    }
+
   }
 
   &__triangle {
@@ -44,6 +63,12 @@
     height: 0;
     border: 165px solid transparent;
     border-left: 26px solid $bg-light;
+
+    @media screen and (min-width: $screen-md) and (max-width: $screen-xl - 1px) {
+      border-left: calc(50vw - 40px) solid transparent;
+      border-right: calc(50vw - 40px) solid transparent;
+      border-top: 26px solid $bg-light;
+    }
   }
 
   &__form {
@@ -53,9 +78,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media screen and (min-width: $screen-md) and (max-width: $screen-xl - 1px) {
+      position: relative;
+      left: -25vw;
+      top: -130px;
+      display: flex;
+      justify-content: flex-start;
+
+
+      .feedback-form {
+      }
+    }
+  
   }
 
   &__image {
+    display: inline-block;
     min-width: 460px;
     min-height: 546px;
     background-image: url("./phone.png");
@@ -63,5 +102,11 @@
     left: -10.67%;
     top: -15.15%;
     // bottom: -50.3%;
+
+    @media screen and (min-width: $screen-md) and (max-width: $screen-xl - 1px) {
+      top: -550px;
+      left: 45vw;
+    }
+
   }
 }
