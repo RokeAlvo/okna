@@ -8,14 +8,51 @@
   align-items: center;
   background-image: url('./../../images/bg-image-sc5.jpg');
 
+  @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+    .feedback-form{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-end;
+
+      &__input-wrap {
+        margin-right: 10px;
+      }
+
+      &__button {
+        width: 280px;
+        margin-bottom: 15px;
+        margin-left: 10px;
+      }
+
+      &__policy{
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+
   &__main {
-    width: 1200px;
+    max-width: 1200px;
     display: flex;
     margin-top: 130px;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      display: flex;
+      flex-direction: column;
+    }
+
   }
 
   &__promo {
     width: 438px;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      display: flex;
+      width: 100%;
+    }
+
   }
 
   &__header {
@@ -50,6 +87,11 @@
 
   &__arrow {
     margin: 88px 0 0 auto;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      display: none;
+    }
+
   }
 
   &__form {
@@ -59,6 +101,11 @@
     box-shadow: 0px 16px 25px rgba(90, 88, 99, 0.1);
     border-radius: 8px;
     padding: 24px 54px;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      margin: 0 10px;
+    }
+
   }
 
   &__logos {
@@ -80,5 +127,10 @@
     p {
       text-transform: uppercase;
     }
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      display: none;
+    }
+
   }
 }

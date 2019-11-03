@@ -1,0 +1,111 @@
+@import "./../../includes/variables.scss";
+
+.footer {
+  padding: 20px 20px;
+
+  &__main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 37px;
+    background: $bg-light;
+    text-transform: uppercase;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      flex-direction: column;
+      margin: 0;
+    }
+
+  }
+
+  &__burger {
+    display: none;
+    cursor: pointer;
+    margin-left: 12px;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+    }
+  }
+
+  &__logo {
+    // margin-left: 40px;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      margin-bottom: 66px;
+    }
+  }
+
+  &__city {
+    margin-left: 24px;
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      margin-bottom: 66px;
+    }
+  }
+
+  &__nav {
+    margin-left: 90px;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      margin: 0;
+
+      ul {
+        flex-direction: column;
+      }
+
+      li {
+        margin: 0;
+        margin-bottom: 34px;
+
+      }
+    }
+  }
+
+  &__phone {
+    margin: 0 0 0 auto;
+    a,
+    a.text:active,
+    a.text:hover,
+    a.text {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      margin: 49px 0 41px 0;
+    }
+  }
+
+  &__aside {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+  }
+
+  &__policy {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 16/14*1em;
+    letter-spacing: 0.1px;
+    text-decoration-line: underline;
+    color: $font-main2-color-50;
+
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+      margin-bottom: 31px;
+    }
+
+  }
+
+  &__social {
+    display: flex;
+
+    li {
+      margin-left: 32px;
+    }
+  }
+}

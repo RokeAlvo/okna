@@ -1,7 +1,7 @@
 @import "./../../../../includes/variables.scss";
 
 .section6 {
-  padding-top: 127px;
+  padding: 127px 20px 0 20px;
 
   &__header {
     margin-bottom: 46px;
@@ -21,8 +21,14 @@
       justify-content: center;
       margin-left: -10px;
 
+      @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
+        flex-wrap: wrap;
+      }
+  
+
       li {
         margin-left: 10px;
+        margin-bottom: 20px;
       }
     }
   }

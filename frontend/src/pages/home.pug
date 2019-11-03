@@ -4,6 +4,7 @@ include ./home/blocks/section2/section2.pug
 include ./../blocks/promo-card/promo-card.pug
 include ./../blocks/feedback-form/feedback-form.pug
 include ./../blocks/icon/icon.pug
+include ./../blocks/footer/footer.pug
 
 html(lang="ru")
   head
@@ -138,5 +139,8 @@ html(lang="ru")
             p.zhk-card__description от 3 705 232 ₽
       .section6__button
         +button('Показать ещё 4 из 26', 'secondary-color')
+    .home__footer
+      +footer()
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
