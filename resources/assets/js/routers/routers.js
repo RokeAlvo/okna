@@ -2,33 +2,33 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 //Steps for yes
-import StepOneMain from "@/components/Main/Step-1-Main.vue";
-import OneOnePriceApartaments from "@/components/Ipoteka_Steps/Steps--1/Step-1-1-PriceApart.vue";
-import OneTwoCalc from "@/components/Ipoteka_Steps/Steps--1/Step-1-2-Calc.vue";
-import OneTwoOneCome from "@/components/Ipoteka_Steps/Steps--1/Step-1-2-1-Come.vue";
-import OneTwoTwoNoDeposit from "@/components/Ipoteka_Steps/Steps--1/Step-1-2-2-NoDeposit.vue";
-import Welcome from "@/components/Ipoteka_Steps/Step--welcome/Ipoteka_welcome.vue";
+import StepOneMain from "../components/Main/Step-1-Main.vue";
+import OneOnePriceApartaments from "../components/Ipoteka_Steps/Steps--1/Step-1-1-PriceApart.vue";
+import OneTwoCalc from "../components/Ipoteka_Steps/Steps--1/Step-1-2-Calc.vue";
+import OneTwoOneCome from "../components/Ipoteka_Steps/Steps--1/Step-1-2-1-Come.vue";
+import OneTwoTwoNoDeposit from "../components/Ipoteka_Steps/Steps--1/Step-1-2-2-NoDeposit.vue";
+import Welcome from "../components/Ipoteka_Steps/Step--welcome/Ipoteka_welcome.vue";
 //Steps for No
-import TwoOneMonthPay from "@/components/Ipoteka_Steps/Steps--2/Step-2-1-MontPay.vue";
-import TwoTwoMontCalc from "@/components/Ipoteka_Steps/Steps--2/Step-2-2-MonthCalc.vue";
-import TwoThreeChangRoom from "@/components/Ipoteka_Steps/Steps--2/Step-2-3-ChangeRoom.vue";
+import TwoOneMonthPay from "../components/Ipoteka_Steps/Steps--2/Step-2-1-MontPay.vue";
+import TwoTwoMontCalc from "../components/Ipoteka_Steps/Steps--2/Step-2-2-MonthCalc.vue";
+import TwoThreeChangRoom from "../components/Ipoteka_Steps/Steps--2/Step-2-3-ChangeRoom.vue";
 
 
 // mapSearch
-import MapSearch from '@/components/mapSearch/index.vue'
+import MapSearch from '../components/mapSearch/index.vue'
 
 //404
-import NotFound from '@/components/not-found/index.vue'
+import NotFound from '../components/not-found/index.vue'
 
 // Page JK
-import pageJK from '@/components/pageJK/index.vue';
-// const  pageJK = () => import('@/components/pageJK/index.vue')
+import pageJK from '../components/pageJK/index.vue';
+// const  pageJK = () => import('../components/pageJK/index.vue')
 
 //Test select
-import Test from '@/components/selection/index.vue';
+import Test from '../components/selection/index.vue';
 
-import RouterStart from '@/components/routerStart.vue';
-import ipotekaApp from '@/components/ipotekaApp.vue';
+import RouterStart from '../components/routerStart.vue';
+import ipotekaApp from '../components/ipotekaApp.vue';
 Vue.use(VueRouter)
 
 const city = window.location.pathname.split('/')[1];

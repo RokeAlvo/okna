@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import compHeader from "@/components/Header_Footer/Head.vue";
+import compHeader from "./Header_Footer/Head.vue";
 
 export default {
   data() {
