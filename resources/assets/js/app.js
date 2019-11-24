@@ -29,7 +29,9 @@ Vue.use(VShowSlide);
 Vue.use(VueInputMask);
 Vue.use(VueIziToast);
 // Vue.use(VModal);
-Vue.use(VueLazyload);
+Vue.use(VueLazyload, {
+  lazyComponent: true
+});
 Vue.component('v-select', vSelect);
 
 Vue.component('v-slider', vSlider);
@@ -51,6 +53,23 @@ Vue.component('icon-whatsup', Whatsup);
 Vue.component('icon-viber', Viber);
 Vue.component('icon-telegram', Telegram);
 Vue.component('icons-share', Icons);
+
+import Button from '@/components/home/Button'
+import Footer from '@/components/home/Footer'
+import Logo from '@/components/home/Logo'
+import ModalAdaptive from '@/components/home/Modal-adaptive'
+
+Vue.component('Button', Button)
+Vue.component('Footer', Footer)
+Vue.component('Logo', Logo)
+Vue.component('ModalAdaptive', ModalAdaptive)
+
+import VModal from 'vue-js-modal/dist/ssr.index'
+import 'vue-js-modal/dist/styles.css'
+
+Vue.use(VModal)
+
+
 
 // import VueYandexMetrika from '@bchteam/vue-yandex-metrika';
 import VueYandexMetrika from 'vue-yandex-metrika'

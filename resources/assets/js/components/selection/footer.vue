@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .footer {
   background: #302e35;
   text-align: center;

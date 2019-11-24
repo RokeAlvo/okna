@@ -31,11 +31,11 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKBPN7L"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <div id="app"></div>
-  <?php if(app()->environment('production')): ?>
-    <? $mangoWidget = getMangoWidgetId(); ?>
-    <div id="js-backend-parameters" data-mango-widget-id="<?=$mangoWidget?>" data-yandex-metrika="<?=SITE_CONTACTS[getUrlPathFirstPart()]['yandexMetrika']?>"></div>
-  <?php endif; ?>
+<div id="app"></div>
+<?php if(app()->environment('production')): ?>
+  <? $mangoWidget = getMangoWidgetId(); ?>
+  <div id="js-backend-parameters" data-mango-widget-id="<?=$mangoWidget?>" data-yandex-metrika="<?=SITE_CONTACTS[getUrlPathFirstPart()]['yandexMetrika']?>"></div>
+<?php endif; ?>
 <!-- <script type="text/javascript" src="/js/manifest.js"></script>
 <script type="text/javascript" src="/js/vendor.js"></script> -->
 

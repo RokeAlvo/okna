@@ -29,6 +29,7 @@ import Test from '../components/selection/index.vue';
 
 import RouterStart from '../components/routerStart.vue';
 import ipotekaApp from '../components/ipotekaApp.vue';
+import Home from '../components/Home.vue'
 Vue.use(VueRouter)
 
 const city = window.location.pathname.split('/')[1];
@@ -37,6 +38,10 @@ export default new VueRouter({
   mode: 'history',
 
   routes: [
+    {
+      path: '/' + city,
+      component: Home
+    },
     {
       path: '/' + city +'/novostroyki', name: 'mapSearch', component: MapSearch
     },

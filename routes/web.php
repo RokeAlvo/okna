@@ -1,8 +1,9 @@
 <?php
+
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\DeviceDetector;
 
-if(isset($_SERVER['HTTP_USER_AGENT'])) {
+if (isset($_SERVER['HTTP_USER_AGENT'])) {
     session()->remove('device');
     DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
     $deviceDetector = new DeviceDetector($_SERVER['HTTP_USER_AGENT']);
@@ -22,7 +23,9 @@ $subdomain = getUrlPathFirstPart();
 Route::group(['prefix' => $subdomain], function () use ($device, $subdomain) {
 
     if (!empty($subdomain) && !empty(\Config::get('database.connections')[$subdomain])) {
-        Route::get('/', 'SiteController@index')->name('site.index');
+        Route::get('/', function () {
+            return view('v2.templates.spa');
+        })->name('site.index');
 
         Route::post('get-menu', 'SiteController@getMenu')->name('site.getMenu');
     }
@@ -35,15 +38,15 @@ Route::group(['prefix' => $subdomain], function () use ($device, $subdomain) {
         Route::post('index', 'ResidentialComplexController@index')->name('residentials.index');
     });
     // Route::get('search/new-buildings', 'ResidentialComplexController@index')->name('residentials.old-index');
-    
+
     Route::post('residential-complex/mortgage-params', 'ResidentialComplexController@mortgageParams')->name('residentials.mortgageParams');
     Route::post('residential-complex/get-count', 'ResidentialComplexController@getCount')->name('residentials.getCount');
     //if($subdomain === 'novosibirsk') {
     //if(in_array($subdomain,['novosibirsk', 'krasnoyarsk', 'barnaul'])) {
-        Route::get('novostroyki/{vue1?}/{vue2?}/{vue3?}/{vue4?}', function() {
-            return view('v2.templates.spa');
-        })->name('residentials.spa');
-        Route::post('residential-complex/{alias}', 'ResidentialComplexController@show')->name('residentials.show');
+    Route::get('novostroyki/{vue1?}/{vue2?}/{vue3?}/{vue4?}', function () {
+        return view('v2.templates.spa');
+    })->name('residentials.spa');
+    Route::post('residential-complex/{alias}', 'ResidentialComplexController@show')->name('residentials.show');
     /*} else {
         Route::get('search/new-buildings', 'ResidentialComplexController@searchNewBuildings')->name('residentials.spa');
         Route::get('residential-complex/{alias}', 'ResidentialComplexController@show')->name('residentials.show');
@@ -59,7 +62,7 @@ Route::group(['prefix' => $subdomain], function () use ($device, $subdomain) {
 
     Route::post('goals/create', 'MetrikaController@create')->name('goals.create');
 
-    Route::get('ipoteka/{vue1?}/{vue2?}/{vue3?}/{vue4?}/{vue5?}', function() {
+    Route::get('ipoteka/{vue1?}/{vue2?}/{vue3?}/{vue4?}/{vue5?}', function () {
         return view('v2.templates.spa');
     })->name('ipoteka.spa');
     /* Route::get('novostroyki/{vue1?}/{vue2?}/{vue3?}/{vue4?}', function() {
