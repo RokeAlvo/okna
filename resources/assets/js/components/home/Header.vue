@@ -11,34 +11,34 @@
     .header__logo
       Logo
     .header__city.nav
-      .nav__item.nav__item_selectable(@click='showCity') {{city}}
+      .nav__item.nav__item_selectable(@click='showCity') {{activeCityName}}
     nav.header__nav
      Nav
     .header__phone
-      phone-number(phoneNumber='+7 (383) 895-26-64')
+      phone-number(:phoneNumber='activePhoneNumber')
     modal(name="nav" :maxWidth='393' :height="'100%'" :adaptive='true' :reset='true' :pivotX='0' :pivotY='0')
       .modal-nav
         .modal-nav__column
           .modal-nav__logo
             Logo
-            .nav__item.nav__item_selectable(@click='showCity') Новосибирск
+            .nav__item.nav__item_selectable(@click='showCity') {{activeCityName}}
           Nav
           .modal-nav__phone
-            phone-number(phoneNumber='+7 (383) 895-26-64')
+            phone-number(:phoneNumber='activePhoneNumber')
         .modal-nav__close-aria(@click='hideNav')
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 17L9 9.08429L0.999999 0.999968" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M17.0002 17L9.00024 9.08429L17.0002 0.999968" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
     modal(name='city' adaptive :width='500' :minHeight='354' )
-      ModalCity(activeCity='Новосибирск' :hide='hideCity')
+      ModalCity(:activeCity='activeCity' :hide='hideCity' :cityList='cityList')
 
 </template>
 <script>
-import Logo from '@/components/home/Logo'
-import Nav from '@/components/home/Nav'
-import PhoneNumber from '@/components/home/PhoneNumber'
-import ModalCity from '@/components/home/ModalCity'
+import Logo from "@/components/home/Logo";
+import Nav from "@/components/home/Nav";
+import PhoneNumber from "@/components/home/PhoneNumber";
+import ModalCity from "@/components/home/ModalCity";
 
 export default {
   components: {
@@ -50,30 +50,44 @@ export default {
   props: {
     city: {
       type: String,
-      default: ''
+      default: ""
     }
   },
   data() {
     return {
       open: false
+    };
+  },
+  computed: {
+    cityList() {
+      return this.$store.state.siteContacts;
+    },
+    activeCity() {
+      return this.$store.state.activeCity;
+    },
+    activeCityName() {
+      return this.cityList[this.activeCity].cityNameForms[0];
+    },
+    activePhoneNumber() {
+      return this.cityList[this.activeCity].phoneNumber;
     }
   },
   methods: {
     showNav() {
-      this.$modal.show('nav')
+      this.$modal.show("nav");
     },
     hideNav() {
-      this.$modal.hide('nav')
+      this.$modal.hide("nav");
     },
     showCity() {
-      this.hideNav()
-      this.$modal.show('city')
+      this.hideNav();
+      this.$modal.show("city");
     },
     hideCity() {
-      this.$modal.hide('city')
+      this.$modal.hide("city");
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -117,6 +131,7 @@ export default {
   &__city {
     margin-left: 24px;
     width: auto;
+    min-width: auto;
     @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
       display: none;
     }
@@ -143,55 +158,6 @@ export default {
     @media screen and (min-width: $screen-xs) and (max-width: $screen-xl - 1px) {
       margin: 0 20px 0 auto;
     }
-  }
-}
-.nav {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  @media screen and (max-width: $screen-xl) {
-    flex-direction: column;
-  }
-  &__item {
-    margin-left: 32px;
-
-    &:hover {
-      color: $font-hover-color;
-      cursor: pointer;
-    }
-
-    &_active {
-      color: $font-hover-color;
-    }
-
-    &_selectable {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      &::after {
-        width: 1em;
-        height: 1em;
-        content: '';
-        background: url('../../../images/expand.svg') no-repeat center center;
-        display: block;
-        margin-left: 8px;
-      }
-    }
-
-    a,
-    a.text:active,
-    a.text:hover,
-    a.text {
-      color: inherit;
-      text-decoration: inherit;
-    }
-  }
-
-  &__item:first-child {
-    margin-left: 0;
   }
 }
 
@@ -228,10 +194,16 @@ export default {
     left: 0;
     width: 100%;
     min-width: auto;
+    align-items: flex-start;
 
-    &__item {
+    // &__item {
+    //   margin-bottom: 37px;
+    //   margin-left: 0;
+    // }
+  }
+  .nav__item {
       margin-bottom: 37px;
-    }
+      margin-left: 0;
   }
   &__phone {
     margin-top: auto;

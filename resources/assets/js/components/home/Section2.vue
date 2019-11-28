@@ -54,8 +54,8 @@ export default {
     // background: inherit;
     display: flex;
     flex-direction: column;
-    background: $bg-light;
-    padding: 42px 42px;
+    // background: $bg-light;
+    // padding: 42px 42px;
     margin: auto;
   }
 
@@ -79,6 +79,7 @@ export default {
       padding: 0;
       height: auto;
       max-height: 500px;
+      padding: 42px 42px 0 42px;
     }
   }
 
@@ -127,13 +128,13 @@ export default {
     border: 165px solid transparent;
     border-left: 26px solid $bg-light;
 
-    @media screen and (min-width: $screen-md) and (max-width: $screen-xl - 1px) {
-      border-left: calc(50vw - 40px) solid transparent;
-      border-right: calc(50vw - 40px) solid transparent;
+    @media screen and (min-width: 0) and (max-width: $screen-xl - 1px) {
+      border-left: calc(50vw - 20px) solid transparent;
+      border-right: calc(50vw - 20px) solid transparent;
       border-top: 26px solid $bg-light;
     }
     @media screen and (max-width: $screen-md - 1px) {
-      display: none;
+      // display: none;
     }
   }
 
@@ -153,13 +154,15 @@ export default {
       justify-content: flex-start;
     }
     @media screen and (max-width: $screen-md - 1px) {
-      position: static;
+      position: relative;
+      bottom: 90px;
+      left: 0;
       .feedback-form {
         width: 100%;
-        &__input-wrap,
-        &__policy {
-          display: none;
-        }
+        // &__input-wrap,
+        // &__policy {
+        //   display: none;
+        // }
       }
     }
   }

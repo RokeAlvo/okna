@@ -2,13 +2,27 @@
   section.section1
     article.section1__content
       h2.section1__slogan Экономьте время и деньги на поиск лучшего жилья в новостройке 
-      p.section1__description Выбирайте из 13 164 квартир в 123 ЖК Новосибирска
+      p.section1__description Выбирайте из {{ numberOfApartments }} квартир в {{numberOfResidentials}} ЖК {{ fromCity }}
       .section1__button
         Button( title="Перейти в поиск" mods="raised,main-color")
 </template>
 <script>
 import Button from '@/components/home/Button.vue'
 export default {
+  props: {
+    numberOfApartments: {
+      type: Number,
+      default: null
+      },
+    numberOfResidentials: {
+      type: Number,
+      default: null
+    },
+    fromCity: {
+      type: String,
+      default: ''
+    }
+  },
   components: {
     Button
   }

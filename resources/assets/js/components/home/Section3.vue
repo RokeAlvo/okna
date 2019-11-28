@@ -149,6 +149,9 @@ export default {
       max-width: 100%;
       height: 1010px;
     }
+    @media screen and (min-width: $screen-xs) and (max-width: $screen-md - 1px) {
+      height: 1200px;
+    }
   }
 
   &__logo-item {

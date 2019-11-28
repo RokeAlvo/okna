@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import compHeader from "./Header_Footer/Head.vue";
+// import compHeader from "./Header_Footer/Head.vue";
 
 export default {
   data() {
@@ -19,7 +19,7 @@ export default {
     };
   },
   components: {
-    compHeader
+    // compHeader
   },
   methods:{
     
@@ -37,7 +37,10 @@ export default {
 
   },
   created() {
+    const siteContacts = window.SITE_CONTACTS;
+    const cityFromUrl=window.location.pathname.toString().replace('/', '').split('/')[0]
     this.$store.dispatch("getMenuList");
+    this.$store.dispatch('initialCityList', {siteContacts, cityFromUrl});
   },
   updated(){
     this.phoneChange();

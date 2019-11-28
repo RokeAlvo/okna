@@ -2,14 +2,20 @@ import { HTTP, Routes } from "@/components/server/API.js";
 import Vue from 'vue';
 import Vuex from 'vuex';
 import mapSearch from './modules/mapSearch'
+import homePage from './modules/homePage'
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     modules: {
-        mapSearch
+        mapSearch,
+        homePage
     },
     state: {
+        cityList: null,
+        siteContacts: null,
+        activeCity: null,
+
         menuList: null,
 
         minPriceState: null,
@@ -55,24 +61,33 @@ export const store = new Vuex.Store({
             trade_in: null,
         }
     },
-    actions:{
-      getMenuList(context){
-        return new Promise((resolve, reject) =>{
-          HTTP.post(Routes.getMenuList, {})
-          .then(({data}) =>{
-            context.commit('setMenuList', data)
-            resolve(data);
-          })
-          .catch(error =>{
-            console.log('error: ', error);
-            reject();
-          })
-        })
-      }
+    actions: {
+        getMenuList(context) {
+            return new Promise((resolve, reject) => {
+                HTTP.post(Routes.getMenuList, {})
+                    .then(({ data }) => {
+                        context.commit('setMenuList', data)
+                        resolve(data);
+                    })
+                    .catch(error => {
+                        console.log('error: ', error);
+                        reject();
+                    })
+            })
+        },
+        initialCityList({ commit }, payload) {
+            commit('setSiteContacts', payload.siteContacts)
+            const cityList = Object.keys(payload.siteContacts)
+            commit('setCityList', cityList)
+            const cityFromUrl = payload.cityFromUrl
+            const activeCity = cityList.indexOf(cityFromUrl) === -1 ? 
+                'novosibirsk' : cityFromUrl
+            commit('setActiveCity', activeCity)
+        }
     },
     mutations: {
-        setMenuList(state, menu){
-          state.menuList = menu;
+        setMenuList(state, menu) {
+            state.menuList = menu;
         },
         addStateDate(state, dataStateJK) {
             state.dataStateJK = dataStateJK;
@@ -110,7 +125,20 @@ export const store = new Vuex.Store({
         },
         setCurrentJk(state, currentJK) {
             state.currentJK = currentJK
+        },
+        setCityList(state, payload){
+            state.cityList = payload
+        },
+        setSiteContacts(state, payload){
+            state.siteContacts = payload
+        },
+        setActiveCity(state, payload){
+            state.activeCity = payload
         }
-    }
+    },
+    // getters: {
+    //     cityList() {}
+    // },
+    strict: process.env.NODE_ENV !== 'production'
 })
 

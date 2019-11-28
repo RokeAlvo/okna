@@ -12,7 +12,7 @@ export default {
   props: ['type', 'placeholder']
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .input-text {
   &__input {
     font-style: normal;
@@ -20,7 +20,7 @@ export default {
     font-size: 18px;
     line-height: 24px;
     letter-spacing: 1px;
-
+    box-shadow: none;
     width: calc(100% - 58 / 14 * 2rem);
     border: 0;
     padding: 0;

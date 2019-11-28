@@ -1,7 +1,12 @@
 <template lang="pug">
   .page
     Header(:city='city')
-    Section1(class="page__section1")
+    Section1(
+      class="page__section1" 
+      :numberOfResidentials='numberOfResidentials' 
+      :numberOfApartments='numberOfApartments'
+      :fromCity='city'
+      )
     Section2
     Section3
     Section4
@@ -18,6 +23,13 @@ import Section3 from '@/components/home/Section3.vue'
 import Section4 from '@/components/home/Section4.vue'
 import Section5 from '@/components/home/Section5.vue'
 import Section6 from '@/components/home/Section6.vue'
+import { createNamespacedHelpers } from "vuex";
+
+const {
+	mapState,
+	mapGetters,
+	mapActions,
+} = createNamespacedHelpers("homePage");
 
 export default {
   components: {
@@ -30,16 +42,21 @@ export default {
     Section6
   },
   computed: {
+    ...mapState({
+      numberOfResidentials: state=>state.numberOfResidentials,
+      numberOfApartments: state=>state.numberOfApartments,
+      }),
     city() {
-      return this.$route.property || 'Новосибирск'
+      return this.$store.state.siteContacts[this.$store.state.activeCity].cityNameForms[1]
     },
-    // cities() {
-    //   return JSON.parse(document.querySelector('#cities').dataset.cities)
-    // }
   },
-  // mounted() {
-  //   console.log(this.cities)
-  // }
+  methods: {
+    ...mapActions(['init']),
+  },
+  created() {
+    this.init()
+  }
+
 }
 </script>
 

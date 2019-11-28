@@ -1,8 +1,8 @@
 <template lang="pug">
-    a(:href="phoneText")
+    a(:href="phoneHref")
       .phone
         .phone__icon
-        .phone__number {{phoneNumber}}
+        .phone__number {{phoneText}}
 </template>
 <script>
 export default {
@@ -10,8 +10,12 @@ export default {
   // eslint-disable-next-line vue/require-prop-types
   props: ['phoneNumber'],
   computed: {
-    phoneText() {
+    phoneHref() {
       return 'tel: ' + this.phoneNumber.replace(/[()\s-]/g, '')
+    },
+    phoneText() {
+      const str = this.phoneNumber
+      return str.substr(0,2)+'('+str.substr(2,3)+') '+str.substr(5,3)+'-'+str.substr(8,2)+'-'+str.substr(10,2)
     }
   }
 }

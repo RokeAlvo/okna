@@ -8,31 +8,32 @@
         <path d="M17.0002 17L9.00024 9.08429L17.0002 0.999969" stroke="#7290A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     .modal-city__line
-    ul.modal-city__city-list
-      li.modal-city__city(v-for="city in cityList" :class="active(city)") {{city}}
+    .modal-city__city-list
+      a(v-for="(cityValue, cityName) in cityList" :key="cityName" :href="'/'+cityName")
+        .modal-city__city(:class="active(cityName)") {{cityValue.cityNameForms[0]}}
 </template>
 <script>
 export default {
   // eslint-disable-next-line vue/require-prop-types
-  props: ['activeCity', 'hide'],
+  props: ['activeCity', 'hide', 'cityList'],
   data() {
     return {
-      cityList: [
-        'Барнаул',
-        'Воронеж',
-        'Киров',
-        'Краснодар',
-        'Красноярск',
-        'Крым',
-        'Москва',
-        'Новосибирск',
-        'Орёл',
-        'Пенза',
-        'Пермь',
-        'Рязань',
-        'Санкт-Петербург',
-        'Челябинск'
-      ]
+      // cityList: [
+      //   'Барнаул',
+      //   'Воронеж',
+      //   'Киров',
+      //   'Краснодар',
+      //   'Красноярск',
+      //   'Крым',
+      //   'Москва',
+      //   'Новосибирск',
+      //   'Орёл',
+      //   'Пенза',
+      //   'Пермь',
+      //   'Рязань',
+      //   'Санкт-Петербург',
+      //   'Челябинск'
+      // ]
     }
   },
   methods: {
